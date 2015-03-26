@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -33,6 +34,7 @@ public class MainScreen implements Screen {
 
 
     private final ShaderProgram shader;
+    private com.badlogic.gdx.math.Vector3 touchPos;
 
     public MainScreen(WallPaper wallPaper) {
         this.wallPaper = wallPaper;
@@ -40,9 +42,23 @@ public class MainScreen implements Screen {
 //        camera.setToOrtho(true, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         camera.update();
 
+        touchPos = new Vector3();
+        
         batch = new SpriteBatch();
         Viewport view = new StretchViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(),camera);
-        stage = new Stage(view,batch);
+        stage = new Stage(view,batch){
+            @Override
+            public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+
+                touchPos.set(screenX, screenY, 0);
+                camera.unproject(touchPos);
+                shader.begin();
+                shader.setUniformf("iMouse", touchPos.x, touchPos.y   );
+                shader.end();
+
+                return true;
+            }
+        };
 
         assets = new TextureAssets();
 
@@ -59,12 +75,16 @@ public class MainScreen implements Screen {
         });
 
         ShaderProgram.pedantic = false; //todo ???
-        shader = new ShaderProgram(Gdx.files.internal("shaders/invert.vsh"),Gdx.files.internal("shaders/invert.fsh"));
-        System.out.println(shader.isCompiled()? "shader compaled, yay": shader.getLog());
+        shader = new ShaderProgram(Gdx.files.internal("shaders/wave.vsh"),Gdx.files.internal("shaders/wave.fsh"));
+        System.out.println(shader.isCompiled() ? "shader compaled, yay" : shader.getLog());
         batch.setShader(shader);
+
+        Gdx.input.setInputProcessor(stage);
+
     }
 
 
+    float time = 0;
     @Override
     public void render(float delta) {
 
@@ -74,6 +94,12 @@ public class MainScreen implements Screen {
         }
 
         if (!isScreenHided && !isScreenResting && !settingChanged){
+
+
+            time += delta;
+            shader.begin();
+            shader.setUniformf("iGlobalTime", time);
+            shader.end();
 
             Gdx.gl20.glViewport (0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
             Gdx.gl20.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
@@ -113,9 +139,8 @@ public class MainScreen implements Screen {
         camera.viewportHeight = height;
         camera.update();
         shader.begin();
-        shader.setUniformf("u_resolution", width,height);
+        shader.setUniformf("u_resolution", width, height);
         shader.end();
-
     }
 
     @Override
