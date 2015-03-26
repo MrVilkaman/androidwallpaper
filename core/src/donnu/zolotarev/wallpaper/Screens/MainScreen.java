@@ -23,7 +23,7 @@ public class MainScreen implements Screen {
     private final TextureAssets assets;
     private final SpriteBatch batch;
     private final Stage stage;
-    private final Background background;
+    private Background background;
 
     private boolean isScreenHided;
     private boolean isScreenResting;
@@ -48,6 +48,13 @@ public class MainScreen implements Screen {
 
         background = new Background();
         stage.addActor(background);
+        assets.load(new TextureAssets.ITextureAssetsListener() {
+            @Override
+            public void loaded() {
+                background.updateImage();
+            }
+        });
+
     }
 
 

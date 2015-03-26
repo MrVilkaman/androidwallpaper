@@ -6,27 +6,35 @@ import com.badlogic.gdx.graphics.Texture;
 
 public class TextureAssets extends AssetManager{
 
-    private static TextureAssets textureAssets;
+    public interface ITextureAssetsListener {
+        public void loaded();
+    }
 
+    private static TextureAssets textureAssets;
 
     private static final String IMAGE_1 = "image.jpg";
 
     private final boolean isFinished = false;
     private Texture image;
 
+    private ITextureAssetsListener listener;
+
     public TextureAssets() {
         super();
         if (textureAssets == null) {
             textureAssets = this;
         }else{
-            throw new RuntimeException("TextureAssets != null");
+            throw new RuntimeException("textureAssets = null");
         }
         image = new Texture(1,1, Pixmap.Format.RGBA4444);
-
-        load();
     }
 
-    public void load(){
+    public static TextureAssets getTextureAssets() {
+        return textureAssets;
+    }
+
+    public void load(ITextureAssetsListener listener){
+        this.listener = listener;
         load(IMAGE_1,Texture.class);
     }
 
@@ -36,6 +44,8 @@ public class TextureAssets extends AssetManager{
         if (status) {
             if (!isFinished) {
                image = get(IMAGE_1,Texture.class);
+
+                listener.loaded();
             }
         }
         return status;
@@ -43,9 +53,5 @@ public class TextureAssets extends AssetManager{
 
     public Texture getImage() {
         return image;
-    }
-
-    public static TextureAssets getTextureAssets() {
-        return textureAssets;
     }
 }
