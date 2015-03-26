@@ -7,8 +7,11 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.utils.viewport.StretchViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
 
+import donnu.zolotarev.wallpaper.Actors.Background;
 import donnu.zolotarev.wallpaper.Assets.TextureAssets;
 import donnu.zolotarev.wallpaper.WallPaper;
 
@@ -19,26 +22,32 @@ public class MainScreen implements Screen {
     private final ShapeRenderer renderer;
     private final TextureAssets assets;
     private final SpriteBatch batch;
+    private final Stage stage;
+    private final Background background;
 
     private boolean isScreenHided;
     private boolean isScreenResting;
 
     private Color bgColor;
-    private com.badlogic.gdx.math.Vector3 screenPos;
 
 
     public MainScreen(WallPaper wallPaper) {
         this.wallPaper = wallPaper;
         camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        camera.setToOrtho(true, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+//        camera.setToOrtho(true, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         camera.update();
 
-        screenPos = new Vector3();
         batch = new SpriteBatch();
+        Viewport view = new StretchViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(),camera);
+        stage = new Stage(view,batch);
+
         assets = new TextureAssets();
 
         renderer = new ShapeRenderer(10);
         renderer.setProjectionMatrix(camera.combined);
+
+        background = new Background();
+        stage.addActor(background);
     }
 
 
@@ -51,7 +60,6 @@ public class MainScreen implements Screen {
         }
 
         if (!isScreenHided && !isScreenResting && !settingChanged){
-            camera.update();
 
 
             Gdx.gl.glViewport(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
@@ -68,15 +76,15 @@ public class MainScreen implements Screen {
 
 //            camera.position.set(Gdx.graphics.getWidth() * wallPaper.getScreenOffset(), 0, 0);
             camera.update();
-//            camera.unproject(screenPos);
             assets.update();
 
-            batch.begin();
-            batch.draw(assets.getImage(), -Gdx.graphics.getWidth() * wallPaper.getScreenOffset(),0);
-            batch.end();
+            background.setScreenOffset(wallPaper.getScreenOffset());
+            stage.draw();
+            stage.act(delta);
+
+
 
             //renderer.ellipse();
-
 
         }
     }
@@ -109,6 +117,7 @@ public class MainScreen implements Screen {
 
     @Override
     public void dispose() {
+        stage.dispose();
         assets.dispose();
         batch.dispose();
     }
