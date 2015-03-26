@@ -23,8 +23,6 @@ public class AndroidLauncher extends AndroidLiveWallpaperService implements Shar
             super.onCreateApplication();
             
             final AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
-            //config.useGL20 = true;
-            
             listener = new MyLiveWallpaperListener();
             initialize(listener, config);
 

@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
@@ -31,6 +32,8 @@ public class MainScreen implements Screen {
     private Color bgColor;
 
 
+    private final ShaderProgram shader;
+
     public MainScreen(WallPaper wallPaper) {
         this.wallPaper = wallPaper;
         camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
@@ -55,6 +58,10 @@ public class MainScreen implements Screen {
             }
         });
 
+        ShaderProgram.pedantic = false; //todo ???
+        shader = new ShaderProgram(Gdx.files.internal("shaders/invert.vsh"),Gdx.files.internal("shaders/invert.fsh"));
+        System.out.println(shader.isCompiled()? "shader compaled, yay": shader.getLog());
+        batch.setShader(shader);
     }
 
 
@@ -68,10 +75,9 @@ public class MainScreen implements Screen {
 
         if (!isScreenHided && !isScreenResting && !settingChanged){
 
-
-            Gdx.gl.glViewport(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-            Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
-            Gdx.gl.glClearColor( bgColor.r, bgColor.g, bgColor.b, bgColor.a );
+            Gdx.gl20.glViewport (0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+            Gdx.gl20.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
+            Gdx.gl20.glClearColor( bgColor.r, bgColor.g, bgColor.b, bgColor.a );
 
             float d = wallPaper.getScreenOffset() - 0.5f;
             if(d < 0.0f) d *= -1.0f;
@@ -80,10 +86,11 @@ public class MainScreen implements Screen {
 //            camera.lookAt(0.0f - 5.0f + lwp.screenOffset * 10.0f + cameraX_Actor.getX(), 0.0f + cameraY_Actor.getX(), 0.0f - d * 50 - cameraZ_Actor.getX());
 //            camera.lookAt(0,Gdx.graphics.getWidth()*wallPaper.getScreenOffset(),0);
 
-
 //            camera.position.set(Gdx.graphics.getWidth() * wallPaper.getScreenOffset(), 0, 0);
             camera.update();
             assets.update();
+
+
 
             background.setScreenOffset(wallPaper.getScreenOffset());
             stage.draw();
@@ -105,6 +112,10 @@ public class MainScreen implements Screen {
         camera.viewportWidth = width;
         camera.viewportHeight = height;
         camera.update();
+        shader.begin();
+        shader.setUniformf("u_resolution", width,height);
+        shader.end();
+
     }
 
     @Override
