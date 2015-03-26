@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">LWP_Project</string>
+    <string name="app_description">about</string>
+    
+        <string name="settings">Settings</string>
+
+
+
+    <!-- 1 категория -->
+    <string name="cat1">Main</string>
+    
+    <string name="cat1_array1">Scene</string>
+    <string-array name="cat1_array1_entries">
+		<item>Crystals</item>
+		<item>Chained DNA</item>
+		<item>Forgotten Cave</item>
+		<item>Virgin Planet</item>
+		<item>Shifted Plates</item>
+		<item>Tube Cells</item>
+		<item>Broken Heart</item>
+	</string-array>
+	<string-array name="cat1_array1_values">
+		<item>0</item>
+		<item>1</item>
+		<item>2</item>
+		<item>3</item>
+		<item>4</item>
+		<item>5</item>
+		<item>6</item>
+	</string-array>
+	<string name="cat1_array2">Scene color</string>
+    <string-array name="cat1_array2_entries">
+		<item>Gold</item>
+		<item>Yellow sand</item>
+		<item>Yellow stone</item>
+		<item>Blue ocean</item>
+		<item>Green grass</item>
+		<item>Dark green plastic</item>
+		<item>Yellow rich</item>
+		<item>Red blood</item>
+		<item>Dark red tomato</item>
+		<item>Black solid</item>
+		<item>Blue night evening</item>
+		<item>Blue rainy clouds</item>
+		<item>White snow</item>
+		<item>Yellow mandarine</item>
+	</string-array>
+	<string-array name="cat1_array2_values">
+		<item>0</item>
+	    <item>1</item>
+		<item>2</item>
+		<item>3</item>
+		<item>4</item>
+		<item>5</item>
+		<item>6</item>
+		<item>7</item>
+		<item>8</item>
+		<item>9</item>
+		<item>10</item>
+		<item>11</item>
+		<item>12</item>
+		<item>13</item>
+	</string-array>
+    <string name="cat1_check3">Scene specularity</string>
+	<string name="cat1_array4">Background color</string>
+    <string name="cat1_check6">Fog</string>
+	<string name="cat1_array7">Live camera</string>
+    <string-array name="cat1_array7_entries">
+		<item>OFF</item>
+		<item>Smooth</item>
+		<item>Live</item>
+	</string-array>
+	<string-array name="cat1_array7_values">
+		<item>0</item>
+		<item>1</item>
+		<item>2</item>
+	</string-array>
+
+</resources>
