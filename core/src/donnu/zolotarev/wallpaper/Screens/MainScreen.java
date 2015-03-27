@@ -15,6 +15,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 import donnu.zolotarev.wallpaper.Actors.Background;
 import donnu.zolotarev.wallpaper.Assets.TextureAssets;
+import donnu.zolotarev.wallpaper.Utils.Timer;
 import donnu.zolotarev.wallpaper.WallPaper;
 
 public class MainScreen implements Screen {
@@ -25,6 +26,8 @@ public class MainScreen implements Screen {
     private final TextureAssets assets;
     private final SpriteBatch batch;
     private final Stage stage;
+
+    private final Timer timer;
     private Background background;
 
     private boolean isScreenHided;
@@ -50,7 +53,7 @@ public class MainScreen implements Screen {
             @Override
             public boolean touchDown(int screenX, int screenY, int pointer, int button) {
 
-                    background.changeImage();
+
                 time = 0;
                 touchPos.set(screenX, screenY, 0);
                 camera.unproject(touchPos);
@@ -62,6 +65,14 @@ public class MainScreen implements Screen {
             }
         };
 
+       timer = new Timer(new Timer.Listner() {
+            @Override
+            public void complite() {
+                background.changeImage();
+            }
+        }, 5f);
+        timer.setLoop(true);
+        timer.start();
         assets = new TextureAssets();
 
         renderer = new ShapeRenderer(10);
@@ -96,7 +107,7 @@ public class MainScreen implements Screen {
         }
 
         if (!isScreenHided && !isScreenResting && !settingChanged){
-
+            timer.update(delta);
 
             time += delta;
             shader.begin();

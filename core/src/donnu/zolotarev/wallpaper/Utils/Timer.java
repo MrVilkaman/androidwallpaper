@@ -8,6 +8,20 @@ public class Timer {
     private float time;
     private boolean isComplite = false;
     private boolean isStart = false;
+    private boolean loop;
+
+    public void start() {
+        isStart = true;
+    }
+
+
+    public void setLoop(boolean loop) {
+        this.loop = loop;
+    }
+
+    public void stop() {
+        isStart = false;
+    }
 
     public interface Listner{
         public void complite();
@@ -23,6 +37,10 @@ public class Timer {
             if (time <0){
                isComplite = true;
                 listner.complite();
+                if (loop) {
+                    isComplite = false;
+                    time = duraction;
+                }
             }
             time -= delta;
         }
