@@ -6,6 +6,8 @@ import com.badlogic.gdx.graphics.Texture;
 
 public class TextureAssets extends AssetManager{
 
+
+
     public interface ITextureAssetsListener {
         public void loaded();
     }
@@ -13,9 +15,12 @@ public class TextureAssets extends AssetManager{
     private static TextureAssets textureAssets;
 
     private static final String IMAGE_1 = "image.jpg";
+    private static final String IMAGE_2 = "image2.jpeg";
 
-    private final boolean isFinished = false;
+    private boolean isFinished = false;
+
     private Texture image;
+    private Texture image2;
 
     private ITextureAssetsListener listener;
 
@@ -26,7 +31,7 @@ public class TextureAssets extends AssetManager{
         }else{
             throw new RuntimeException("textureAssets = null");
         }
-        image = new Texture(1,1, Pixmap.Format.RGBA4444);
+        image = image2 = new Texture(1,1, Pixmap.Format.RGBA4444);
     }
 
     public static TextureAssets getTextureAssets() {
@@ -36,6 +41,7 @@ public class TextureAssets extends AssetManager{
     public void load(ITextureAssetsListener listener){
         this.listener = listener;
         load(IMAGE_1,Texture.class);
+        load(IMAGE_2,Texture.class);
     }
 
     @Override
@@ -44,7 +50,8 @@ public class TextureAssets extends AssetManager{
         if (status) {
             if (!isFinished) {
                image = get(IMAGE_1,Texture.class);
-
+               image2 = get(IMAGE_2,Texture.class);
+                isFinished = true;
                 listener.loaded();
             }
         }
@@ -53,5 +60,9 @@ public class TextureAssets extends AssetManager{
 
     public Texture getImage() {
         return image;
+    }
+
+    public Texture getImage2() {
+        return image2;
     }
 }

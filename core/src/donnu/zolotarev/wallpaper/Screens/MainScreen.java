@@ -50,6 +50,8 @@ public class MainScreen implements Screen {
             @Override
             public boolean touchDown(int screenX, int screenY, int pointer, int button) {
 
+                    background.changeImage();
+                time = 0;
                 touchPos.set(screenX, screenY, 0);
                 camera.unproject(touchPos);
                 shader.begin();
@@ -77,7 +79,7 @@ public class MainScreen implements Screen {
         ShaderProgram.pedantic = false; //todo ???
         shader = new ShaderProgram(Gdx.files.internal("shaders/wave.vsh"),Gdx.files.internal("shaders/wave.fsh"));
         System.out.println(shader.isCompiled() ? "shader compaled, yay" : shader.getLog());
-        batch.setShader(shader);
+      //  batch.setShader(shader);
 
         Gdx.input.setInputProcessor(stage);
 
