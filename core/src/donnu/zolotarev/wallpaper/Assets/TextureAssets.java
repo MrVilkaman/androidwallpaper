@@ -16,11 +16,13 @@ public class TextureAssets extends AssetManager{
 
     private static final String IMAGE_1 = "image.jpg";
     private static final String IMAGE_2 = "image2.jpeg";
+    private static final String IMAGE_3 = "image3.jpg";
 
     private boolean isFinished = false;
 
     private Texture image;
     private Texture image2;
+    private Texture image3;
 
     private ITextureAssetsListener listener;
 
@@ -42,6 +44,7 @@ public class TextureAssets extends AssetManager{
         this.listener = listener;
         load(IMAGE_1,Texture.class);
         load(IMAGE_2,Texture.class);
+        load(IMAGE_3,Texture.class);
     }
 
     @Override
@@ -51,6 +54,7 @@ public class TextureAssets extends AssetManager{
             if (!isFinished) {
                image = get(IMAGE_1,Texture.class);
                image2 = get(IMAGE_2,Texture.class);
+               image3 = get(IMAGE_3,Texture.class);
                 isFinished = true;
                 listener.loaded();
             }
@@ -64,5 +68,9 @@ public class TextureAssets extends AssetManager{
 
     public Texture getImage2() {
         return image2;
+    }
+
+    public Texture getImage3() {
+        return image3;
     }
 }

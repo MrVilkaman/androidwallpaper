@@ -7,7 +7,6 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
@@ -22,12 +21,12 @@ public class MainScreen implements Screen {
     private final OrthographicCamera camera;
     private final WallPaper wallPaper;
 
-    private final ShapeRenderer renderer;
     private final TextureAssets assets;
     private final SpriteBatch batch;
     private final Stage stage;
 
     private final Timer timer;
+    private float time = 0;
     private Background background;
 
     private boolean isScreenHided;
@@ -75,8 +74,6 @@ public class MainScreen implements Screen {
         timer.start();
         assets = new TextureAssets();
 
-        renderer = new ShapeRenderer(10);
-        renderer.setProjectionMatrix(camera.combined);
 
         background = new Background();
         stage.addActor(background);
@@ -97,7 +94,7 @@ public class MainScreen implements Screen {
     }
 
 
-    float time = 0;
+
     @Override
     public void render(float delta) {
 
@@ -121,24 +118,12 @@ public class MainScreen implements Screen {
             float d = wallPaper.getScreenOffset() - 0.5f;
             if(d < 0.0f) d *= -1.0f;
 
-//            camera.position.set(0 + 2.0f - lwp.screenOffset * 4.0f + cameraX_Actor.getX(), 0.0f + cameraY_Actor.getX(), 305.0f - d * 4 - cameraZ_Actor.getX());
-//            camera.lookAt(0.0f - 5.0f + lwp.screenOffset * 10.0f + cameraX_Actor.getX(), 0.0f + cameraY_Actor.getX(), 0.0f - d * 50 - cameraZ_Actor.getX());
-//            camera.lookAt(0,Gdx.graphics.getWidth()*wallPaper.getScreenOffset(),0);
-
-//            camera.position.set(Gdx.graphics.getWidth() * wallPaper.getScreenOffset(), 0, 0);
             camera.update();
             assets.update();
-
-
 
             background.setScreenOffset(wallPaper.getScreenOffset());
             stage.draw();
             stage.act(delta);
-
-
-
-            //renderer.ellipse();
-
         }
     }
 
