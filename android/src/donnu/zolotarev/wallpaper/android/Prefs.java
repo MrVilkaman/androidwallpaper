@@ -19,10 +19,12 @@ public class Prefs extends PreferenceActivity {
         // Новый код
         else 
         	getFragmentManager().beginTransaction().replace(android.R.id.content, new MyPreferenceFragment()).commit();
+
+
         
     } // onCreate
 
-    private static class MyPreferenceFragment extends PreferenceFragment{
+    public static class MyPreferenceFragment extends PreferenceFragment{
     	
         @Override
         public void onCreate(Bundle savedInstanceState) {

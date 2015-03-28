@@ -1,48 +1,19 @@
 <PreferenceScreen
         xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory
-            android:title="@string/cat1" >
 
-        <ListPreference
-			 android:entries="@array/cat1_array1_entries"
-			 android:entryValues="@array/cat1_array1_values"
-			 android:key="scene"
-			 android:defaultValue="1"
-			 android:title="@string/cat1_array1" />
-
-		<ListPreference
-			 android:entries="@array/cat1_array2_entries"
-			 android:entryValues="@array/cat1_array2_values"
-			 android:key="scene_color"
-			 android:defaultValue="6"
-			 android:title="@string/cat1_array2" />
-
-        
-		<ListPreference
-			 android:entries="@array/cat1_array2_entries"
-			 android:entryValues="@array/cat1_array2_values"
-			 android:key="bg_color"
-			 android:defaultValue="3"
-			 android:title="@string/cat1_array4" />
 
         <CheckBoxPreference
-                android:key="spec"
+                android:key="ripple"
                 android:defaultValue="true"
-                android:title="@string/cat1_check3" />
-		 		
-        <CheckBoxPreference
-                android:key="fog"
-                android:defaultValue="true"
-                android:title="@string/cat1_check6" />
+                android:title="@string/ripple" />
 
  		<ListPreference
-			 android:entries="@array/cat1_array7_entries"
-			 android:entryValues="@array/cat1_array7_values"
-			 android:key="camera"
-			 android:defaultValue="2"
-			 android:title="@string/cat1_array7" />
- 		       
-    </PreferenceCategory>
+			 android:entries="@array/change_image_time"
+			 android:entryValues="@array/change_image_time"
+			 android:key="time"
+			 android:defaultValue="1"
+			 android:title="@string/change_image_time" />
+
     
 </PreferenceScreen>

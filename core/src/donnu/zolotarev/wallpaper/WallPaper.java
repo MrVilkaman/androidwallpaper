@@ -15,6 +15,8 @@ public class WallPaper extends Game {
     private boolean paused = false;
     private float screenOffset;
     private boolean settingChanged;
+    private float imageTime;
+    private boolean isRipple;
 
 
     @Override
@@ -50,8 +52,10 @@ public class WallPaper extends Game {
         return b;
     }
 
-    public void setSettingChanged() {
-        this.settingChanged =true;
+    public void setSettingChanged(float imageTime,boolean isRipple) {
+        this.imageTime = imageTime;
+        this.isRipple = isRipple;
+        this.settingChanged = true;
     }
 
     public float getScreenOffset() {
@@ -60,5 +64,13 @@ public class WallPaper extends Game {
 
     public void setScreenOffset(float screenOffset) {
         this.screenOffset = screenOffset;
+    }
+
+    public float getImageTime() {
+        return imageTime;
+    }
+
+    public boolean isRipple() {
+        return isRipple;
     }
 }

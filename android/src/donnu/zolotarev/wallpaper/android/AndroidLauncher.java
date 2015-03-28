@@ -1,6 +1,7 @@
 package donnu.zolotarev.wallpaper.android;
 
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
@@ -26,12 +27,12 @@ public class AndroidLauncher extends AndroidLiveWallpaperService implements Shar
             listener = new MyLiveWallpaperListener();
             initialize(listener, config);
 
-          /*  mySharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+            mySharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
             mySharedPreferences.registerOnSharedPreferenceChangeListener(this);
 
             // Вручную вызываем метод, чтобы инициализировать настройки приложения
-            ((MyLiveWallpaperListener) listener).onPreferenceChanged(mySharedPreferences);*/
-            //System.gc();
+            ((MyLiveWallpaperListener) listener).onPreferenceChanged(mySharedPreferences);
+            System.gc();
             
     } // onCreateApplication
 
@@ -52,7 +53,10 @@ public class AndroidLauncher extends AndroidLiveWallpaperService implements Shar
              * Передача настроек в MAIN-проект
              */
 			public void onPreferenceChanged( SharedPreferences sp ) {
-				
+
+                boolean water = sp.getBoolean("ripple",true);
+                int time = Integer.parseInt(sp.getString("time","5"));
+
 				/*scene = parseIntValue(sp, "scene",  "1");
 				cam_actors = parseIntValue(sp, "camera",  "2");
 				scene_color = parseIntValue(sp, "scene_color",  "6");
@@ -60,7 +64,7 @@ public class AndroidLauncher extends AndroidLiveWallpaperService implements Shar
 				scene_spec = sp.getBoolean("spec", true);
 				bg_fog = sp.getBoolean("fog", true);
 				*/
-                setSettingChanged();
+                setSettingChanged(time,water);
 				//settings_changed_flag = true; // Ставим флаг, чтобы приложение узнало, что настроки изменились
 			}
 			
@@ -70,7 +74,7 @@ public class AndroidLauncher extends AndroidLiveWallpaperService implements Shar
 	@Override
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
 		// Вручную вызываем нужный нам метод
-		//((MyLiveWallpaperListener) listener).onPreferenceChanged(sharedPreferences);
+		((MyLiveWallpaperListener) listener).onPreferenceChanged(sharedPreferences);
 		
 	} // onSharedPreferenceChanged
 }

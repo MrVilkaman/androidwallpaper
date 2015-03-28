@@ -4,7 +4,7 @@ public class Timer {
 
     private final Listner listner;
 
-    private final float duraction;
+    private float duraction;
     private float time;
     private boolean isComplite = false;
     private boolean isStart = false;
@@ -31,8 +31,8 @@ public class Timer {
         return duraction-time;
     }
 
-    public void setTime(float time) {
-        this.time = time;
+    public void setDuraction(float time) {
+        this.time = this.duraction = time;
     }
 
     public interface Listner{

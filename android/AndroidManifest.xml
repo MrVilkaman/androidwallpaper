@@ -41,10 +41,10 @@
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-            <intent-filer>
+            <intent-filter>
                 <action android:name=".Preferences" />
                 <category android:name="android.intent.category.PREFERENCE" />
-            </intent-filer>
+            </intent-filter>
         </activity>
 
 

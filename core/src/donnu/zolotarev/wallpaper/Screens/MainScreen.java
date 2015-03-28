@@ -74,7 +74,7 @@ public class MainScreen implements Screen {
             public void complite() {
                 background.changeImage();
             }
-        }, 5f);
+        }, wallPaper.getImageTime());
         timer.setLoop(true);
         timer.start();
 
@@ -83,7 +83,7 @@ public class MainScreen implements Screen {
             public void complite() {
             //    batch.setShader(null);
             }
-        }, 5f);
+        },5f);
 
 
         assets = new TextureAssets();
@@ -101,13 +101,14 @@ public class MainScreen implements Screen {
         ShaderProgram.pedantic = false; //todo ???
         shader = new ShaderProgram(Gdx.files.internal("shaders/wave.vsh"),Gdx.files.internal("shaders/wave.fsh"));
         System.out.println(shader.isCompiled() ? "shader compaled, yay" : shader.getLog());
-        batch.setShader(shader);
+      /*  if (wallPaper.isRipple()) {
+            batch.setShader(shader);
+        }*/
+        background.setMode(wallPaper.isRipple());
 
         Gdx.input.setInputProcessor(stage);
 
     }
-
-
 
     @Override
     public void render(float delta) {
@@ -137,7 +138,6 @@ public class MainScreen implements Screen {
 
             camera.update();
             assets.update();
-batch.end();
             background.setScreenOffset(wallPaper.getScreenOffset());
             stage.draw();
             stage.act(delta);
@@ -146,6 +146,13 @@ batch.end();
 
     private void backgroundSetting() {
         bgColor = new Color(1f,1f,1f,1f);
+        timer.setDuraction(wallPaper.getImageTime());
+        background.setMode(wallPaper.isRipple());
+      /*  if (wallPaper.isRipple()) {
+            batch.setShader(shader);
+        }else{
+            batch.setShader(null);
+        }*/
     }
 
     @Override
