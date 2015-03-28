@@ -15,7 +15,7 @@ public class TextureAssets extends AssetManager{
     private static TextureAssets textureAssets;
 
     private static final String IMAGE_1 = "image.jpg";
-    private static final String IMAGE_2 = "image2.jpeg";
+    private static final String IMAGE_2 = "image2.jpg";
     private static final String IMAGE_3 = "image3.jpg";
 
     private boolean isFinished = false;

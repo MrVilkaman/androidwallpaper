@@ -26,6 +26,7 @@ public class MainScreen implements Screen {
     private final Stage stage;
 
     private final Timer timer;
+    private final Timer rippleTimer;
     private float time = 0;
     private Background background;
 
@@ -56,10 +57,14 @@ public class MainScreen implements Screen {
                 time = 0;
                 touchPos.set(screenX, screenY, 0);
                 camera.unproject(touchPos);
-                shader.begin();
-                shader.setUniformf("iMouse", touchPos.x, touchPos.y   );
-                shader.end();
-
+                if (rippleTimer.isComplite()|| !rippleTimer.isStart()) {
+                 //   batch.setShader(shader);
+                    shader.begin();
+                    shader.setUniformf("iMouse", touchPos.x, touchPos.y);
+                    shader.end();
+                    rippleTimer.reset();
+                    rippleTimer.start();
+                }
                 return true;
             }
         };
@@ -72,6 +77,15 @@ public class MainScreen implements Screen {
         }, 5f);
         timer.setLoop(true);
         timer.start();
+
+        rippleTimer = new Timer(new Timer.Listner() {
+            @Override
+            public void complite() {
+            //    batch.setShader(null);
+            }
+        }, 5f);
+
+
         assets = new TextureAssets();
 
 
@@ -87,7 +101,7 @@ public class MainScreen implements Screen {
         ShaderProgram.pedantic = false; //todo ???
         shader = new ShaderProgram(Gdx.files.internal("shaders/wave.vsh"),Gdx.files.internal("shaders/wave.fsh"));
         System.out.println(shader.isCompiled() ? "shader compaled, yay" : shader.getLog());
-      //  batch.setShader(shader);
+        batch.setShader(shader);
 
         Gdx.input.setInputProcessor(stage);
 
@@ -106,10 +120,13 @@ public class MainScreen implements Screen {
         if (!isScreenHided && !isScreenResting && !settingChanged){
             timer.update(delta);
 
-            time += delta;
-            shader.begin();
-            shader.setUniformf("iGlobalTime", time);
-            shader.end();
+            rippleTimer.update(delta);
+
+            if (rippleTimer.isStart()) {
+                shader.begin();
+                shader.setUniformf("iGlobalTime", rippleTimer.getTime());
+                shader.end();
+            }
 
             Gdx.gl20.glViewport (0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
             Gdx.gl20.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
@@ -120,7 +137,7 @@ public class MainScreen implements Screen {
 
             camera.update();
             assets.update();
-
+batch.end();
             background.setScreenOffset(wallPaper.getScreenOffset());
             stage.draw();
             stage.act(delta);

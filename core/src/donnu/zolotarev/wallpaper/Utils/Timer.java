@@ -23,6 +23,18 @@ public class Timer {
         isStart = false;
     }
 
+    public float getLostTime() {
+        return time;
+    }
+
+    public float getTime() {
+        return duraction-time;
+    }
+
+    public void setTime(float time) {
+        this.time = time;
+    }
+
     public interface Listner{
         public void complite();
     }
@@ -58,5 +70,9 @@ public class Timer {
 
     public boolean isStart() {
         return isStart;
+    }
+
+    public boolean isComplite() {
+        return isComplite;
     }
 }
