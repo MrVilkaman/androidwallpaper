@@ -99,11 +99,11 @@ public class MainScreen implements Screen {
         });
 
         ShaderProgram.pedantic = false; //todo ???
-        shader = new ShaderProgram(Gdx.files.internal("shaders/wave.vsh"),Gdx.files.internal("shaders/wave.fsh"));
+        shader = new ShaderProgram(Gdx.files.internal("shaders/ripple.vsh"),Gdx.files.internal("shaders/ripple.fsh"));
         System.out.println(shader.isCompiled() ? "shader compaled, yay" : shader.getLog());
-      /*  if (wallPaper.isRipple()) {
+        if (wallPaper.isRipple()) {
             batch.setShader(shader);
-        }*/
+        }
         background.setMode(wallPaper.isRipple());
 
         Gdx.input.setInputProcessor(stage);
@@ -148,11 +148,11 @@ public class MainScreen implements Screen {
         bgColor = new Color(1f,1f,1f,1f);
         timer.setDuraction(wallPaper.getImageTime());
         background.setMode(wallPaper.isRipple());
-      /*  if (wallPaper.isRipple()) {
+        if (wallPaper.isRipple()) {
             batch.setShader(shader);
         }else{
             batch.setShader(null);
-        }*/
+        }
     }
 
     @Override

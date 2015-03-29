@@ -1,0 +1,70 @@
+const float PI = 3.14159265359;
+float time = -iGlobalTime*5.0;
+
+const vec3 eps = vec3(0.01, 0.0, 0.0);
+
+float genWave1(float len)
+{
+	float wave = sin(8.0 * PI * len + time);
+        
+	wave = (wave + 1.0) * 0.5; // <0 ; 1>
+	wave -= 0.3;
+	wave *= wave * wave;
+	return wave;
+}
+
+float scene(float len)
+{
+	// you can select type of waves
+	return genWave1(len);
+} 		
+
+void mainImage( out vec4 fragColor, in vec2 fragCoord )
+{
+	vec2 uv = fragCoord.xy / iResolution.xy;
+	vec2 so = iMouse.xy / iResolution.xy;
+	vec2 pos2 = vec2(uv - so); 	  //wave origin
+	vec2 pos2n = normalize(pos2);
+	
+    
+    
+	float len = length(pos2);
+	//float wave = scene(len); 
+
+   
+   
+    
+
+    
+    float speed = 8.0 * PI * len;
+    
+    
+    float wave = sin(speed + time);
+        
+	wave = (wave + 1.0) * 1.0; // <0 ; 1>
+	wave -= 0.3;
+	wave *= wave * wave;
+    
+    float var = min(0.75,time);  
+    
+     float len2 = length(uv -.5);
+    
+    
+    float vignette = smoothstep(var, var - 0.01,1.0);
+    
+    
+    float ex = exp(0.4*(speed+ time));
+    //    
+        if(ex > 0.9999 ){
+        ex = 0.0 ;
+        }
+        
+    wave *= ex;
+    
+  // wave *= vignette;
+    
+
+	vec2 uv2 = -pos2n * wave/(1.0 + 4.0 * len);
+    
+
+	

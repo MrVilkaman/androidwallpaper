@@ -15,8 +15,8 @@ public class WallPaper extends Game {
     private boolean paused = false;
     private float screenOffset;
     private boolean settingChanged;
-    private float imageTime;
-    private boolean isRipple;
+    private float imageTime = 5f;
+    private boolean isRipple = true;
 
 
     @Override
