@@ -52,24 +52,23 @@ public class MainScreen implements Screen {
         stage = new Stage(view,batch){
             @Override
             public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-
-
                 time = 0;
                 touchPos.set(screenX, screenY, 0);
                 camera.unproject(touchPos);
                 rippleManager.click(touchPos.x, touchPos.y);
-                /*if (rippleTimer.isComplite()|| !rippleTimer.isStart()) {
-                 //   batch.setShader(shader);
+                return true;
+            }
 
-                    shader.begin();
-                    shader.setUniformf("iMouse", touchPos.x, touchPos.y);
-                    shader.end();
-                    rippleTimer.reset();
-                    rippleTimer.start();
-                }*/
+            @Override
+            public boolean touchDragged(int screenX, int screenY, int pointer) {
+                touchPos.set(screenX, screenY, 0);
+                camera.unproject(touchPos);
+                rippleManager.click(touchPos.x, touchPos.y);
                 return true;
             }
         };
+
+
 
        timer = new Timer(new Timer.Listner() {
             @Override
