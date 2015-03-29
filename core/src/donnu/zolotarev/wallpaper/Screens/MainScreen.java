@@ -13,6 +13,7 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import donnu.zolotarev.wallpaper.Actors.Background;
+import donnu.zolotarev.wallpaper.Actors.RippleManager;
 import donnu.zolotarev.wallpaper.Assets.TextureAssets;
 import donnu.zolotarev.wallpaper.Utils.Timer;
 import donnu.zolotarev.wallpaper.WallPaper;
@@ -27,6 +28,7 @@ public class MainScreen implements Screen {
 
     private final Timer timer;
     private final Timer rippleTimer;
+    private final RippleManager rippleManager;
     private float time = 0;
     private Background background;
 
@@ -35,8 +37,6 @@ public class MainScreen implements Screen {
 
     private Color bgColor;
 
-
-    private final ShaderProgram shader;
     private com.badlogic.gdx.math.Vector3 touchPos;
 
     public MainScreen(WallPaper wallPaper) {
@@ -57,14 +57,16 @@ public class MainScreen implements Screen {
                 time = 0;
                 touchPos.set(screenX, screenY, 0);
                 camera.unproject(touchPos);
-                if (rippleTimer.isComplite()|| !rippleTimer.isStart()) {
+                rippleManager.click(touchPos.x, touchPos.y);
+                /*if (rippleTimer.isComplite()|| !rippleTimer.isStart()) {
                  //   batch.setShader(shader);
+
                     shader.begin();
                     shader.setUniformf("iMouse", touchPos.x, touchPos.y);
                     shader.end();
                     rippleTimer.reset();
                     rippleTimer.start();
-                }
+                }*/
                 return true;
             }
         };
@@ -99,15 +101,15 @@ public class MainScreen implements Screen {
         });
 
         ShaderProgram.pedantic = false; //todo ???
-        shader = new ShaderProgram(Gdx.files.internal("shaders/ripple.vsh"),Gdx.files.internal("shaders/ripple.fsh"));
-        System.out.println(shader.isCompiled() ? "shader compaled, yay" : shader.getLog());
-        if (wallPaper.isRipple()) {
+
+      /*  if (wallPaper.isRipple()) {
             batch.setShader(shader);
-        }
+        }*/
         background.setMode(wallPaper.isRipple());
 
         Gdx.input.setInputProcessor(stage);
-
+        rippleManager =  new RippleManager();
+        stage.addActor(rippleManager);
     }
 
     @Override
@@ -123,11 +125,11 @@ public class MainScreen implements Screen {
 
             rippleTimer.update(delta);
 
-            if (rippleTimer.isStart()) {
+          /*  if (rippleTimer.isStart()) {
                 shader.begin();
                 shader.setUniformf("iGlobalTime", rippleTimer.getTime());
                 shader.end();
-            }
+            }*/
 
             Gdx.gl20.glViewport (0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
             Gdx.gl20.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
@@ -148,11 +150,11 @@ public class MainScreen implements Screen {
         bgColor = new Color(1f,1f,1f,1f);
         timer.setDuraction(wallPaper.getImageTime());
         background.setMode(wallPaper.isRipple());
-        if (wallPaper.isRipple()) {
+        /*if (wallPaper.isRipple()) {
             batch.setShader(shader);
         }else{
             batch.setShader(null);
-        }
+        }*/
     }
 
     @Override
@@ -160,9 +162,7 @@ public class MainScreen implements Screen {
         camera.viewportWidth = width;
         camera.viewportHeight = height;
         camera.update();
-        shader.begin();
-        shader.setUniformf("u_resolution", width, height);
-        shader.end();
+        rippleManager.setResolution(width,height);
     }
 
     @Override
