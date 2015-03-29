@@ -24,8 +24,6 @@ float genWave1(float len)
 	return wave;
 }
 
-
-
 void main(){	
     time = -iGlobalTime*5.0;
 

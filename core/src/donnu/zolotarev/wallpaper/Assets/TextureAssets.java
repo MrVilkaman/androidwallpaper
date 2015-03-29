@@ -28,11 +28,12 @@ public class TextureAssets extends AssetManager{
 
     public TextureAssets() {
         super();
-        if (textureAssets == null) {
+        textureAssets = this;
+        /*if (textureAssets == null) {
             textureAssets = this;
         }else{
             throw new RuntimeException("textureAssets = null");
-        }
+        }*/
         image = image2 = new Texture(1,1, Pixmap.Format.RGBA4444);
     }
 

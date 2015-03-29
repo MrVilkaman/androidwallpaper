@@ -89,8 +89,12 @@ public class MainScreen implements Screen {
 
         assets = new TextureAssets();
 
-
+        rippleManager =  new RippleManager();
+        if (wallPaper.isRipple()) {
+            stage.addActor(rippleManager);
+        }
         background = new Background();
+        background.setMode(wallPaper.isRipple());
         stage.addActor(background);
         assets.load(new TextureAssets.ITextureAssetsListener() {
             @Override
@@ -101,14 +105,10 @@ public class MainScreen implements Screen {
 
         ShaderProgram.pedantic = false; //todo ???
 
-      /*  if (wallPaper.isRipple()) {
-            batch.setShader(shader);
-        }*/
-        background.setMode(wallPaper.isRipple());
+
 
         Gdx.input.setInputProcessor(stage);
-        rippleManager =  new RippleManager();
-        stage.addActor(rippleManager);
+
     }
 
     @Override
@@ -120,19 +120,14 @@ public class MainScreen implements Screen {
         }
 
         if (!isScreenHided && !isScreenResting && !settingChanged){
+
             timer.update(delta);
 
             rippleTimer.update(delta);
 
-          /*  if (rippleTimer.isStart()) {
-                shader.begin();
-                shader.setUniformf("iGlobalTime", rippleTimer.getTime());
-                shader.end();
-            }*/
-
-            Gdx.gl20.glViewport (0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+            Gdx.gl20.glViewport(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
             Gdx.gl20.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
-            Gdx.gl20.glClearColor( bgColor.r, bgColor.g, bgColor.b, bgColor.a );
+            Gdx.gl20.glClearColor(bgColor.r, bgColor.g, bgColor.b, bgColor.a);
 
             float d = wallPaper.getScreenOffset() - 0.5f;
             if(d < 0.0f) d *= -1.0f;
@@ -149,11 +144,12 @@ public class MainScreen implements Screen {
         bgColor = new Color(1f,1f,1f,1f);
         timer.setDuraction(wallPaper.getImageTime());
         background.setMode(wallPaper.isRipple());
-        /*if (wallPaper.isRipple()) {
-            batch.setShader(shader);
+        if (wallPaper.isRipple()) {
+            stage.addActor(rippleManager);
         }else{
+            rippleManager.remove();
             batch.setShader(null);
-        }*/
+        }
     }
 
     @Override

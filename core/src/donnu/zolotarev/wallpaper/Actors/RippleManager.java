@@ -9,9 +9,9 @@ import donnu.zolotarev.wallpaper.Utils.RipplePoints;
 
 public class RippleManager extends Actor {
 
-    private static final int R = 20;
+    private static final int R = 25;
 
-    private static final int MAX_COUNT = 50;
+    private static final int MAX_COUNT = 40;
     private static final float MAX_LIFE_TIME = 5f;
 
     private final ShaderProgram shader;
@@ -25,7 +25,7 @@ public class RippleManager extends Actor {
 
     public RippleManager() {
         shader = new ShaderProgram(Gdx.files.internal("shaders/ripple.vsh"),Gdx.files.internal("shaders/ripple.fsh"));
-        System.out.println(shader.isCompiled() ? "shader compaled, yay" : shader.getLog());
+        Gdx.app.log("TAG",shader.isCompiled() ? "shader compaled, yay" : shader.getLog());
         ripplePoints = new RipplePoints(MAX_COUNT,MAX_LIFE_TIME);
         r = R*R;
     }
@@ -45,6 +45,12 @@ public class RippleManager extends Actor {
             batch.setShader(shader);
             hasShader = true;
         }
+    }
+
+    @Override
+    public boolean remove() {
+        hasShader = false;
+        return super.remove();
     }
 
     public void setResolution(float width, float height){

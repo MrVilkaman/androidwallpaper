@@ -2,25 +2,25 @@
 precision mediump float;
 #endif
 
-#define N 50
+#define N 40
 varying vec4 v_color;
 varying vec2 v_texCoord0;
 
 uniform vec2 u_resolution;
-uniform float[N] iMouseX;
-uniform float[N] iMouseY;
-uniform float[N] iGlobalTime;
+uniform float iMouseX[N];
+uniform float iMouseY[N];
+uniform float iGlobalTime[N]	;
 uniform sampler2D u_sampler2D;
 
 
 
-const float dist = 40.0;
+const float dist = 50.0;
 const float speed = 16.0;
 
 
 vec2 doRipple(vec2 pos, vec2 uv,float time){
 
-	if (time <0){
+	if (time <0.0){
 		return vec2(0.0);
 	}
 
@@ -31,8 +31,8 @@ vec2 doRipple(vec2 pos, vec2 uv,float time){
 	float len = length(pos2);
    
   //  float coef =  0.03;
-    float coef =  exp(-time/len)*2.0;
-      
+    float coef =  exp(-time/len)*3.0;
+
     float ff = len*dist-(time*speed );
     vec2 uv2;
     
