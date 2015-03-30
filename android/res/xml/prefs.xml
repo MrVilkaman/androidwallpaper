@@ -20,5 +20,5 @@
 			 android:defaultValue="5"
 			 android:title="@string/change_image_time" />
 
-    
+	<Preference android:title="Set wallpaper" android:key="setwall"/>
 </PreferenceScreen>

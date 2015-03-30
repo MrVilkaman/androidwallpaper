@@ -16,8 +16,10 @@ public class WallPaper extends Game {
     private boolean paused = false;
     private float screenOffset;
     private boolean settingChanged;
+
     private float imageTime = 5f;
-    private boolean isRipple = true;
+    private boolean isRipple = true ;
+    private boolean isMoveRipple = true;
 
     private FPSLogger fpsLogger;
 
@@ -25,7 +27,7 @@ public class WallPaper extends Game {
     @Override
     public void create() {
 
-        screenOffset = 0.5f;
+        screenOffset = 0.0f;
         settingChanged = true;
         paused = false;
 
@@ -62,9 +64,10 @@ public class WallPaper extends Game {
         return b;
     }
 
-    public void setSettingChanged(float imageTime,boolean isRipple) {
+    public void setSettingChanged(float imageTime, boolean isRipple, boolean moveripple) {
         this.imageTime = imageTime;
         this.isRipple = isRipple;
+        this.isMoveRipple = moveripple;
         this.settingChanged = true;
     }
 
@@ -82,5 +85,9 @@ public class WallPaper extends Game {
 
     public boolean isRipple() {
         return isRipple;
+    }
+
+    public boolean isMoveRipple() {
+        return isMoveRipple;
     }
 }

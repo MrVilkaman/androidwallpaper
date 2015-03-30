@@ -65,9 +65,10 @@ public class Background extends Actor  {
                 batch.setColor(1f,1f,1f,v <1.f?v:1f);
             }
 
-            float y = mode? 0: Gdx.graphics.getHeight();
+            float y = 0;//mode? 0: Gdx.graphics.getHeight();
+        //    scale = 1;
             batch.draw(image, imageSize * offset, y,getOriginX(),getOriginY()
-                    ,image.getRegionWidth(),image.getRegionHeight(),scale,(mode?1:-1) *scale,0);
+                    ,image.getRegionWidth(),image.getRegionHeight(),scale,(mode?1:1) *scale,0);
 
             if (hasNext && isNextReady) {
                 batch.setColor(1f,1f,1f,updateTime / UPDATE_TIME_MAX);

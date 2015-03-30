@@ -29,7 +29,6 @@ public class MainScreen implements Screen {
     private final Timer timer;
     private final Timer rippleTimer;
     private final RippleManager rippleManager;
-    private float time = 0;
     private Background background;
 
     private boolean isScreenHided;
@@ -39,7 +38,7 @@ public class MainScreen implements Screen {
 
     private com.badlogic.gdx.math.Vector3 touchPos;
 
-    public MainScreen(WallPaper wallPaper) {
+    public MainScreen(final WallPaper wallPaper) {
         this.wallPaper = wallPaper;
         camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 //        camera.setToOrtho(true, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
@@ -52,7 +51,6 @@ public class MainScreen implements Screen {
         stage = new Stage(view,batch){
             @Override
             public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-                time = 0;
                 touchPos.set(screenX, screenY, 0);
                 camera.unproject(touchPos);
                 rippleManager.click(touchPos.x, touchPos.y);
@@ -61,6 +59,10 @@ public class MainScreen implements Screen {
 
             @Override
             public boolean touchDragged(int screenX, int screenY, int pointer) {
+
+                if (!wallPaper.isMoveRipple()) {
+                    return true;
+                }
                 touchPos.set(screenX, screenY, 0);
                 camera.unproject(touchPos);
                 rippleManager.click(touchPos.x, touchPos.y);
