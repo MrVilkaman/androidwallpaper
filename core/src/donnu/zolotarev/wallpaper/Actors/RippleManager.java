@@ -9,10 +9,10 @@ import donnu.zolotarev.wallpaper.Utils.RipplePoints;
 
 public class RippleManager extends Actor {
 
-    private static final int R = 25;
+    private static final int R = 40;
 
-    private static final int MAX_COUNT = 40;
-    private static final float MAX_LIFE_TIME = 5f;
+    private static final int MAX_COUNT = 10; // MAX 84
+    private static final float MAX_LIFE_TIME = 2f;
 
     private final ShaderProgram shader;
     private final RipplePoints ripplePoints;
@@ -34,9 +34,9 @@ public class RippleManager extends Actor {
     public void act(float delta) {
         super.act(delta);
         ripplePoints.addTime(delta);
-        shader.begin();
-        shader.setUniform1fv("iGlobalTime", ripplePoints.getTime(), 0, MAX_COUNT);
-        shader.end();
+            shader.begin();
+            shader.setUniform1fv("iGlobalTime", ripplePoints.getTime(), 0, MAX_COUNT);
+            shader.end();
     }
 
     @Override
@@ -63,9 +63,9 @@ public class RippleManager extends Actor {
         if ( r < distanceSqr(x,y,oldX,oldY)) {
             ripplePoints.addPoint(x,y);
             shader.begin();
-            shader.setUniform1fv("iGlobalTime", ripplePoints.getTime(), 0,MAX_COUNT);
+            shader.setUniform1fv("iGlobalTime", ripplePoints.getTime(), 0, MAX_COUNT);
             shader.setUniform1fv("iMouseX", ripplePoints.getX(),0,MAX_COUNT);
-            shader.setUniform1fv("iMouseY",ripplePoints.getY(),0,MAX_COUNT);
+            shader.setUniform1fv("iMouseY", ripplePoints.getY(),0,MAX_COUNT);
             shader.end();
         }
         oldX = x;

@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Class-Path: lwjgl-2.9.2.jar gdx-backend-lwjgl-1.5.5.jar gdx-backend-an
+ droid-1.5.5.jar jinput-platform-2.0.5-natives-windows.jar lwjgl-platf
+ orm-2.9.2-natives-linux.jar jinput-platform-2.0.5-natives-linux.jar j
+ input-2.0.5.jar jorbis-0.0.17.jar lwjgl_util-2.9.2.jar gdx-platform-1
+ .5.5-natives-desktop.jar jutils-1.0.0.jar lwjgl-platform-2.9.2-native
+ s-osx.jar gdx-1.5.5.jar jinput-platform-2.0.5-natives-osx.jar jlayer-
+ 1.0.1-gdx.jar lwjgl-platform-2.9.2-natives-windows.jar
+Main-Class: donnu.zolotarev.wallpaper.desktop.DesktopLauncher
+

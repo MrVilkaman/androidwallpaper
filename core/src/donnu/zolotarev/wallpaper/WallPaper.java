@@ -3,6 +3,7 @@ package donnu.zolotarev.wallpaper;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.FPSLogger;
 
 import donnu.zolotarev.wallpaper.Screens.MainScreen;
 
@@ -18,6 +19,8 @@ public class WallPaper extends Game {
     private float imageTime = 5f;
     private boolean isRipple = true;
 
+    private FPSLogger fpsLogger;
+
 
     @Override
     public void create() {
@@ -28,13 +31,20 @@ public class WallPaper extends Game {
 
         screen = new MainScreen(this);
         setScreen(screen);
+
+        fpsLogger = new FPSLogger();
     }
 
     @Override
     public void dispose() { screen.dispose(); }
 
     @Override
-    public void render() { if(!paused) screen.render( Gdx.graphics.getDeltaTime() ); }
+    public void render() {
+        if(!paused){
+            screen.render( Gdx.graphics.getDeltaTime() );
+        }
+        fpsLogger.log();
+    }
 
     @Override
     public void resize(int width, int height) { screen.resize( width, height ); }
