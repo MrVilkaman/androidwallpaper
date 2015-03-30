@@ -8,6 +8,11 @@
                 android:defaultValue="true"
                 android:title="@string/ripple" />
 
+	<CheckBoxPreference
+		android:key="moveripple"
+		android:defaultValue="true"
+		android:title="@string/moveripple" />
+
  		<ListPreference
 			 android:entries="@array/change_image_time"
 			 android:entryValues="@array/change_image_time"

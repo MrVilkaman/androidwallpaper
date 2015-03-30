@@ -30,7 +30,7 @@ void main(){
 	for(int i = 0; i < N ;i++){
 		float f = iGlobalTime[i];
 		if (f > 0.0){
-			uv2 += v_position * doRipple(length(gl_FragCoord.xy / u_resolution - vec2(iMouseX[i],iMouseY[i])/ u_resolution.xy),f); 
+			uv2 += v_position * doRipple(length((gl_FragCoord.xy - vec2(iMouseX[i],iMouseY[i]))/ u_resolution.xx),f); 
 		}
     }   
 	gl_FragColor = texture2D(u_sampler2D, v_position + uv2);

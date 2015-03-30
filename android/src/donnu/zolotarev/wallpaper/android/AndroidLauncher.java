@@ -55,6 +55,7 @@ public class AndroidLauncher extends AndroidLiveWallpaperService implements Shar
 			public void onPreferenceChanged( SharedPreferences sp ) {
 
                 boolean water = sp.getBoolean("ripple",true);
+                boolean moveripple = sp.getBoolean("moveripple",true);
                 int time = Integer.parseInt(sp.getString("time","5"));
 
 				/*scene = parseIntValue(sp, "scene",  "1");
@@ -64,7 +65,7 @@ public class AndroidLauncher extends AndroidLiveWallpaperService implements Shar
 				scene_spec = sp.getBoolean("spec", true);
 				bg_fog = sp.getBoolean("fog", true);
 				*/
-                setSettingChanged(time,water);
+                setSettingChanged(time,water,moveripple);
 				//settings_changed_flag = true; // Ставим флаг, чтобы приложение узнало, что настроки изменились
 			}
 			
