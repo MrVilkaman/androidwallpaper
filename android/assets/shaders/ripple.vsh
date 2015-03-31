@@ -1,14 +1,20 @@
 #ifdef GL_ES
-precision mediump float;
+#define LOWP lowp
+precision lowp float;
+precision lowp int;
+precision lowp sampler2D;
+precision lowp samplerCube;
+#else
+#define LOWP
 #endif
 
-attribute vec4 a_color;
-attribute vec4 a_position;
-attribute vec2 a_texCoord0;
+attribute LOWP vec4 a_color;
+attribute LOWP vec4 a_position;
+attribute LOWP vec2 a_texCoord0;
 
-uniform mat4 u_projTrans;
-varying vec2 v_position;
-varying vec4 v_color;
+uniform LOWP mat4 u_projTrans;
+varying LOWP vec2 v_position;
+varying LOWP vec4 v_color;
 
 void main(){
 	v_color = a_color;
