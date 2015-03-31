@@ -18,7 +18,7 @@ public class WallPaper extends Game {
     private boolean settingChanged;
 
     private float imageTime = 5f;
-    private boolean isRipple = true ;
+    private boolean isRipple = true;
     private boolean isMoveRipple = true;
 
     private FPSLogger fpsLogger;

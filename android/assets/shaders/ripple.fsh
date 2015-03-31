@@ -1,8 +1,13 @@
 #ifdef GL_ES
+#define LOWP lowp
 precision mediump float;
+#else
+#define LOWP
 #endif
+
 #define N 10
 
+varying vec4 v_color;
 varying vec2 v_position;
 uniform vec2 u_resolution;
 
@@ -33,6 +38,6 @@ void main(){
 			uv2 += v_position * doRipple(length((gl_FragCoord.xy - vec2(iMouseX[i],iMouseY[i]))/ u_resolution.xx),f); 
 		}
     }   
-	gl_FragColor = texture2D(u_sampler2D, v_position + uv2);
+	gl_FragColor = v_color * texture2D(u_sampler2D, v_position + uv2);
 	
 }

@@ -26,7 +26,6 @@ public class Background extends Actor  {
     private boolean hasNext;
     private float updateTime;
     private final static float UPDATE_TIME_MAX = 2f;
-    private boolean mode;
 
     public Background() {
         image = new TextureRegion();
@@ -65,15 +64,13 @@ public class Background extends Actor  {
                 batch.setColor(1f,1f,1f,v <1.f?v:1f);
             }
 
-            float y = 0;//mode? 0: Gdx.graphics.getHeight();
-        //    scale = 1;
-            batch.draw(image, imageSize * offset, y,getOriginX(),getOriginY()
-                    ,image.getRegionWidth(),image.getRegionHeight(),scale,(mode?1:1) *scale,0);
+            batch.draw(image, imageSize * offset, 0,getOriginX(),getOriginY()
+                    ,image.getRegionWidth(),image.getRegionHeight(),scale,scale,0);
 
             if (hasNext && isNextReady) {
                 batch.setColor(1f,1f,1f,updateTime / UPDATE_TIME_MAX);
-            batch.draw(imageNext, imageSizeNext * offset, y, getOriginX(), getOriginY()
-                    , imageNext.getRegionWidth(), imageNext.getRegionHeight(), scaleNext,( mode?1:-1) *scaleNext, 0);
+                batch.draw(imageNext, imageSizeNext * offset, 0, getOriginX(), getOriginY()
+                        , imageNext.getRegionWidth(), imageNext.getRegionHeight(), scaleNext,scaleNext, 0);
             }
         }
     }
@@ -114,8 +111,4 @@ public class Background extends Actor  {
         return null;
     }
 
-
-    public void setMode(boolean mode) {
-        this.mode = mode;
-    }
 }

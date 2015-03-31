@@ -21,19 +21,24 @@ public class AndroidLauncher extends AndroidLiveWallpaperService implements Shar
 	
     @Override
     public void onCreateApplication () {
-            super.onCreateApplication();
-            
-            final AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
-            listener = new MyLiveWallpaperListener();
-            initialize(listener, config);
+        super.onCreateApplication();
 
-            mySharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-            mySharedPreferences.registerOnSharedPreferenceChangeListener(this);
+        final AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
+        config.useAccelerometer = false;
+        config.disableAudio = true;
+        config.useCompass = false;
 
-            // Вручную вызываем метод, чтобы инициализировать настройки приложения
-            ((MyLiveWallpaperListener) listener).onPreferenceChanged(mySharedPreferences);
-            System.gc();
-            
+
+        listener = new MyLiveWallpaperListener();
+        initialize(listener, config);
+
+        mySharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mySharedPreferences.registerOnSharedPreferenceChangeListener(this);
+
+        // Вручную вызываем метод, чтобы инициализировать настройки приложения
+        ((MyLiveWallpaperListener) listener).onPreferenceChanged(mySharedPreferences);
+        System.gc();
+
     } // onCreateApplication
 
 

@@ -96,7 +96,6 @@ public class MainScreen implements Screen {
             stage.addActor(rippleManager);
         }
         background = new Background();
-        background.setMode(wallPaper.isRipple());
         stage.addActor(background);
         assets.load(new TextureAssets.ITextureAssetsListener() {
             @Override
@@ -145,7 +144,6 @@ public class MainScreen implements Screen {
     private void backgroundSetting() {
         bgColor = new Color(1f,1f,1f,1f);
         timer.setDuraction(wallPaper.getImageTime());
-        background.setMode(wallPaper.isRipple());
         if (wallPaper.isRipple()) {
             stage.addActor(rippleManager);
         }else{
