@@ -8,7 +8,7 @@ precision lowp samplerCube;
 #define LOWP
 #endif
 
-#define N 10
+#define N 7
 
 varying LOWP vec4 v_color;
 varying LOWP vec2 v_position;
@@ -24,7 +24,7 @@ const LOWP float dist = 60.0;
 const LOWP float speed = 15.0;
 const LOWP float sd = speed/dist; 
 
-float doRipple(float len,float time){
+LOWP float doRipple(float len,float time){
     if (sd*time > len){
     LOWP float coef =  exp(-3.4*time)/2.5;
      return sin(len*dist-(time*speed))*coef;

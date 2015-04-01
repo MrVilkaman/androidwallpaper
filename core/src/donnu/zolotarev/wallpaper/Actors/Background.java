@@ -25,7 +25,7 @@ public class Background extends Actor  {
 
     private boolean hasNext;
     private float updateTime;
-    private final static float UPDATE_TIME_MAX = 2f;
+    private final static float UPDATE_TIME_MAX = 1f;
 
     public Background() {
         image = new TextureRegion();

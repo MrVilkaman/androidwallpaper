@@ -40,7 +40,6 @@ public class Prefs extends PreferenceActivity {
                     @Override
                     public boolean onPreferenceClick(Preference arg0) {
                         Intent i = new Intent();
-
                         if (Build.VERSION.SDK_INT > 15) {
                             i.setAction(WallpaperManager.ACTION_CHANGE_LIVE_WALLPAPER);
 

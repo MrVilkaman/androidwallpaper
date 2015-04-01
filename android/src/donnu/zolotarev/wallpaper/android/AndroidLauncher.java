@@ -28,7 +28,6 @@ public class AndroidLauncher extends AndroidLiveWallpaperService implements Shar
         config.disableAudio = true;
         config.useCompass = false;
 
-
         listener = new MyLiveWallpaperListener();
         initialize(listener, config);
 

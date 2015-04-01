@@ -9,9 +9,9 @@ import donnu.zolotarev.wallpaper.Utils.RipplePoints;
 
 public class RippleManager extends Actor {
 
-    private static final float R = 0.15f;
+    private static final float R = 0.18f;
 
-    private static final int MAX_COUNT = 10; // MAX 84
+    private static final int MAX_COUNT = 7; // MAX 84
     private static final float MAX_LIFE_TIME = 2.5f;
 
     private final ShaderProgram shader;
@@ -21,6 +21,11 @@ public class RippleManager extends Actor {
     private float oldX = Float.MIN_VALUE;
     private float oldY = Float.MIN_VALUE;
     private float r;
+
+    private int iGlobalTimeLoc;
+    private int resolutionLoc = -1;
+    private int iMouseXLoc;
+    private int iMouseYLoc;
 
 
     public RippleManager() {
@@ -35,7 +40,7 @@ public class RippleManager extends Actor {
         super.act(delta);
         ripplePoints.addTime(delta);
             shader.begin();
-            shader.setUniform1fv("iGlobalTime", ripplePoints.getTime(), 0, MAX_COUNT);
+            shader.setUniform1fv(iGlobalTimeLoc, ripplePoints.getTime(), 0, MAX_COUNT);
             shader.end();
     }
 
@@ -43,19 +48,28 @@ public class RippleManager extends Actor {
     public void draw(Batch batch, float parentAlpha) {
         if (!hasShader) {
             batch.setShader(shader);
+            shader.begin();
+            iGlobalTimeLoc = shader.fetchUniformLocation("iGlobalTime",ShaderProgram.pedantic);
+            iMouseXLoc = shader.fetchUniformLocation("iMouseX", ShaderProgram.pedantic);
+            iMouseYLoc = shader.fetchUniformLocation("iMouseY", ShaderProgram.pedantic);
+            shader.end();
             hasShader = true;
         }
     }
 
     @Override
     public boolean remove() {
+        resolutionLoc = -1;
         hasShader = false;
         return super.remove();
     }
 
     public void setResolution(float width, float height){
         shader.begin();
-        shader.setUniformf("u_resolution", width, height);
+        if (resolutionLoc == -1) {
+            resolutionLoc = shader.fetchUniformLocation("u_resolution", ShaderProgram.pedantic);
+        }
+        shader.setUniformf(resolutionLoc, width, height);
         shader.end();
     }
 
@@ -63,9 +77,9 @@ public class RippleManager extends Actor {
         if ( r < distanceSqr(x,y,oldX,oldY)) {
             ripplePoints.addPoint(x,y);
             shader.begin();
-            shader.setUniform1fv("iGlobalTime", ripplePoints.getTime(), 0, MAX_COUNT);
-            shader.setUniform1fv("iMouseX", ripplePoints.getX(), 0, MAX_COUNT);
-            shader.setUniform1fv("iMouseY", ripplePoints.getY(),0,MAX_COUNT);
+            shader.setUniform1fv(iGlobalTimeLoc, ripplePoints.getTime(), 0, MAX_COUNT);
+            shader.setUniform1fv(iMouseXLoc, ripplePoints.getX(), 0, MAX_COUNT);
+            shader.setUniform1fv(iMouseYLoc, ripplePoints.getY(),0,MAX_COUNT);
             shader.end();
             oldX = x;
             oldY = y;
