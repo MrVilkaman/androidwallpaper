@@ -33,4 +33,7 @@
 		android:title="@string/rain_time" />
 
 	<Preference android:title="Set wallpaper" android:key="setwall"/>
+	<Preference android:title="@string/share" android:key="share"/>
+	<Preference android:title="@string/rate_us" android:key="rateus"/>
+	<Preference android:title="@string/more_apps" android:key="more_apps"/>
 </PreferenceScreen>

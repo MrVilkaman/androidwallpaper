@@ -10,7 +10,13 @@
 	<string name="moveripple">Ripple in move</string>
 	<string name="rain">Rain</string>
 	<string name="rain_time">Rain time</string>
+	<string name="rate_us">Rate us</string>
+	<string name="more_apps">More apps</string>
+	<string name="share">Share it</string>
 
+
+	<string name="share_text">Качай збс обои! https://play.google.com/store/apps/details?id=donnu.zolotarev.rushgame.android</string>
+	<string name="share_chooser_text">Choose</string>
 
 
 </resources>
