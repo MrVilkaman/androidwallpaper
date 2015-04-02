@@ -27,7 +27,7 @@ public class WallPaper extends Game {
     @Override
     public void create() {
 
-        screenOffset = 0.0f;
+        screenOffset = 0.5f;
         settingChanged = true;
         paused = false;
 

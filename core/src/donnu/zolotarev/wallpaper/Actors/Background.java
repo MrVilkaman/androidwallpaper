@@ -78,7 +78,9 @@ public class Background extends Actor  {
     public void changeImage(){
         imageNext.setRegion(getNext());
         scaleNext = 1f*Gdx.graphics.getHeight()/imageNext.getRegionHeight();
-        imageSizeNext = -imageNext.getRegionWidth()/2;
+//        imageSizeNext = -imageNext.getRegionWidth()/2;
+        imageSizeNext = imageNext.getRegionWidth()*scaleNext - Gdx.graphics.getHeight();
+        imageSizeNext *= -1;
         isNextReady = true;
         hasNext = true;
     }
@@ -87,7 +89,8 @@ public class Background extends Actor  {
 
         image.setRegion(getNext());
         scale = 1f*Gdx.graphics.getHeight()/image.getRegionHeight();
-        imageSize = -image.getRegionWidth()/2;
+        imageSize = image.getRegionWidth()*scale - Gdx.graphics.getHeight();
+        imageSize *= -1;
         isReady = true;
         hasNext = false;
     }
