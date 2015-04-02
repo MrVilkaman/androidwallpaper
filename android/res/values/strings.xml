@@ -8,13 +8,9 @@
 	<string name="change_image_time">Change image time</string>
 	<string name="ripple">Water ripple</string>
 	<string name="moveripple">Ripple in move</string>
+	<string name="rain">Rain</string>
+	<string name="rain_time">Rain time</string>
 
-	<string-array name="change_image_time">
-		<item>5</item>
-		<item>10</item>
-		<item>15</item>
-		<item>30</item>
-		<item>60</item>
-	</string-array>
+
 
 </resources>

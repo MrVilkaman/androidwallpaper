@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
@@ -28,7 +29,7 @@ public class MainScreen implements Screen {
     private final Stage stage;
 
     private final Timer timer;
-    private final Timer rippleTimer;
+    private final Timer rainTimer;
     private final RippleManager rippleManager;
     private Background background;
 
@@ -82,13 +83,16 @@ public class MainScreen implements Screen {
         timer.setLoop(true);
         timer.start();
 
-        rippleTimer = new Timer(new Timer.Listner() {
+        rainTimer = new Timer(new Timer.Listner() {
             @Override
             public void complite() {
-            //    batch.setShader(null);
+                rippleManager.click(MathUtils.random.nextFloat()*Gdx.graphics.getWidth(), MathUtils.random.nextFloat()*Gdx.graphics.getHeight());
             }
-        },5f);
-
+        },MathUtils.random(0.9f*wallPaper.getRainTime(),1.1f*wallPaper.getRainTime()));
+            rainTimer.setLoop(true);
+        if (wallPaper.isRain()) {
+            rainTimer.start();
+        }
 
         assets = new TextureAssets();
 
@@ -104,8 +108,6 @@ public class MainScreen implements Screen {
 
 
         ShaderProgram.pedantic = false; //todo ???
-
-
 
         Gdx.input.setInputProcessor(stage);
 
@@ -123,7 +125,7 @@ public class MainScreen implements Screen {
 
             timer.update(delta);
 
-            rippleTimer.update(delta);
+            rainTimer.update(delta);
 
             Gdx.gl20.glViewport(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
             Gdx.gl20.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
@@ -148,6 +150,12 @@ public class MainScreen implements Screen {
         }else{
             rippleManager.remove();
             batch.setShader(null);
+        }
+        rainTimer.setDuraction(wallPaper.getRainTime());
+        if (wallPaper.isRain()) {
+            rainTimer.start();
+        }else{
+            rainTimer.stop();
         }
     }
 
