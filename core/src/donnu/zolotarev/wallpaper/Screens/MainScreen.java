@@ -14,6 +14,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 import donnu.zolotarev.wallpaper.Actors.Background;
 import donnu.zolotarev.wallpaper.Actors.RippleManager;
+import donnu.zolotarev.wallpaper.Assets.ImageLoader;
 import donnu.zolotarev.wallpaper.Assets.TextureAssets;
 import donnu.zolotarev.wallpaper.Utils.Timer;
 import donnu.zolotarev.wallpaper.WallPaper;
@@ -95,14 +96,12 @@ public class MainScreen implements Screen {
         if (wallPaper.isRipple()) {
             stage.addActor(rippleManager);
         }
-        background = new Background();
+
+        ImageLoader imageLoader = new ImageLoader();
+
+        background = new Background(imageLoader);
         stage.addActor(background);
-        assets.load(new TextureAssets.ITextureAssetsListener() {
-            @Override
-            public void loaded() {
-                background.updateImage();
-            }
-        });
+
 
         ShaderProgram.pedantic = false; //todo ???
 

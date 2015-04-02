@@ -6,11 +6,12 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
-import donnu.zolotarev.wallpaper.Assets.TextureAssets;
+import donnu.zolotarev.wallpaper.Assets.IImageLoader;
 
 public class Background extends Actor  {
 
 
+    private final IImageLoader imageLoader;
     private TextureRegion image;
     private  boolean isReady;
     private  boolean isNextReady;
@@ -23,15 +24,16 @@ public class Background extends Actor  {
     private float scaleNext;
     private float imageSizeNext;
 
-    private boolean hasNext;
     private float updateTime;
     private final static float UPDATE_TIME_MAX = 1f;
 
-    public Background() {
+    public Background(IImageLoader imageLoader) {
         image = new TextureRegion();
         imageNext = new TextureRegion();
         isReady = false;
         isNextReady = false;
+        this.imageLoader = imageLoader;
+        updateImage();
     }
 
 
@@ -42,14 +44,15 @@ public class Background extends Actor  {
     @Override
     public void act(float delta) {
         super.act(delta);
-        if (hasNext && isNextReady) {
+        if ( isNextReady) {
             updateTime += delta;
             if (updateTime > UPDATE_TIME_MAX) {
                 updateTime = 0;
-                hasNext = isNextReady = false;
+                isNextReady = false;
                 image.setRegion(imageNext.getTexture());
                 scale = scaleNext;
                 imageSize = imageSizeNext;
+                imageLoader.unloadLast();
             }
         }
     }
@@ -58,8 +61,7 @@ public class Background extends Actor  {
     public void draw(Batch batch, float parentAlpha) {
 
         if (isReady) {
-
-            if (hasNext && isNextReady) {
+            if (isNextReady) {
                 float v =  (1.5f - updateTime / UPDATE_TIME_MAX);
                 batch.setColor(1f,1f,1f,v <1.f?v:1f);
             }
@@ -67,7 +69,7 @@ public class Background extends Actor  {
             batch.draw(image, imageSize * offset, 0,getOriginX(),getOriginY()
                     ,image.getRegionWidth(),image.getRegionHeight(),scale,scale,0);
 
-            if (hasNext && isNextReady) {
+            if (isNextReady) {
                 batch.setColor(1f,1f,1f,updateTime / UPDATE_TIME_MAX);
                 batch.draw(imageNext, imageSizeNext * offset, 0, getOriginX(), getOriginY()
                         , imageNext.getRegionWidth(), imageNext.getRegionHeight(), scaleNext,scaleNext, 0);
@@ -76,42 +78,31 @@ public class Background extends Actor  {
     }
 
     public void changeImage(){
-        imageNext.setRegion(getNext());
-        scaleNext = 1f*Gdx.graphics.getHeight()/imageNext.getRegionHeight();
-//        imageSizeNext = -imageNext.getRegionWidth()/2;
-        imageSizeNext = imageNext.getRegionWidth()*scaleNext - Gdx.graphics.getHeight();
-        imageSizeNext *= -1;
-        isNextReady = true;
-        hasNext = true;
+        imageLoader.getNext(new IImageLoader.IImageLoaded() {
+            @Override
+            public void onCompleate(Texture texture) {
+                imageNext.setRegion(texture);
+                scaleNext = 1f*Gdx.graphics.getHeight()/imageNext.getRegionHeight();
+                imageSizeNext = imageNext.getRegionWidth()*scaleNext - Gdx.graphics.getHeight();
+                imageSizeNext *= -1;
+                isNextReady = true;
+            }
+        });
+
     }
 
     public void updateImage() {
+        imageLoader.getNext(new IImageLoader.IImageLoaded() {
+            @Override
+            public void onCompleate(Texture texture) {
+                image.setRegion(texture);
+                scale = 1f*Gdx.graphics.getHeight()/image.getRegionHeight();
+                imageSize = image.getRegionWidth()*scale - Gdx.graphics.getHeight();
+                imageSize *= -1;
+                isReady = true;
+                isNextReady = false;
+            }
+        });
 
-        image.setRegion(getNext());
-        scale = 1f*Gdx.graphics.getHeight()/image.getRegionHeight();
-        imageSize = image.getRegionWidth()*scale - Gdx.graphics.getHeight();
-        imageSize *= -1;
-        isReady = true;
-        hasNext = false;
     }
-
-    private int index = 0;
-    private int indexMax = 3;
-
-    private Texture getNext(){
-
-        index = (index +1 != indexMax)?index+1 :0;
-
-        switch (index){
-            case 0:
-                return TextureAssets.getTextureAssets().getImage();
-            case 1:
-                return TextureAssets.getTextureAssets().getImage2();
-            case 2:
-                return TextureAssets.getTextureAssets().getImage3();
-        }
-
-        return null;
-    }
-
 }
