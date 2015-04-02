@@ -22,6 +22,7 @@ public class WallPaper extends Game {
     private boolean isMoveRipple = true;
 
     private FPSLogger fpsLogger;
+    private String customImage;
 
 
     @Override
@@ -64,11 +65,12 @@ public class WallPaper extends Game {
         return b;
     }
 
-    public void setSettingChanged(float imageTime, boolean isRipple, boolean moveripple) {
+    public void setSettingChanged(float imageTime, boolean isRipple, boolean moveripple, String customImage) {
         this.imageTime = imageTime;
         this.isRipple = isRipple;
         this.isMoveRipple = moveripple;
         this.settingChanged = true;
+        this.customImage = customImage;
     }
 
     public float getScreenOffset() {
@@ -89,5 +91,9 @@ public class WallPaper extends Game {
 
     public boolean isMoveRipple() {
         return isMoveRipple;
+    }
+
+    public String getCustomImage() {
+        return customImage;
     }
 }

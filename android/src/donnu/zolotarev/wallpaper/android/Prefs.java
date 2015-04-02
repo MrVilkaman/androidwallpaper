@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
+import android.preference.PreferenceManager;
 
 
 public class Prefs extends PreferenceActivity {
@@ -34,8 +35,37 @@ public class Prefs extends PreferenceActivity {
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.prefs);
+
+            customImage();
+            setWallpaperButton();
+        }
+
+        @Override
+        public void onActivityResult(int requestCode, int resultCode, Intent data) {
+            PhotoUtils.onActivityResult(getActivity(), requestCode, resultCode, data);
+            PreferenceManager.getDefaultSharedPreferences(getActivity())
+                    .edit()
+                    .putString("customPhoto",PhotoUtils.getLastPhotoPath())
+                    .commit();
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+
+        private void customImage() {
+            Preference button = (Preference)getPreferenceManager().findPreference("customimage");
+            if (button != null) {
+                button.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                    @Override
+                    public boolean onPreferenceClick(Preference arg0) {
+                        PhotoUtils.importInGalery(MyPreferenceFragment.this,PhotoUtils.IN_GALLERY,PhotoUtils.TEMP_NAME);
+                        return true;
+                    }
+                });
+            }
+        }
+
+        private void setWallpaperButton() {
             Preference button = (Preference)getPreferenceManager().findPreference("setwall");
-            if (button != null)
+            if (button != null) {
                 button.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                     @Override
                     public boolean onPreferenceClick(Preference arg0) {
@@ -53,8 +83,9 @@ public class Prefs extends PreferenceActivity {
                         return true;
                     }
                 });
+            }
         }
-        
+
     } // MyPreferenceFragment
 
 } // Prefs

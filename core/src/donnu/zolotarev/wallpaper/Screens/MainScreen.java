@@ -30,6 +30,7 @@ public class MainScreen implements Screen {
     private final Timer timer;
     private final Timer rippleTimer;
     private final RippleManager rippleManager;
+    private final ImageLoader imageLoader;
     private Background background;
 
     private boolean isScreenHided;
@@ -97,7 +98,7 @@ public class MainScreen implements Screen {
             stage.addActor(rippleManager);
         }
 
-        ImageLoader imageLoader = new ImageLoader();
+        imageLoader = new ImageLoader();
 
         background = new Background(imageLoader);
         stage.addActor(background);
@@ -141,6 +142,7 @@ public class MainScreen implements Screen {
     }
 
     private void backgroundSetting() {
+        imageLoader.setCustomImage(wallPaper.getCustomImage());
         bgColor = new Color(1f,1f,1f,1f);
         timer.setDuraction(wallPaper.getImageTime());
         if (wallPaper.isRipple()) {
