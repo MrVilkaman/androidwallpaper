@@ -158,7 +158,6 @@ public class Prefs extends PreferenceActivity {
                 });
         }
 
-
         @Override
         public void onResume() {
             super.onResume();

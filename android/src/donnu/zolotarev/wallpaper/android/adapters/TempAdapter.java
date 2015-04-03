@@ -62,6 +62,10 @@ public class TempAdapter extends BaseAdapter {
         return view;
     }
 
+    public void click(int position) {
+        getSomeItem(position).execute();
+    }
+
     private static class ViewHolder {
 
         private final TextView title;
