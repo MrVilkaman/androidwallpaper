@@ -9,4 +9,33 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
+    <style name="Text.TitleText">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textSize">@dimen/main_banner_title_size</item>
+
+    </style>
+
+    <style name="Text.SubTitleText">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="Text">
+        <item name="android:textSize">@dimen/main_text_size</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="MainButtoms">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginRight">16dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:background">@color/base_app_color_1</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
 </resources>

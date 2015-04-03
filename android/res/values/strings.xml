@@ -19,6 +19,10 @@
 
 	<string name="share_text">Качай збс обои! https://play.google.com/store/apps/details?id=donnu.zolotarev.rushgame.android</string>
 	<string name="share_chooser_text">Choose</string>
+	<string name="banner_title">SKY AND SUN</string>
+	<string name="banner_subtitle">LIVE WALLPAPER</string>
+	<string name="main_settings">SETTINGS</string>
+	<string name="main_set_wallpaper">SET WALLPAPER</string>
 
 
 </resources>

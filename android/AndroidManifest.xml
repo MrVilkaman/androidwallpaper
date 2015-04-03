@@ -40,7 +40,7 @@
                        android:resource="@xml/livewallpaper" />
         </service>
 
-        <activity android:name="donnu.zolotarev.wallpaper.android.Prefs"
+        <activity android:name="donnu.zolotarev.wallpaper.android.activity.MainActivity"
                   android:exported="true"
                   android:label="@string/settings">
             <intent-filter>

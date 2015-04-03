@@ -19,6 +19,8 @@ import android.preference.PreferenceManager;
 import java.util.ArrayList;
 import java.util.List;
 
+import donnu.zolotarev.wallpaper.android.fragments.MainFragment;
+
 
 public class Prefs extends PreferenceActivity {
 	
@@ -32,7 +34,7 @@ public class Prefs extends PreferenceActivity {
             addPreferencesFromResource(R.xml.prefs);
         // Новый код
         else 
-        	getFragmentManager().beginTransaction().replace(android.R.id.content, new MyPreferenceFragment()).commit();
+        	getFragmentManager().beginTransaction().replace(android.R.id.content, new MainFragment()).commit();
 
 
         
@@ -42,7 +44,6 @@ public class Prefs extends PreferenceActivity {
 
         private static final String APP_PNAME = "market://details?id=donnu.zolotarev.rushgame.android";
         private static final String MORE_APPS = "market://search?q=Zahar+Zolotarev";
-
 
         private Preference customimage;
 

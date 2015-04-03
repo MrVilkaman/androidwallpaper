@@ -121,4 +121,5 @@ idea {
     }
 }
 dependencies {
+    compile 'com.jakewharton:butterknife:6.1.0'
 }
