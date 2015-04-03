@@ -2,7 +2,6 @@ package donnu.zolotarev.wallpaper;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.FPSLogger;
 
 import donnu.zolotarev.wallpaper.Screens.MainScreen;
@@ -24,7 +23,7 @@ public class WallPaper extends Game {
     private float rainTime = 2f;
 
     private FPSLogger fpsLogger;
-    private String customImage;
+    private String customImage = "";
 
 
     @Override
