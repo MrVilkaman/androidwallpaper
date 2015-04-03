@@ -11,7 +11,7 @@ public class RippleManager extends Actor {
 
     private static final float R = 0.18f;
 
-    private static final int MAX_COUNT = 7; // MAX 84
+    private static final int MAX_COUNT = 10; // MAX 84
     private static final float MAX_LIFE_TIME = 2.5f;
 
     private final ShaderProgram shader;

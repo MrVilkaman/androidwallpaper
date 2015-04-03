@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="rain_time">
+        <item>Off</item>
+        <item>Low</item>
+        <item>Normal</item>
+        <item>High</item>
+    </string-array>
+
+    <string-array name="rain_time_value">
+        <item>0</item>
         <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>5</item>
-        <item>10</item>
-        <item>30</item>
+        <item>0.6</item>
+        <item>0.3</item>
     </string-array>
 
     <string-array name="change_image_time">
+        <item>5 seconds</item>
+        <item>10 seconds</item>
+        <item>15 seconds</item>
+        <item>30 seconds</item>
+        <item>60 seconds</item>
+    </string-array>
+    <string-array name="change_image_time_value">
         <item>5</item>
         <item>10</item>
         <item>15</item>

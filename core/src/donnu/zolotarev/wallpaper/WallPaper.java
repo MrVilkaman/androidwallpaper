@@ -20,7 +20,7 @@ public class WallPaper extends Game {
     private boolean isRipple = true;
     private boolean isMoveRipple = true;
     private boolean rain = true;
-    private float rainTime = 2f;
+    private float rainTime = 0.3f;
 
     private FPSLogger fpsLogger;
     private String customImage = "";
@@ -66,7 +66,7 @@ public class WallPaper extends Game {
         return b;
     }
 
-    public void setSettingChanged(float imageTime, boolean isRipple, boolean moveripple, boolean rain, int rainTime,String customImage) {
+    public void setSettingChanged(float imageTime, boolean isRipple, boolean moveripple, boolean rain, float rainTime,String customImage) {
         this.imageTime = imageTime;
         this.isRipple = isRipple;
         this.isMoveRipple = moveripple;

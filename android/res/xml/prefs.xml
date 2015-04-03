@@ -15,21 +15,16 @@
 
  		<ListPreference
 			 android:entries="@array/change_image_time"
-			 android:entryValues="@array/change_image_time"
+			 android:entryValues="@array/change_image_time_value"
 			 android:key="time"
 			 android:defaultValue="5"
 			 android:title="@string/change_image_time" />
 
-	<CheckBoxPreference
-		android:key="rain"
-		android:defaultValue="false"
-		android:title="@string/rain" />
-
 	<ListPreference
 		android:entries="@array/rain_time"
-		android:entryValues="@array/rain_time"
+		android:entryValues="@array/rain_time_value"
 		android:key="rainTime"
-		android:defaultValue="5"
+		android:defaultValue="0"
 		android:title="@string/rain_time" />
 
 	<Preference android:title="@string/set_custom_image" android:key="customimage"/>
