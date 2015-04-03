@@ -8,6 +8,8 @@
 	<string name="change_image_time">Change image time</string>
 	<string name="ripple">Water ripple</string>
 	<string name="moveripple">Ripple in move</string>
+	<string name="clear_custom_photo">Clear custom photo</string>
+	<string name="set_custom_image">Set custom image</string>
 
 	<string-array name="change_image_time">
 		<item>5</item>

@@ -14,10 +14,14 @@ public class ExternalTextureLoader implements IExternalTextureLoader {
     }
 
     @Override
-    public void load(String file, IImageLoader.IImageLoaded callback) {
+    public boolean load(String file, IImageLoader.IImageLoaded callback) {
         if (!textureHashMap.containsKey(file)) {
-            callback.onCompleate(new Texture(Gdx.files.absolute(file)));
+            Texture texture =  new Texture(Gdx.files.absolute(file));
+            textureHashMap.put(file,texture);
+            callback.onCompleate(texture);
+            return true;
         }
+        return false;
     }
 
     @Override

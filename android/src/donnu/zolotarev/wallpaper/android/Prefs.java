@@ -30,7 +30,9 @@ public class Prefs extends PreferenceActivity {
     } // onCreate
 
     public static class MyPreferenceFragment extends PreferenceFragment{
-    	
+
+        private Preference customimage;
+
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -47,16 +49,30 @@ public class Prefs extends PreferenceActivity {
                     .edit()
                     .putString("customPhoto",PhotoUtils.getLastPhotoPath())
                     .commit();
+            if (PhotoUtils.getLastPhotoPath().isEmpty()) {
+                customimage.setTitle(R.string.set_custom_image);
+            }else {
+                customimage.setTitle(R.string.clear_custom_photo);
+            }
             super.onActivityResult(requestCode, resultCode, data);
         }
 
         private void customImage() {
-            Preference button = (Preference)getPreferenceManager().findPreference("customimage");
-            if (button != null) {
-                button.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            customimage = (Preference)getPreferenceManager().findPreference("customimage");
+            if (customimage != null) {
+                customimage.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                     @Override
                     public boolean onPreferenceClick(Preference arg0) {
-                        PhotoUtils.importInGalery(MyPreferenceFragment.this,PhotoUtils.IN_GALLERY,PhotoUtils.TEMP_NAME);
+                        if (PhotoUtils.getLastPhotoPath().isEmpty()) {
+                            PhotoUtils.importInGalery(MyPreferenceFragment.this, PhotoUtils.IN_GALLERY, PhotoUtils.TEMP_NAME);
+                        } else {
+                            PhotoUtils.clearLastPhotoPath();
+                            PreferenceManager.getDefaultSharedPreferences(getActivity())
+                                    .edit()
+                                    .putString("customPhoto", PhotoUtils.getLastPhotoPath())
+                                    .commit();
+                            customimage.setTitle(R.string.set_custom_image);
+                        }
                         return true;
                     }
                 });
@@ -86,6 +102,15 @@ public class Prefs extends PreferenceActivity {
             }
         }
 
+        @Override
+        public void onResume() {
+            super.onResume();
+            if (PhotoUtils.getLastPhotoPath().isEmpty()) {
+                customimage.setTitle(R.string.set_custom_image);
+            }else {
+                customimage.setTitle(R.string.clear_custom_photo);
+            }
+        }
     } // MyPreferenceFragment
 
 } // Prefs

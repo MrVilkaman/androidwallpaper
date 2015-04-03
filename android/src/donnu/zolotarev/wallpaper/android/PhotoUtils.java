@@ -29,7 +29,7 @@ public class PhotoUtils {
 
     public static final String TEMP_PHOTO_DIR_NAME = "tempPhotos";
     public static final String DEFAULT_PHOTO_NAME = "Photo";
-    private static String lastPhotoPath;
+    private static String lastPhotoPath = "";
     private static String lastPhotoName;
 
 
@@ -226,5 +226,9 @@ public class PhotoUtils {
                 break;
 
         }
+    }
+
+    public static void clearLastPhotoPath() {
+        lastPhotoPath = "";
     }
 }

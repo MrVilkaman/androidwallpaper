@@ -142,7 +142,7 @@ public class MainScreen implements Screen {
     }
 
     private void backgroundSetting() {
-        imageLoader.setCustomImage(wallPaper.getCustomImage());
+
         bgColor = new Color(1f,1f,1f,1f);
         timer.setDuraction(wallPaper.getImageTime());
         if (wallPaper.isRipple()) {
@@ -151,6 +151,11 @@ public class MainScreen implements Screen {
             rippleManager.remove();
             batch.setShader(null);
         }
+        if(imageLoader.setCustomImage(wallPaper.getCustomImage())){
+            timer.reset();
+            timer.start();
+            background.changeImage();
+        }
     }
 
     @Override
@@ -158,7 +163,7 @@ public class MainScreen implements Screen {
         camera.viewportWidth = width;
         camera.viewportHeight = height;
         camera.update();
-        rippleManager.setResolution(width,height);
+        rippleManager.setResolution(width, height);
     }
 
     @Override
@@ -182,4 +187,5 @@ public class MainScreen implements Screen {
         assets.dispose();
         batch.dispose();
     }
+
 }

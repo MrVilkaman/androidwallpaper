@@ -11,6 +11,7 @@ public class ImageLoader implements IImageLoader {
     private int lastIndex;
     private int lastUnload;
     private String customImage;
+    private String oldCustomImage;
 
     public ImageLoader() {
         textureAssets =  TextureAssets.getTextureAssets();
@@ -18,11 +19,14 @@ public class ImageLoader implements IImageLoader {
     }
 
     @Override
-    public void setCustomImage(String customImage) {
-        if (!customImage.equals(this.customImage)) {
+    public boolean setCustomImage(String customImage) {
+        /*if (!customImage.equals(this.customImage)) {
             textureAssets.unload(customImage);
-        }
+        }*/
+        oldCustomImage = this.customImage;
         this.customImage = customImage;
+
+        return !customImage.equals(oldCustomImage);
     }
 
     @Override
@@ -32,7 +36,10 @@ public class ImageLoader implements IImageLoader {
             textureAssets.load(fileName, callback);
         }else{
             lastIndex = CUSTOM_IMAGE_ID;
-            externalTextureLoader.load(customImage, callback);
+            if (!externalTextureLoader.load(customImage, callback)) {
+                oldCustomImage = "";
+            }
+
         }
     }
 
@@ -49,12 +56,16 @@ public class ImageLoader implements IImageLoader {
 
     @Override
     public void unloadLast() {
-        if (lastUnload != -1) {
-            String fileName = textureAssets.getImagesNames()[lastUnload].path();
-            textureAssets.unload(fileName);
-        }else if (lastUnload == CUSTOM_IMAGE_ID){
-            externalTextureLoader.unload(customImage);
-        }
+         if (lastUnload == CUSTOM_IMAGE_ID){
+             if (!oldCustomImage.equals(customImage)) {
+                 if (!oldCustomImage.isEmpty()) {
+                     externalTextureLoader.unload(oldCustomImage);
+                 }
+             }
+        }else if (lastUnload != -1) {
+             String fileName = textureAssets.getImagesNames()[lastUnload].path();
+             textureAssets.unload(fileName);
+         }
             lastUnload = -1;
     }
 }

@@ -9,7 +9,7 @@ public interface IImageLoader {
         public void onCompleate(Texture texture);
     }
 
-    void setCustomImage(String customImage);
+    boolean setCustomImage(String customImage);
     void getNext(IImageLoaded callback);
     void unloadLast();
 }

@@ -2,7 +2,6 @@ package donnu.zolotarev.wallpaper;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.FPSLogger;
 
 import donnu.zolotarev.wallpaper.Screens.MainScreen;
@@ -11,7 +10,7 @@ import donnu.zolotarev.wallpaper.Screens.MainScreen;
 public class WallPaper extends Game {
 
 
-    private Screen screen;
+    private MainScreen screen;
 
     private boolean paused = false;
     private float screenOffset;
@@ -69,8 +68,8 @@ public class WallPaper extends Game {
         this.imageTime = imageTime;
         this.isRipple = isRipple;
         this.isMoveRipple = moveripple;
-        this.settingChanged = true;
         this.customImage = customImage;
+        this.settingChanged = true;
     }
 
     public float getScreenOffset() {
