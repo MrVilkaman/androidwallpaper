@@ -31,12 +31,13 @@
     </style>
 
     <style name="MainButtoms">
+        <item name="android:textSize">@dimen/main_text_size</item>
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_marginLeft">@dimen/line_margin</item>
         <item name="android:layout_marginRight">@dimen/line_margin</item>
         <item name="android:layout_marginTop">8dp</item>
         <item name="android:layout_marginBottom">8dp</item>
-        <item name="android:background">@color/base_app_color_1</item>
+        <item name="android:background">@drawable/selector_setting_btn</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
 
