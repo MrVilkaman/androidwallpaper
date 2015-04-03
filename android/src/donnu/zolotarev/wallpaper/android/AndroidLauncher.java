@@ -3,6 +3,7 @@ package donnu.zolotarev.wallpaper.android;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
 import com.badlogic.gdx.backends.android.AndroidLiveWallpaperService;
 import com.badlogic.gdx.backends.android.AndroidWallpaperListener;
@@ -56,9 +57,11 @@ public class AndroidLauncher extends AndroidLiveWallpaperService implements Shar
 			public void onPreferenceChanged( SharedPreferences sp ) {
 
                 boolean water = sp.getBoolean("ripple",true);
-                boolean moveripple = sp.getBoolean("moveripple",true);
+                boolean moveripple = sp.getBoolean("moveripple", true);
                 String customImage = sp.getString("customPhoto", "");
-                int time = Integer.parseInt(sp.getString("time","5"));
+                int time = Integer.parseInt(sp.getString("time", "5"));
+                boolean rain = sp.getBoolean("rain", false);
+                int rainTime = Integer.parseInt(sp.getString("rainTime","5"));
 
 				/*scene = parseIntValue(sp, "scene",  "1");
 				cam_actors = parseIntValue(sp, "camera",  "2");
@@ -67,7 +70,7 @@ public class AndroidLauncher extends AndroidLiveWallpaperService implements Shar
 				scene_spec = sp.getBoolean("spec", true);
 				bg_fog = sp.getBoolean("fog", true);
 				*/
-                setSettingChanged(time,water,moveripple,customImage);
+                setSettingChanged(time,water,moveripple,rain,rainTime,customImage);
 				//settings_changed_flag = true; // Ставим флаг, чтобы приложение узнало, что настроки изменились
 			}
 			

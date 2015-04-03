@@ -81,28 +81,26 @@ public class Background extends Actor  {
         imageLoader.getNext(new IImageLoader.IImageLoaded() {
             @Override
             public void onCompleate(Texture texture) {
-                imageNext.setRegion(texture);
-                scaleNext = 1f*Gdx.graphics.getHeight()/imageNext.getRegionHeight();
-                imageSizeNext = imageNext.getRegionWidth()*scaleNext - Gdx.graphics.getWidth();
-                imageSizeNext *= -1;
-                isNextReady = true;
+                if (isReady) {
+                    imageNext.setRegion(texture);
+                    scaleNext = 1f*Gdx.graphics.getHeight()/imageNext.getRegionHeight();
+                    imageSizeNext = imageNext.getRegionWidth()*scaleNext - Gdx.graphics.getWidth();
+                    imageSizeNext *= -1;
+                    isNextReady = true;
+                }else{
+                    image.setRegion(texture);
+                    scale = 1f*Gdx.graphics.getHeight()/image.getRegionHeight();
+                    imageSize = image.getRegionWidth()*scale - Gdx.graphics.getWidth();
+                    imageSize *= -1;
+                    isReady = true;
+                    isNextReady = false;
+                }
             }
         });
 
     }
 
     public void updateImage() {
-        imageLoader.getNext(new IImageLoader.IImageLoaded() {
-            @Override
-            public void onCompleate(Texture texture) {
-                image.setRegion(texture);
-                scale = 1f*Gdx.graphics.getHeight()/image.getRegionHeight();
-                imageSize = image.getRegionWidth()*scale - Gdx.graphics.getWidth();
-                imageSize *= -1;
-                isReady = true;
-                isNextReady = false;
-            }
-        });
-
+        changeImage();
     }
 }

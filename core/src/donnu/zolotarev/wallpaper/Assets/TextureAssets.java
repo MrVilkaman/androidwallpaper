@@ -2,8 +2,6 @@ package donnu.zolotarev.wallpaper.Assets;
 
 import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.assets.AssetDescriptor;
-import com.badlogic.gdx.assets.AssetErrorListener;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
@@ -24,12 +22,6 @@ public class TextureAssets extends AssetManager{
         super();
         textureAssets = this;
 
-        setErrorListener(new AssetErrorListener() {
-            @Override
-            public void error(AssetDescriptor asset, Throwable throwable) {
-
-            }
-        });
     }
 
     public static TextureAssets getTextureAssets() {

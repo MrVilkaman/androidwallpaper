@@ -1,25 +1,40 @@
 <PreferenceScreen
-	xmlns:android="http://schemas.android.com/apk/res/android">
+        xmlns:android="http://schemas.android.com/apk/res/android">
 
 
 
-	<CheckBoxPreference
-		android:key="ripple"
-		android:defaultValue="true"
-		android:title="@string/ripple" />
+        <CheckBoxPreference
+                android:key="ripple"
+                android:defaultValue="true"
+                android:title="@string/ripple" />
 
 	<CheckBoxPreference
 		android:key="moveripple"
 		android:defaultValue="true"
 		android:title="@string/moveripple" />
 
+ 		<ListPreference
+			 android:entries="@array/change_image_time"
+			 android:entryValues="@array/change_image_time"
+			 android:key="time"
+			 android:defaultValue="5"
+			 android:title="@string/change_image_time" />
+
+	<CheckBoxPreference
+		android:key="rain"
+		android:defaultValue="false"
+		android:title="@string/rain" />
+
 	<ListPreference
-		android:entries="@array/change_image_time"
-		android:entryValues="@array/change_image_time"
-		android:key="time"
+		android:entries="@array/rain_time"
+		android:entryValues="@array/rain_time"
+		android:key="rainTime"
 		android:defaultValue="5"
-		android:title="@string/change_image_time" />
+		android:title="@string/rain_time" />
 
 	<Preference android:title="@string/set_custom_image" android:key="customimage"/>
 	<Preference android:title="Set wallpaper" android:key="setwall"/>
+	<Preference android:title="@string/share" android:key="share"/>
+	<Preference android:title="@string/rate_us" android:key="rateus"/>
+	<Preference android:title="@string/more_apps" android:key="more_apps"/>
 </PreferenceScreen>

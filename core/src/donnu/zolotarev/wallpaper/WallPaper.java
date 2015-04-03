@@ -2,6 +2,7 @@ package donnu.zolotarev.wallpaper;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.FPSLogger;
 
 import donnu.zolotarev.wallpaper.Screens.MainScreen;
@@ -19,6 +20,8 @@ public class WallPaper extends Game {
     private float imageTime = 5f;
     private boolean isRipple = true;
     private boolean isMoveRipple = true;
+    private boolean rain = true;
+    private float rainTime = 2f;
 
     private FPSLogger fpsLogger;
     private String customImage;
@@ -49,7 +52,7 @@ public class WallPaper extends Game {
     }
 
     @Override
-    public void resize(int width, int height) { screen.resize( width, height ); }
+    public void resize(int width, int height) { screen.resize(width, height); }
 
     @Override
     public void pause() { paused = true; }
@@ -64,12 +67,14 @@ public class WallPaper extends Game {
         return b;
     }
 
-    public void setSettingChanged(float imageTime, boolean isRipple, boolean moveripple, String customImage) {
+    public void setSettingChanged(float imageTime, boolean isRipple, boolean moveripple, boolean rain, int rainTime,String customImage) {
         this.imageTime = imageTime;
         this.isRipple = isRipple;
         this.isMoveRipple = moveripple;
         this.customImage = customImage;
         this.settingChanged = true;
+        this.rain = rain;
+        this.rainTime = rainTime;
     }
 
     public float getScreenOffset() {
@@ -94,5 +99,13 @@ public class WallPaper extends Game {
 
     public String getCustomImage() {
         return customImage;
+    }
+
+    public boolean isRain() {
+        return rain;
+    }
+
+    public float getRainTime() {
+        return rainTime;
     }
 }
