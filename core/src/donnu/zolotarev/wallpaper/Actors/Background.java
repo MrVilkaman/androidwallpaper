@@ -83,7 +83,7 @@ public class Background extends Actor  {
             public void onCompleate(Texture texture) {
                 imageNext.setRegion(texture);
                 scaleNext = 1f*Gdx.graphics.getHeight()/imageNext.getRegionHeight();
-                imageSizeNext = imageNext.getRegionWidth()*scaleNext - Gdx.graphics.getHeight();
+                imageSizeNext = imageNext.getRegionWidth()*scaleNext - Gdx.graphics.getWidth();
                 imageSizeNext *= -1;
                 isNextReady = true;
             }
@@ -97,7 +97,7 @@ public class Background extends Actor  {
             public void onCompleate(Texture texture) {
                 image.setRegion(texture);
                 scale = 1f*Gdx.graphics.getHeight()/image.getRegionHeight();
-                imageSize = image.getRegionWidth()*scale - Gdx.graphics.getHeight();
+                imageSize = image.getRegionWidth()*scale - Gdx.graphics.getWidth();
                 imageSize *= -1;
                 isReady = true;
                 isNextReady = false;

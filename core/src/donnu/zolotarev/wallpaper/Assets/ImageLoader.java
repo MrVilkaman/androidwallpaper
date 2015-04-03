@@ -7,20 +7,20 @@ public class ImageLoader implements IImageLoader {
 
     private static final int CUSTOM_IMAGE_ID = -2;
     private final TextureAssets textureAssets;
+    private final IExternalTextureLoader externalTextureLoader;
     private int lastIndex;
     private int lastUnload;
     private String customImage;
 
     public ImageLoader() {
         textureAssets =  TextureAssets.getTextureAssets();
+        externalTextureLoader = new ExternalTextureLoader();
     }
 
     @Override
     public void setCustomImage(String customImage) {
         if (!customImage.equals(this.customImage)) {
-            if (this.customImage != null && textureAssets.isLoaded(this.customImage)) {
-                textureAssets.unload(customImage);
-            }
+            textureAssets.unload(customImage);
         }
         this.customImage = customImage;
     }
@@ -32,9 +32,7 @@ public class ImageLoader implements IImageLoader {
             textureAssets.load(fileName, callback);
         }else{
             lastIndex = CUSTOM_IMAGE_ID;
-            if (!textureAssets.isLoaded(customImage)) {
-                textureAssets.load(customImage, callback);
-            }
+            externalTextureLoader.load(customImage, callback);
         }
     }
 
@@ -52,11 +50,10 @@ public class ImageLoader implements IImageLoader {
     @Override
     public void unloadLast() {
         if (lastUnload != -1) {
-            textureAssets.unload(textureAssets.getImagesNames()[lastUnload].path());
+            String fileName = textureAssets.getImagesNames()[lastUnload].path();
+            textureAssets.unload(fileName);
         }else if (lastUnload == CUSTOM_IMAGE_ID){
-            if (textureAssets.isLoaded(customImage)) {
-                textureAssets.unload(customImage);
-            }
+            externalTextureLoader.unload(customImage);
         }
             lastUnload = -1;
     }

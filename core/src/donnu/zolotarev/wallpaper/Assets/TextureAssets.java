@@ -53,6 +53,13 @@ public class TextureAssets extends AssetManager{
     public void load(String fileName, IImageLoader.IImageLoaded callback) {
         lastInLoad = fileName;
         this.callback = callback;
-        load(fileName,Texture.class);
+        load(fileName, Texture.class);
+    }
+
+    @Override
+    public synchronized void unload(String fileName) {
+        if (fileName != null && isLoaded(fileName)) {
+            super.unload(fileName);
+        }
     }
 }
