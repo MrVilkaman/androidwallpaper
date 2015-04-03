@@ -15,14 +15,21 @@
 	<string name="rate_us">Rate us</string>
 	<string name="more_apps">More apps</string>
 	<string name="share">Share it</string>
-
-
 	<string name="share_text">Качай збс обои! https://play.google.com/store/apps/details?id=donnu.zolotarev.rushgame.android</string>
 	<string name="share_chooser_text">Choose</string>
+
 	<string name="banner_title">SKY AND SUN</string>
 	<string name="banner_subtitle">LIVE WALLPAPER</string>
+
 	<string name="main_settings">SETTINGS</string>
 	<string name="main_set_wallpaper">SET WALLPAPER</string>
+
+	<string name="main_list_gift">Gift for you</string>
+	<string name="main_list_more_wallpaper">More Wallpaper</string>
+	<string name="main_list_rate">Rate</string>
+	<string name="main_list_share">Share</string>
+	<string name="main_list_amazing_apps">Amazing Apps</string>
+	<string name="main_list_contact">Developer contact</string>
 
 
 </resources>

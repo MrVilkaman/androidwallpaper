@@ -11,11 +11,12 @@
         android:layout_below="@+id/view_top_banner"
         android:id="@+id/view" />
     <ListView
+        android:layout_margin="@dimen/line_margin"
+        android:id="@+id/list"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/linearLayout"
         android:layout_below="@+id/view">
-
     </ListView>
 
 
@@ -24,9 +25,11 @@
         android:layout_alignParentBottom="true"
         android:id="@+id/linearLayout">
         <Button style="@style/MainButtoms"
+            android:layout_marginTop="0dp"
             android:id="@+id/main_settings"
             android:text="@string/main_settings"/>
         <Button style="@style/MainButtoms"
+            android:layout_marginBottom="@dimen/line_margin"
             android:id="@+id/main_set_wallpaper"
             android:background="@color/base_app_color_2"
             android:text="@string/main_set_wallpaper"/>
