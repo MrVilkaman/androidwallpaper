@@ -2,16 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:background="@color/background_setting_1"
     style="@style/LL.V">
-    <ListView
-
-        android:id="@+id/list"
+    <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_marginLeft="@dimen/line_margin"
-        android:layout_marginRight="@dimen/line_margin"
-        android:layout_marginTop="@dimen/line_margin"
-        android:layout_above="@+id/linearLayout">
-    </ListView>
+        android:layout_height="fill_parent">
+        <LinearLayout style="@style/LL.V"
+            android:layout_marginLeft="@dimen/line_margin"
+            android:layout_marginRight="@dimen/line_margin">
+            <include layout="@layout/view_settins"/>
+        </LinearLayout>
+    </ScrollView>
     <LinearLayout style="@style/LL.V"
         android:layout_alignParentBottom="true"
         android:background="@color/background_setting_2"

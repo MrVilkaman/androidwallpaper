@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout style="@style/LL.V">
+        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                style="@style/Text.Setting"
+                android:text="@string/setting_list_water" />
+
+            <View style="@style/Setpar" />
+            <com.rey.material.widget.Switch
+                style="@style/Switch"
+                android:id="@+id/setting_list_water"
+                app:sw_trackColor="@color/background_setting_2"
+                app:sw_thumbColor="@color/base_app_color_1"
+                app:sw_trackSize="16dp"
+                app:sw_thumbRadius="16dp"
+                 />
+        </FrameLayout>
+        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                style="@style/Text.Setting"
+                android:text="@string/setting_list_ripple_mode" />
+
+            <View style="@style/Setpar" />
+            <com.rey.material.widget.Switch
+                android:id="@+id/setting_list_ripple_mode"
+                style="@style/Switch"
+                app:sw_trackColor="@color/background_setting_2"
+                app:sw_thumbColor="@color/base_app_color_1"
+                app:sw_trackSize="16dp"
+                app:sw_thumbRadius="16dp"
+                />
+        </FrameLayout>
+        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/setting_list_change_image_time"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                style="@style/Text.Setting"
+                android:text="@string/setting_list_change_image_time" />
+            <View style="@style/Setpar" />
+        </FrameLayout>
+        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/setting_list_set_custom_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                style="@style/Text.Setting"
+                android:text="@string/setting_list_set_custom_image" />
+            <View style="@style/Setpar" />
+        </FrameLayout>
+        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/setting_list_rain_time"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                style="@style/Text.Setting"
+                android:text="@string/setting_list_rain_time" />
+            <View style="@style/Setpar" />
+        </FrameLayout>
+    </LinearLayout>
+
+</merge>

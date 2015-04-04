@@ -46,4 +46,8 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
+    <style name="Text.Setting">
+        <item name="android:layout_margin">@dimen/line_margin</item>
+    </style>
+
 </resources>

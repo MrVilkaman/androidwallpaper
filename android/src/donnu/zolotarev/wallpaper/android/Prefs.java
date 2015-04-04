@@ -1,7 +1,6 @@
 package donnu.zolotarev.wallpaper.android;
 
 import android.app.Activity;
-import android.app.WallpaperManager;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.LabeledIntent;
@@ -14,7 +13,6 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
-import android.preference.PreferenceManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +46,7 @@ public class Prefs extends PreferenceActivity {
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            addPreferencesFromResource(R.xml.prefs);
+        //    addPreferencesFromResource(R.xml.prefs);
             customImage();
             rateUs();
             moreApps();
@@ -58,7 +56,7 @@ public class Prefs extends PreferenceActivity {
 
         private void moreApps() {
 
-            Preference button = (Preference) getPreferenceManager().findPreference("more_apps");
+           /* Preference button = (Preference) getPreferenceManager().findPreference("more_apps");
             if (button != null) {
                 button.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                     @Override
@@ -67,11 +65,11 @@ public class Prefs extends PreferenceActivity {
                         return false;
                     }
                 });
-            }
+            }*/
         }
 
         private void shareIt() {
-            Preference button = (Preference) getPreferenceManager().findPreference("share");
+            /*Preference button = (Preference) getPreferenceManager().findPreference("share");
             if (button != null) {
                 button.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                     @Override
@@ -80,11 +78,11 @@ public class Prefs extends PreferenceActivity {
                         return false;
                     }
                 });
-            }
+            }*/
         }
 
         private void rateUs() {
-            Preference button = (Preference) getPreferenceManager().findPreference("rateus");
+           /* Preference button = (Preference) getPreferenceManager().findPreference("rateus");
             if (button != null) {
                 button.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                     @Override
@@ -93,13 +91,13 @@ public class Prefs extends PreferenceActivity {
                         return false;
                     }
                 });
-            }
+            }*/
 
         }
 
         @Override
         public void onActivityResult(int requestCode, int resultCode, Intent data) {
-            PhotoUtils.onActivityResult(getActivity(), requestCode, resultCode, data);
+           /* PhotoUtils.onActivityResult(getActivity(), requestCode, resultCode, data);
             PreferenceManager.getDefaultSharedPreferences(getActivity())
                     .edit()
                     .putString("customPhoto", PhotoUtils.getLastPhotoPath())
@@ -108,12 +106,12 @@ public class Prefs extends PreferenceActivity {
                 customimage.setTitle(R.string.set_custom_image);
             } else {
                 customimage.setTitle(R.string.clear_custom_photo);
-            }
+            }*/
             super.onActivityResult(requestCode, resultCode, data);
         }
 
         private void customImage() {
-            customimage = (Preference) getPreferenceManager().findPreference("customimage");
+           /* customimage = (Preference) getPreferenceManager().findPreference("customimage");
             if (customimage != null) {
                 customimage.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                     @Override
@@ -131,11 +129,11 @@ public class Prefs extends PreferenceActivity {
                         return true;
                     }
                 });
-            }
+            }*/
         }
 
         private void setWallpaperButton() {
-            Preference button = (Preference) getPreferenceManager().findPreference("setwall");
+           /* Preference button = (Preference) getActivity().getPreferenceManager().findPreference("setwall");
             if (button != null)
                 button.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                     @Override
@@ -153,17 +151,17 @@ public class Prefs extends PreferenceActivity {
                         startActivityForResult(i, 0);
                         return true;
                     }
-                });
+                });*/
         }
 
         @Override
         public void onResume() {
             super.onResume();
-            if (PhotoUtils.getLastPhotoPath().isEmpty()) {
+           /* if (PhotoUtils.getLastPhotoPath().isEmpty()) {
                 customimage.setTitle(R.string.set_custom_image);
             } else {
                 customimage.setTitle(R.string.clear_custom_photo);
-            }
+            }*/
         }
 
     } // MyPreferenceFragment
