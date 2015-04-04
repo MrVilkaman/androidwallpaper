@@ -3,7 +3,6 @@ package donnu.zolotarev.wallpaper.android.fragments;
 import android.app.WallpaperManager;
 import android.content.ComponentName;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -21,10 +20,8 @@ import donnu.zolotarev.wallpaper.android.R;
 import donnu.zolotarev.wallpaper.android.adapters.TempAdapter;
 import donnu.zolotarev.wallpaper.android.models.ICallback;
 import donnu.zolotarev.wallpaper.android.models.ListViewItems;
-import donnu.zolotarev.wallpaper.android.utils.Constants;
-import donnu.zolotarev.wallpaper.android.utils.Utils;
 
-public class MainFragment extends BaseFragment {
+public class SettingFragment extends BaseFragment {
 
     private TempAdapter tempAdapter;
 
@@ -40,7 +37,7 @@ public class MainFragment extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = injectView(R.layout.fragment_main,inflater, container);
+        View view = injectView(R.layout.fragment_setting,inflater, container);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -52,7 +49,7 @@ public class MainFragment extends BaseFragment {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        setTitle(ACTION_BAR_HIDE);
+        setTitle(R.string.main_settings);
         list.setAdapter(tempAdapter);
     }
 
@@ -67,19 +64,16 @@ public class MainFragment extends BaseFragment {
         items.add(new ListViewItems(R.string.main_list_more_wallpaper, new ICallback() {
             @Override
             public void execute() {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Constants.MORE_APPS)));
             }
         }));
         items.add(new ListViewItems(R.string.main_list_rate, new ICallback() {
             @Override
             public void execute() {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Constants.APP_PNAME)));
             }
         }));
         items.add(new ListViewItems(R.string.main_list_share, new ICallback() {
             @Override
             public void execute() {
-                Utils.share(getActivity(), getString(R.string.share_text));
             }
         }));
         items.add(new ListViewItems(R.string.main_list_amazing_apps, new ICallback() {
@@ -91,15 +85,9 @@ public class MainFragment extends BaseFragment {
         items.add(new ListViewItems(R.string.main_list_contact, new ICallback() {
             @Override
             public void execute() {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Constants.DEV_LINK)));
             }
         }));
         tempAdapter = new TempAdapter(getActivity(), items);
-    }
-
-    @OnClick(R.id.main_settings)
-    void onSetting(){
-        showFragment(new SettingFragment(),true);
     }
 
     @OnClick(R.id.main_set_wallpaper)

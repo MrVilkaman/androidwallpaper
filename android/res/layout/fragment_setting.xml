@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/background_setting_1"
+    style="@style/LL.V">
+    <ListView
+
+        android:id="@+id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="@dimen/line_margin"
+        android:layout_marginRight="@dimen/line_margin"
+        android:layout_marginTop="@dimen/line_margin"
+        android:layout_above="@+id/linearLayout">
+    </ListView>
+    <LinearLayout style="@style/LL.V"
+        android:layout_alignParentBottom="true"
+        android:background="@color/background_setting_2"
+        android:paddingBottom="@dimen/line_margin"
+        android:paddingTop="@dimen/line_margin"
+        android:id="@+id/linearLayout">
+        <Button style="@style/MainButtoms"
+            android:layout_margin="@dimen/line_margin"
+            android:id="@+id/main_set_wallpaper"
+            android:text="@string/main_set_wallpaper"/>
+    </LinearLayout>
+</RelativeLayout>

@@ -41,6 +41,7 @@
         </service>
 
         <activity android:name="donnu.zolotarev.wallpaper.android.activity.MainActivity"
+            android:theme="@style/AppTheme"
                   android:exported="true"
                   android:label="@string/settings">
             <intent-filter>

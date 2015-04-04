@@ -19,8 +19,6 @@ import android.preference.PreferenceManager;
 import java.util.ArrayList;
 import java.util.List;
 
-import donnu.zolotarev.wallpaper.android.fragments.MainFragment;
-
 
 public class Prefs extends PreferenceActivity {
 	
@@ -33,8 +31,8 @@ public class Prefs extends PreferenceActivity {
         if( Build.VERSION.SDK_INT < 11 )
             addPreferencesFromResource(R.xml.prefs);
         // Новый код
-        else 
-        	getFragmentManager().beginTransaction().replace(android.R.id.content, new MainFragment()).commit();
+        else {}
+        	//getFragmentManager().beginTransaction().replace(android.R.id.content, new MainFragment()).commit();
 
 
         

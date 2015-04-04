@@ -1,6 +1,6 @@
 package donnu.zolotarev.wallpaper.android.activity;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 
 import donnu.zolotarev.wallpaper.android.fragments.MainFragment;
 
