@@ -20,13 +20,15 @@ uniform LOWP float iGlobalTime[N];
 uniform LOWP sampler2D u_sampler2D;
 
 
-const LOWP float dist = 60.0;
-const LOWP float speed = 15.0;
-const LOWP float sd = speed/dist; 
+const LOWP float dist = 100.0;
+const LOWP float speed = 25.0;
+const LOWP float coef1 = -2.2;
+const LOWP float coef2 = 2.2;
+const LOWP float sd = speed/dist;
 
 LOWP float doRipple(float len,float time){
     if (sd*time > len){
-    LOWP float coef =  exp(-3.4*time)/2.5;
+    LOWP float coef =  exp(coef1*time)/coef2;
      return sin(len*dist-(time*speed))*coef;
     }else {
     return 0.0;
