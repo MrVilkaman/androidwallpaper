@@ -15,6 +15,7 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 import donnu.zolotarev.wallpaper.android.AndroidLauncher;
 import donnu.zolotarev.wallpaper.android.R;
+import donnu.zolotarev.wallpaper.android.fragments.Dialogs.AlertDialogRadio;
 
 public class SettingFragment extends BaseFragment {
 
@@ -59,11 +60,30 @@ public class SettingFragment extends BaseFragment {
     @OnClick(R.id.setting_list_change_image_time)
     void onChangeTime(){
 
+        AlertDialogRadio alert = AlertDialogRadio.get(R.array.change_image_time,R.array.change_image_time_value,setting.getString("time",""));
+        alert.show(getFragmentManager(), "alert_dialog_radio");
+        alert.setOnClickListener(new AlertDialogRadio.AlertPositiveListener() {
+            @Override
+            public void onPositiveClick(String newVal) {
+                setting.edit()
+                        .putString("time",newVal)
+                        .commit();
+            }
+        });
     }
 
     @OnClick(R.id.setting_list_rain_time)
     void onRainTime(){
-
+        AlertDialogRadio alert = AlertDialogRadio.get(R.array.rain_time,R.array.rain_time_value,setting.getString("rainTime",""));
+        alert.show(getFragmentManager(), "alert_dialog_radio");
+        alert.setOnClickListener(new AlertDialogRadio.AlertPositiveListener() {
+            @Override
+            public void onPositiveClick(String newVal) {
+                setting.edit()
+                        .putString("rainTime",newVal)
+                        .commit();
+            }
+        });
     }
 
     @OnClick(R.id.setting_list_set_custom_image)

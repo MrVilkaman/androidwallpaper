@@ -6,6 +6,7 @@ import android.support.v7.app.ActionBar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import butterknife.ButterKnife;
 import donnu.zolotarev.wallpaper.android.activity.SingleFragmentActivity;
@@ -43,6 +44,21 @@ public class BaseFragment extends Fragment{
         }else{
             bar.show();
             bar.setTitle(resId);
+        }
+    }
+
+
+    protected void toast(int messageId) {
+        Activity activity = getActivity();
+        if (activity != null) {
+            Toast.makeText(activity, messageId, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    protected void toast(String message) {
+        Activity activity = getActivity();
+        if (activity != null) {
+            Toast.makeText(activity, message, Toast.LENGTH_LONG).show();
         }
     }
 }
