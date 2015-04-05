@@ -1,5 +1,6 @@
 package donnu.zolotarev.wallpaper.android.fragments;
 
+import android.app.Activity;
 import android.app.WallpaperManager;
 import android.content.ComponentName;
 import android.content.Intent;
@@ -10,20 +11,24 @@ import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.rey.material.widget.Switch;
 
 import butterknife.InjectView;
 import butterknife.OnClick;
 import donnu.zolotarev.wallpaper.android.AndroidLauncher;
+import donnu.zolotarev.wallpaper.android.PhotoUtils;
 import donnu.zolotarev.wallpaper.android.R;
 import donnu.zolotarev.wallpaper.android.fragments.Dialogs.AlertDialogRadio;
 
 public class SettingFragment extends BaseFragment {
 
     @InjectView(R.id.setting_list_water)
-    com.rey.material.widget.Switch waterRipple;
+    Switch waterRipple;
 
     @InjectView(R.id.setting_list_ripple_mode)
-    com.rey.material.widget.Switch rippleInMove;
+    Switch rippleInMove;
 
     private SharedPreferences setting;
 
@@ -40,6 +45,20 @@ public class SettingFragment extends BaseFragment {
 
         waterRipple.setChecked(setting.getBoolean("ripple",true));
         rippleInMove.setChecked(setting.getBoolean("moveripple",false));
+    }
+
+    @OnClick(R.id.setting_list_water)
+    void onClickWater(){
+        setting.edit()
+                .putBoolean("ripple", waterRipple.isChecked())
+                .commit();
+    }
+
+    @OnClick(R.id.setting_list_ripple_mode)
+    void onClickRipple(){
+        setting.edit()
+                .putBoolean("moveripple", rippleInMove.isChecked())
+                .commit();
     }
 
     @OnClick(R.id.main_set_wallpaper)
@@ -86,8 +105,39 @@ public class SettingFragment extends BaseFragment {
         });
     }
 
+    @InjectView(R.id.setting_list_set_custom_image_text)
+    TextView imageTextView;
+
     @OnClick(R.id.setting_list_set_custom_image)
     void onSetCustomImage(){
+        if (PhotoUtils.getLastPhotoPath().isEmpty()) {
+            PhotoUtils.importInGalery(this, PhotoUtils.IN_GALLERY, PhotoUtils.TEMP_NAME);
+        } else {
+            PhotoUtils.clearLastPhotoPath();
+            PreferenceManager.getDefaultSharedPreferences(getActivity())
+                    .edit()
+                    .putString("customPhoto", PhotoUtils.getLastPhotoPath())
+                    .commit();
+            imageTextView.setText(R.string.setting_list_set_custom_image);
+        }
+    }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == PhotoUtils.IN_GALLERY) {
+                PhotoUtils.onActivityResult(getActivity(), requestCode, resultCode, data);
+                PreferenceManager.getDefaultSharedPreferences(getActivity())
+                        .edit()
+                        .putString("customPhoto", PhotoUtils.getLastPhotoPath())
+                        .commit();
+                if (PhotoUtils.getLastPhotoPath().isEmpty()) {
+                    imageTextView.setText(R.string.setting_list_set_custom_image);
+                } else {
+                    imageTextView.setText(R.string.setting_list_clear_custom_photo);
+                }
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }

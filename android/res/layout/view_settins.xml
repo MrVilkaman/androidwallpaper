@@ -54,6 +54,7 @@
             android:layout_height="match_parent">
             <TextView
                 style="@style/Text.Setting"
+                android:id="@+id/setting_list_set_custom_image_text"
                 android:text="@string/setting_list_set_custom_image" />
             <View style="@style/Setpar" />
         </FrameLayout>
