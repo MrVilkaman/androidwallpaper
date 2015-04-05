@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.HeaderViewListAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -44,10 +45,48 @@ public class MainFragment extends BaseFragment {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ((TempAdapter)parent.getAdapter()).click(position);
+                if (position != parent.getAdapter().getCount()-1) {
+                    ((TempAdapter)((HeaderViewListAdapter) parent.getAdapter()).getWrappedAdapter()).click(position);
+                }
             }
         });
+        addedFooter();
         return view;
+    }
+
+    private void addedFooter() {
+        View headerView = getActivity().getLayoutInflater().inflate(R.layout.footer_main_view, list, false);
+        headerView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        headerView.findViewById(R.id.footer_facebook).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toast("footer_facebook");
+            }
+        });
+        headerView.findViewById(R.id.footer_google).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toast("footer_google");
+            }
+        });
+        headerView.findViewById(R.id.footer_twitter).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toast("footer_twitter");
+            }
+        });
+        headerView.findViewById(R.id.footer_youtube).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toast("footer_youtube");
+            }
+        });
+        list.addFooterView(headerView);
     }
 
     @Override

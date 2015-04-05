@@ -39,12 +39,12 @@
         <item name="android:textColor">@color/text_btn_color</item>
         <item name="android:textSize">@dimen/main_text_size</item>
         <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginLeft">@dimen/line_margin</item>
         <item name="android:layout_marginRight">@dimen/line_margin</item>
         <item name="android:layout_marginTop">8dp</item>
         <item name="android:layout_marginBottom">8dp</item>
         <item name="android:background">@drawable/selector_setting_btn</item>
-        <item name="android:layout_height">wrap_content</item>
     </style>
 
     <style name="MainButtoms.Big">
@@ -54,6 +54,12 @@
 
     <style name="Text.Setting">
         <item name="android:layout_margin">@dimen/line_margin</item>
+    </style>
+
+    <style name="ImageView">
+        <item name="android:layout_weight">0.2</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
     </style>
 
 </resources>
