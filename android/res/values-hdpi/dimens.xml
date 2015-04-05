@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="main_banner_line_size">8dp</dimen>
-    <dimen name="main_banner_h_size">180dp</dimen>
+    <dimen name="main_banner_h_size">160dp</dimen>
 
     <dimen name="main_banner_title_size">36dp</dimen>
     <dimen name="main_text_size">18dp</dimen>
+
     <dimen name="main_banner_text_padding">8dp</dimen>
     <dimen name="line_margin">8dp</dimen>
     <dimen name="main_buttoms_big">0dp</dimen>
-
     <dimen name="setting_list_sweatch_size">10dp</dimen>
     <dimen name="footer_icon_margin">8dp</dimen>
 </resources>

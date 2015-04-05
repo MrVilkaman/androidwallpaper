@@ -28,6 +28,7 @@
             android:id="@+id/main_settings"
             android:text="@string/main_settings"/>
         <Button style="@style/MainButtoms.Big"
+            android:layout_marginTop="0dp"
             android:layout_marginBottom="@dimen/line_margin"
             android:id="@+id/main_set_wallpaper"
             android:background="@drawable/selector_setwall_btn"

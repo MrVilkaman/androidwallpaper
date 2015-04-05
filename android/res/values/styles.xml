@@ -48,8 +48,8 @@
     </style>
 
     <style name="MainButtoms.Big">
-        <item name="android:paddingBottom">@dimen/line_margin</item>
-        <item name="android:paddingTop">@dimen/line_margin</item>
+        <item name="android:paddingBottom">@dimen/main_buttoms_big</item>
+        <item name="android:paddingTop">@dimen/main_buttoms_big</item>
     </style>
 
     <style name="Text.Setting">
@@ -57,6 +57,8 @@
     </style>
 
     <style name="ImageView">
+        <item name="android:layout_marginLeft">@dimen/footer_icon_margin</item>
+        <item name="android:layout_marginRight">@dimen/footer_icon_margin</item>
         <item name="android:layout_weight">0.2</item>
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>

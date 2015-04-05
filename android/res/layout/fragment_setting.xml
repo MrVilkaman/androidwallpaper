@@ -4,7 +4,8 @@
     style="@style/LL.V">
     <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/linearLayout">
         <LinearLayout style="@style/LL.V"
             android:layout_marginLeft="@dimen/line_margin"
             android:layout_marginRight="@dimen/line_margin">
@@ -15,8 +16,8 @@
     <LinearLayout style="@style/LL.V"
         android:layout_alignParentBottom="true"
         android:background="@color/background_setting_2"
-        android:paddingBottom="@dimen/line_margin"
-        android:paddingTop="@dimen/line_margin"
+        android:paddingBottom="@dimen/main_buttoms_big"
+        android:paddingTop="@dimen/main_buttoms_big"
         android:id="@+id/linearLayout">
         <Button style="@style/MainButtoms.Big"
             android:layout_margin="@dimen/line_margin"

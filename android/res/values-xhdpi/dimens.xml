@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="main_banner_line_size">12dp</dimen>
+    <dimen name="main_banner_h_size">200dp</dimen>
+
+    <dimen name="main_banner_title_size">48dp</dimen>
+    <dimen name="main_text_size">24dp</dimen>
+    <dimen name="main_banner_text_padding">16dp</dimen>
+    <dimen name="line_margin">16dp</dimen>
+    <dimen name="main_buttoms_big">16dp</dimen>
+    <dimen name="setting_list_sweatch_size">16dp</dimen>
+    <dimen name="footer_icon_margin">8dp</dimen>
+</resources>
