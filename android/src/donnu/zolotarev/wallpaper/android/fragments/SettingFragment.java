@@ -5,6 +5,7 @@ import android.app.WallpaperManager;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -21,6 +22,7 @@ import donnu.zolotarev.wallpaper.android.AndroidLauncher;
 import donnu.zolotarev.wallpaper.android.PhotoUtils;
 import donnu.zolotarev.wallpaper.android.R;
 import donnu.zolotarev.wallpaper.android.fragments.Dialogs.AlertDialogRadio;
+import donnu.zolotarev.wallpaper.android.utils.Constants;
 
 public class SettingFragment extends BaseFragment {
 
@@ -43,6 +45,10 @@ public class SettingFragment extends BaseFragment {
         setTitle(R.string.main_settings);
         setting = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
+       updateUI();
+    }
+
+    private void updateUI() {
         waterRipple.setChecked(setting.getBoolean("ripple",true));
         rippleInMove.setChecked(setting.getBoolean("moveripple",false));
     }
@@ -85,7 +91,7 @@ public class SettingFragment extends BaseFragment {
             @Override
             public void onPositiveClick(String newVal) {
                 setting.edit()
-                        .putString("time",newVal)
+                        .putString("time", newVal)
                         .commit();
             }
         });
@@ -103,6 +109,18 @@ public class SettingFragment extends BaseFragment {
                         .commit();
             }
         });
+    }
+
+    @OnClick(R.id.setting_list_restore)
+    void onRestore(){
+        setting.edit().clear().commit();
+        updateUI();
+    }
+
+
+    @OnClick(R.id.setting_list_more_apps)
+    void onMoreApps(){
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Constants.MORE_APPS)));
     }
 
     @InjectView(R.id.setting_list_set_custom_image_text)
@@ -140,4 +158,6 @@ public class SettingFragment extends BaseFragment {
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
+
+    //
 }

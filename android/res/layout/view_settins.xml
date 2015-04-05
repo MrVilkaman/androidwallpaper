@@ -65,8 +65,30 @@
             <TextView
                 style="@style/Text.Setting"
                 android:text="@string/setting_list_rain_time" />
-            <View style="@style/Setpar" />
+
         </FrameLayout>
+        <Button style="@style/MainButtoms"
+            android:layout_margin="@dimen/line_margin"
+            android:background="@drawable/selector_restore_btn"
+            android:textColor="@color/text_color"
+            android:id="@+id/setting_list_restore"
+            android:text="@string/setting_list_restore_btn"/>
+
+        <View style="@style/Setpar" />
+        <TextView
+            style="@style/Text.Setting"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="@string/setting_list_top_market_title"
+            android:textColor="@color/base_app_color_1"/>
+        <View style="@style/Setpar" />
+
+
+        <Button style="@style/MainButtoms"
+            android:layout_margin="@dimen/line_margin"
+            android:background="@drawable/selector_setwall_btn"
+            android:id="@+id/setting_list_more_apps"
+            android:text="@string/setting_list_more_apps"/>
     </LinearLayout>
 
 </merge>

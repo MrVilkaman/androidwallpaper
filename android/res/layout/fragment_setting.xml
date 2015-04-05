@@ -9,6 +9,7 @@
             android:layout_marginLeft="@dimen/line_margin"
             android:layout_marginRight="@dimen/line_margin">
             <include layout="@layout/view_settins"/>
+
         </LinearLayout>
     </ScrollView>
     <LinearLayout style="@style/LL.V"
@@ -17,7 +18,7 @@
         android:paddingBottom="@dimen/line_margin"
         android:paddingTop="@dimen/line_margin"
         android:id="@+id/linearLayout">
-        <Button style="@style/MainButtoms"
+        <Button style="@style/MainButtoms.Big"
             android:layout_margin="@dimen/line_margin"
             android:id="@+id/main_set_wallpaper"
             android:text="@string/main_set_wallpaper"/>
