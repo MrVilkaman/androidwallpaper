@@ -115,6 +115,9 @@ public class SettingFragment extends BaseFragment {
     void onRestore(){
         setting.edit().clear().commit();
         updateUI();
+        setting.edit()
+                .putBoolean("moveripple", rippleInMove.isChecked())
+                .commit();
     }
 
 

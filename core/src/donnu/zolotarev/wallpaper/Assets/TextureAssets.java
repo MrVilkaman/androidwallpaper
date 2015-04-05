@@ -32,8 +32,16 @@ public class TextureAssets extends AssetManager{
     public synchronized boolean update() {
         boolean status = super.update();
         if (callback != null && isLoaded(lastInLoad)) {
-            callback.onCompleate(get(lastInLoad,Texture.class));
-            callback = null;
+            Gdx.app.postRunnable(new Runnable() {
+                @Override
+                public void run() {
+                    // process the result, e.g. add it to an Array<Result> field of the ApplicationListener.
+                    if (callback != null) {
+                        callback.onCompleate(get(lastInLoad, Texture.class));
+                        callback = null;
+                    }
+                }
+            });
         }
         return status;
     }

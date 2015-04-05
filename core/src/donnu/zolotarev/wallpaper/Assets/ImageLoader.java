@@ -30,17 +30,23 @@ public class ImageLoader implements IImageLoader {
     }
 
     @Override
-    public void getNext(IImageLoaded callback) {
-        if (customImage == null || (customImage.isEmpty())) {
-            String fileName = textureAssets.getImagesNames()[getNextRandom()].path();
-            textureAssets.load(fileName, callback);
-        }else{
-            lastIndex = CUSTOM_IMAGE_ID;
-            if (!externalTextureLoader.load(customImage, callback)) {
-                oldCustomImage = "";
-            }
+    public void getNext(final IImageLoaded callback) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if (customImage == null || (customImage.isEmpty())) {
+                    String fileName = textureAssets.getImagesNames()[getNextRandom()].path();
+                    textureAssets.load(fileName, callback);
+                }else{
+                    lastIndex = CUSTOM_IMAGE_ID;
+                    if (!externalTextureLoader.load(customImage, callback)) {
+                        oldCustomImage = "";
+                    }
 
-        }
+                }
+            }
+        }).run();
+
     }
 
     private int getNextRandom() {
