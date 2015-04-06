@@ -49,6 +49,14 @@
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+
+        </activity>
+
+        <activity android:name="donnu.zolotarev.wallpaper.android.activity.SettingActivity"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait"
+            android:exported="true"
+            android:label="@string/settings">
             <intent-filter>
                 <action android:name=".Preferences" />
                 <category android:name="android.intent.category.PREFERENCE" />
