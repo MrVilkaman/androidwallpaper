@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="border">#dbdbdb</color>
     <color name="background_main_1">#212025</color>
     <color name="background_main_2">#1A191E</color>
     <color name="background_setting_1">#FfFfFf</color>
     <color name="background_setting_2">#FAFAFA</color>
     <color name="background_setting_3">#F8F8F8</color>
-    <color name="base_app_color_1">#D44C00</color>
-    <color name="base_app_color_1_press">#6e2800</color>
+    <color name="base_app_color_1">#c05013</color>
+    <color name="base_app_color_1_1">#ad4910</color>
 
     <color name="base_app_color_2">#6296D2</color>
     <color name="base_app_color_2_press">#324d6b</color>

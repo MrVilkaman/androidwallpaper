@@ -16,7 +16,7 @@
     <LinearLayout style="@style/LL.V"
         android:layout_alignParentBottom="true"
         android:background="@color/background_setting_2"
-        android:paddingBottom="@dimen/main_buttoms_big"
+        android:paddingBottom="@dimen/line_margin"
         android:paddingTop="@dimen/main_buttoms_big"
         android:id="@+id/linearLayout">
         <Button style="@style/MainButtoms.Big"

@@ -67,7 +67,12 @@
 
         </FrameLayout>
         <Button style="@style/MainButtoms"
-            android:layout_margin="@dimen/line_margin"
+            android:paddingLeft="@dimen/restore_button_padding"
+            android:paddingRight="@dimen/restore_button_padding"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:textSize="@dimen/text_size"
+            android:layout_marginBottom="@dimen/line_margin"
             android:background="@drawable/selector_restore_btn"
             android:textColor="@color/text_color"
             android:id="@+id/setting_list_restore"
