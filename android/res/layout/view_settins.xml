@@ -15,11 +15,10 @@
             <com.rey.material.widget.Switch
                 style="@style/Switch"
                 android:id="@+id/setting_list_water"
-                app:sw_trackColor="@color/base_app_color_2"
-                app:sw_thumbColor="@color/base_app_color_1"
-                app:sw_trackSize="@dimen/setting_list_sweatch_size"
-                app:sw_thumbRadius="@dimen/setting_list_sweatch_size"
-                 />
+                app:sw_trackColor="@color/selector_sw_track_color"
+                app:sw_thumbColor="@color/selector_sw_thumb_color"
+                app:sw_trackSize="@dimen/setting_list_sweatch_track_size"
+                app:sw_thumbRadius="@dimen/setting_list_sweatch_size"/>
         </FrameLayout>
         <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
@@ -33,9 +32,9 @@
             <com.rey.material.widget.Switch
                 android:id="@+id/setting_list_ripple_mode"
                 style="@style/Switch"
-                app:sw_trackColor="@color/base_app_color_2"
-                app:sw_thumbColor="@color/base_app_color_1"
-                app:sw_trackSize="@dimen/setting_list_sweatch_size"
+                app:sw_trackColor="@color/selector_sw_track_color"
+                app:sw_thumbColor="@color/selector_sw_thumb_color"
+                app:sw_trackSize="@dimen/setting_list_sweatch_track_size"
                 app:sw_thumbRadius="@dimen/setting_list_sweatch_size"
                 />
         </FrameLayout>
