@@ -5,6 +5,7 @@ import android.app.WallpaperManager;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.rey.material.widget.Switch;
@@ -22,9 +24,13 @@ import donnu.zolotarev.wallpaper.android.AndroidLauncher;
 import donnu.zolotarev.wallpaper.android.PhotoUtils;
 import donnu.zolotarev.wallpaper.android.R;
 import donnu.zolotarev.wallpaper.android.fragments.Dialogs.AlertDialogRadio;
+import donnu.zolotarev.wallpaper.android.utils.AndroidTypefaceUtility;
 import donnu.zolotarev.wallpaper.android.utils.Constants;
 
 public class SettingFragment extends BaseFragment {
+
+    @InjectView(R.id.main_set_wallpaper)
+    Button setWallPaperBtn;
 
     @InjectView(R.id.setting_list_water)
     Switch waterRipple;
@@ -45,7 +51,16 @@ public class SettingFragment extends BaseFragment {
         setTitle(R.string.main_settings);
         setting = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
+        loadFonts();
        updateUI();
+    }
+
+    private void loadFonts() {
+        try {
+            Typeface type = Typeface.createFromAsset(getActivity().getAssets(),FONT_ROBOTO_LIGHT);
+            AndroidTypefaceUtility.SetTypefaceOfView(setWallPaperBtn, type);
+        } catch (Exception e) {
+        }
     }
 
     private void updateUI() {

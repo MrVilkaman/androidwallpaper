@@ -1,8 +1,11 @@
 package donnu.zolotarev.wallpaper.android.fragments;
 
 import android.app.Activity;
+import android.graphics.Typeface;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,15 +13,33 @@ import android.widget.Toast;
 
 import butterknife.ButterKnife;
 import donnu.zolotarev.wallpaper.android.activity.SingleFragmentActivity;
+import donnu.zolotarev.wallpaper.android.utils.AndroidTypefaceUtility;
+import donnu.zolotarev.wallpaper.android.utils.TypefaceSpan;
 
 public class BaseFragment extends Fragment{
 
+    private static final String TAG = "BaseFragment";
+
     protected static final int ACTION_BAR_HIDE = -1;
+
+    private static final String FONTS_FOLDER = "fonts/";
+    protected static final String FONT_ROBOTO_THIN = FONTS_FOLDER+"Roboto-Thin.ttf";
+    protected static final String FONT_ROBOTO_LIGHT = FONTS_FOLDER+"Roboto-Light.ttf";
 
     public View injectView(int res, LayoutInflater inflater, ViewGroup container){
         View view = inflater.inflate(res, container, false);
-        ButterKnife.inject(this,view);
+        ButterKnife.inject(this, view);
+
+        loadFonts(view);
         return view;
+    }
+
+    private void loadFonts(View view) {
+        try {
+            Typeface type = Typeface.createFromAsset(getActivity().getAssets(),FONT_ROBOTO_THIN);
+            AndroidTypefaceUtility.SetTypefaceOfViewGroup((ViewGroup)view,type);
+        } catch (Exception e) {
+        }
     }
 
     protected SingleFragmentActivity getMainActivity(){
@@ -43,8 +64,12 @@ public class BaseFragment extends Fragment{
             bar.hide();
         }else{
             bar.show();
-            bar.setTitle(resId);
+            SpannableString s = new SpannableString(getString(resId));
+            s.setSpan(new TypefaceSpan(getActivity(), FONT_ROBOTO_LIGHT), 0, s.length(),
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            bar.setTitle(s);
         }
+
     }
 
 

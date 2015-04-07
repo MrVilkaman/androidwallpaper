@@ -20,6 +20,7 @@
         android:paddingTop="@dimen/main_buttoms_big"
         android:id="@+id/linearLayout">
         <Button style="@style/MainButtoms.Big"
+            android:textAllCaps="false"
             android:layout_margin="@dimen/line_margin"
             android:id="@+id/main_set_wallpaper"
             android:text="@string/main_set_wallpaper"/>
