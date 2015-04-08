@@ -5,6 +5,7 @@
     <LinearLayout style="@style/LL.V">
         <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
+
             android:layout_height="match_parent">
 
             <TextView
@@ -66,12 +67,8 @@
                 android:text="@string/setting_list_rain_time" />
 
         </FrameLayout>
-        <Button style="@style/MainButtoms"
-            android:paddingLeft="@dimen/restore_button_padding"
-            android:paddingRight="@dimen/restore_button_padding"
+        <Button style="@style/MainButtoms.LittleSetting"
             android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:textSize="@dimen/text_size"
             android:layout_marginBottom="@dimen/line_margin"
             android:background="@drawable/selector_restore_btn"
             android:textColor="@color/text_color"
@@ -86,13 +83,23 @@
             android:text="@string/setting_list_top_market_title"
             android:textColor="@color/base_app_color_1"/>
         <View style="@style/Setpar" />
+        <LinearLayout style="@style/LL.H"
+            android:layout_margin="@dimen/line_margin">
 
-
-        <Button style="@style/MainButtoms"
-            android:layout_margin="@dimen/line_margin"
-            android:background="@drawable/selector_setwall_btn"
+        <Button style="@style/MainButtoms.LittleSetting"
+            android:layout_margin="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/selector_more_btn"
             android:id="@+id/setting_list_more_apps"
-            android:text="@string/setting_list_more_apps"/>
+            android:text="@string/setting_list_more"/>
+            <TextView
+                android:layout_marginRight="0dp"
+                style="@style/Text.Setting"
+                android:textSize="@dimen/text_size"
+                android:layout_gravity="center"
+                android:text="@string/setting_list_more_text"
+                />
+        </LinearLayout>
     </LinearLayout>
 
 </merge>

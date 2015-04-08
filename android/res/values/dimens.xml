@@ -15,4 +15,5 @@
     <dimen name="footer_icon_margin">8dp</dimen>
 
     <dimen name="restore_button_padding">16dp</dimen>
+    <dimen name="btn_corners_radius">8dp</dimen>
 </resources>

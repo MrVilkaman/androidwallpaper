@@ -29,8 +29,9 @@
 	<string name="setting_list_set_custom_image">Set custom image</string>
 	<string name="setting_list_rain_time">Rain time</string>
 	<string name="setting_list_restore_btn">Restore Default Settings</string>
-	<string name="setting_list_more_apps">See more new top apps</string>
+	<string name="setting_list_more">more</string>
 	<string name="setting_list_top_market_title">TOP NEW FREE IN PLAY MARKET</string>
 	<string name="footer_main_list_follow_me">FOLLOW ME</string>
+	<string name="setting_list_more_text">See more new top apps</string>
 
 </resources>
