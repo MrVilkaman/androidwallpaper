@@ -27,6 +27,7 @@ import donnu.zolotarev.wallpaper.android.AndroidLauncher;
 import donnu.zolotarev.wallpaper.android.PhotoUtils;
 import donnu.zolotarev.wallpaper.android.R;
 import donnu.zolotarev.wallpaper.android.fragments.Dialogs.AlertDialogRadio;
+import donnu.zolotarev.wallpaper.android.fragments.Dialogs.ImageDialogRadio;
 import donnu.zolotarev.wallpaper.android.utils.Constants;
 import donnu.zolotarev.wallpaper.android.utils.Utils;
 
@@ -158,7 +159,9 @@ public class SettingFragment extends BaseFragment {
 
     @OnClick(R.id.setting_list_set_custom_image)
     void onSetCustomImage(){
-        if (PhotoUtils.getLastPhotoPath().isEmpty()) {
+        ImageDialogRadio alert = ImageDialogRadio.get();
+        alert.show(getFragmentManager(), "alert_dialog_radio");
+       /* if (PhotoUtils.getLastPhotoPath().isEmpty()) {
             PhotoUtils.importInGalery(this, PhotoUtils.IN_GALLERY, PhotoUtils.TEMP_NAME);
         } else {
             PhotoUtils.clearLastPhotoPath();
@@ -167,7 +170,7 @@ public class SettingFragment extends BaseFragment {
                     .putString("customPhoto", PhotoUtils.getLastPhotoPath())
                     .commit();
             imageTextView.setText(R.string.setting_list_set_custom_image);
-        }
+        }*/
     }
 
     @Override
