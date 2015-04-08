@@ -117,37 +117,37 @@ public class MainFragment extends BaseFragment {
 
     private void initAdapter() {
         ArrayList<ListViewItems> items = new ArrayList<ListViewItems>(6);
-        items.add(new ListViewItems(R.string.main_list_gift, new ICallback() {
+        items.add(new ListViewItems(R.string.main_list_gift, R.drawable.ic_gift, new ICallback() {
             @Override
             public void execute() {
 
             }
         }));
-        items.add(new ListViewItems(R.string.main_list_more_wallpaper, new ICallback() {
+        items.add(new ListViewItems(R.string.main_list_more_wallpaper, R.drawable.ic_more_wallpepr, new ICallback() {
             @Override
             public void execute() {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Constants.MORE_APPS)));
             }
         }));
-        items.add(new ListViewItems(R.string.main_list_rate, new ICallback() {
+        items.add(new ListViewItems(R.string.main_list_rate, R.drawable.ic_rate, new ICallback() {
             @Override
             public void execute() {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Constants.APP_PNAME)));
             }
         }));
-        items.add(new ListViewItems(R.string.main_list_share, new ICallback() {
+        items.add(new ListViewItems(R.string.main_list_share, R.drawable.ic_share, new ICallback() {
             @Override
             public void execute() {
                 Utils.share(getActivity(), getString(R.string.share_text));
             }
         }));
-        items.add(new ListViewItems(R.string.main_list_amazing_apps, new ICallback() {
+        items.add(new ListViewItems(R.string.main_list_amazing_apps, R.drawable.ic_amazing_wallpaper, new ICallback() {
             @Override
             public void execute() {
 
             }
         }));
-        items.add(new ListViewItems(R.string.main_list_contact, new ICallback() {
+        items.add(new ListViewItems(R.string.main_list_contact, R.drawable.ic_contact_developer, new ICallback() {
             @Override
             public void execute() {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Constants.DEV_LINK)));

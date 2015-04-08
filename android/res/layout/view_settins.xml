@@ -44,7 +44,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TextView
-                style="@style/Text.Setting"
+                android:drawableRight="@drawable/ic_pictures"
+                style="@style/Text.Setting.Full"
                 android:text="@string/setting_list_change_image_time" />
             <View style="@style/Setpar" />
         </FrameLayout>
@@ -53,7 +54,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TextView
-                style="@style/Text.Setting"
+                android:drawableRight="@drawable/ic_setting"
+                style="@style/Text.Setting.Full"
                 android:id="@+id/setting_list_set_custom_image_text"
                 android:text="@string/setting_list_set_custom_image" />
             <View style="@style/Setpar" />
@@ -63,7 +65,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TextView
-                style="@style/Text.Setting"
+                android:drawableRight="@drawable/ic_setting"
+                style="@style/Text.Setting.Full"
                 android:text="@string/setting_list_rain_time" />
 
         </FrameLayout>

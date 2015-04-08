@@ -52,6 +52,7 @@ public class TempAdapter extends BaseAdapter {
         ViewHolder holder = (ViewHolder)view.getTag();
         ListViewItems someItem = getSomeItem(i);
         holder.title.setText(someItem.getTitle());
+        holder.title.setCompoundDrawablesWithIntrinsicBounds(0,0,someItem.getImageId(),0);
         return view;
     }
 

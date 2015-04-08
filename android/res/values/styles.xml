@@ -70,6 +70,10 @@
         <item name="android:layout_marginBottom">@dimen/line_margin</item>
     </style>
 
+    <style name="Text.Setting.Full">
+        <item name="android:layout_width">fill_parent</item>
+    </style>
+
     <style name="ImageView">
         <item name="android:layout_marginLeft">@dimen/footer_icon_margin</item>
         <item name="android:layout_marginRight">@dimen/footer_icon_margin</item>
@@ -83,5 +87,12 @@
         <item name="android:paddingRight">@dimen/restore_button_padding</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:textSize">@dimen/text_size</item>
+    </style>
+
+    <style name="Switch" parent="Material.Widget.Switch">
+        <item name="android:layout_gravity">right|center</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">@dimen/line_margin</item>
     </style>
 </resources>
