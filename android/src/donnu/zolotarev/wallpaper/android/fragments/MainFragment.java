@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 import donnu.zolotarev.wallpaper.android.AndroidLauncher;
@@ -24,6 +26,11 @@ import donnu.zolotarev.wallpaper.android.models.ICallback;
 import donnu.zolotarev.wallpaper.android.models.ListViewItems;
 import donnu.zolotarev.wallpaper.android.utils.Constants;
 import donnu.zolotarev.wallpaper.android.utils.Utils;
+
+import static donnu.zolotarev.wallpaper.android.utils.AndroidTypefaceUtility.FONT_ROBOTO_BOLD;
+import static donnu.zolotarev.wallpaper.android.utils.AndroidTypefaceUtility.FONT_ROBOTO_LIGHT;
+import static donnu.zolotarev.wallpaper.android.utils.AndroidTypefaceUtility.FONT_ROBOTO_THIN;
+import static donnu.zolotarev.wallpaper.android.utils.AndroidTypefaceUtility.setTypefaceOfView;
 
 public class MainFragment extends BaseFragment {
 
@@ -45,13 +52,25 @@ public class MainFragment extends BaseFragment {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position != parent.getAdapter().getCount()-1) {
-                    ((TempAdapter)((HeaderViewListAdapter) parent.getAdapter()).getWrappedAdapter()).click(position);
+                if (position != parent.getAdapter().getCount() - 1) {
+                    ((TempAdapter) ((HeaderViewListAdapter) parent.getAdapter()).getWrappedAdapter()).click(position);
                 }
             }
         });
         addedFooter();
         return view;
+    }
+
+    private void loadFont() {
+        try {
+            setTypefaceOfView(getActivity(), list.getRootView(), FONT_ROBOTO_THIN);
+            setTypefaceOfView(getActivity(), ButterKnife.findById(getView(), R.id.main_settings), FONT_ROBOTO_LIGHT);
+            setTypefaceOfView(getActivity(), ButterKnife.findById(getView(), R.id.main_set_wallpaper), FONT_ROBOTO_LIGHT);
+            setTypefaceOfView(getActivity(), ButterKnife.findById(getView(), R.id.title_layout), FONT_ROBOTO_BOLD);
+            Log.d("TAG", "loadFont - success");
+        } catch (Exception e) {
+            Log.d("TAG","loadFont",e);
+        }
     }
 
     private void addedFooter() {
@@ -93,6 +112,7 @@ public class MainFragment extends BaseFragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         setTitle(ACTION_BAR_HIDE);
         list.setAdapter(tempAdapter);
+        loadFont();
     }
 
     private void initAdapter() {

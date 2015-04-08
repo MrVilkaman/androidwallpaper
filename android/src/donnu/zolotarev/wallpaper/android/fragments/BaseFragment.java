@@ -13,8 +13,12 @@ import android.widget.Toast;
 
 import butterknife.ButterKnife;
 import donnu.zolotarev.wallpaper.android.activity.SingleFragmentActivity;
-import donnu.zolotarev.wallpaper.android.utils.AndroidTypefaceUtility;
 import donnu.zolotarev.wallpaper.android.utils.TypefaceSpan;
+
+import static donnu.zolotarev.wallpaper.android.utils.AndroidTypefaceUtility.FONT_ROBOTO_LIGHT;
+import static donnu.zolotarev.wallpaper.android.utils.AndroidTypefaceUtility.FONT_ROBOTO_THIN;
+import static donnu.zolotarev.wallpaper.android.utils.AndroidTypefaceUtility.setTypefaceOfViewGroup;
+import static donnu.zolotarev.wallpaper.android.utils.AndroidTypefaceUtility.getFont;
 
 public class BaseFragment extends Fragment{
 
@@ -22,9 +26,6 @@ public class BaseFragment extends Fragment{
 
     protected static final int ACTION_BAR_HIDE = -1;
 
-    private static final String FONTS_FOLDER = "fonts/";
-    protected static final String FONT_ROBOTO_THIN = FONTS_FOLDER+"Roboto-Thin.ttf";
-    protected static final String FONT_ROBOTO_LIGHT = FONTS_FOLDER+"Roboto-Light.ttf";
 
     public View injectView(int res, LayoutInflater inflater, ViewGroup container){
         View view = inflater.inflate(res, container, false);
@@ -36,8 +37,7 @@ public class BaseFragment extends Fragment{
 
     private void loadFonts(View view) {
         try {
-            Typeface type = Typeface.createFromAsset(getActivity().getAssets(),FONT_ROBOTO_THIN);
-            AndroidTypefaceUtility.SetTypefaceOfViewGroup((ViewGroup)view,type);
+            setTypefaceOfViewGroup(getActivity(), (ViewGroup) view, FONT_ROBOTO_THIN);
         } catch (Exception e) {
         }
     }
@@ -65,7 +65,8 @@ public class BaseFragment extends Fragment{
         }else{
             bar.show();
             SpannableString s = new SpannableString(getString(resId));
-            s.setSpan(new TypefaceSpan(getActivity(), FONT_ROBOTO_LIGHT), 0, s.length(),
+            Typeface font = getFont(getActivity(), FONT_ROBOTO_LIGHT);
+            s.setSpan(new TypefaceSpan(font), 0, s.length(),
                     Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             bar.setTitle(s);
         }

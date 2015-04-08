@@ -13,6 +13,7 @@
             android:layout_height="@dimen/main_banner_h_size" />
 
         <LinearLayout style="@style/LL.V"
+            android:id="@+id/title_layout"
             android:paddingBottom="@dimen/main_banner_text_padding"
             android:layout_gravity="bottom">
             <TextView style="@style/Text.TitleText" android:text="@string/banner_title"/>

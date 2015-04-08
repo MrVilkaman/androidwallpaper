@@ -1,15 +1,27 @@
 package donnu.zolotarev.wallpaper.android.utils;
 
+import android.content.Context;
 import android.graphics.Typeface;
+import android.support.v4.util.LruCache;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public  class AndroidTypefaceUtility
-{
+public  class AndroidTypefaceUtility {
+
+    private static final String FONTS_FOLDER = "fonts/";
+    public static final String FONT_ROBOTO_THIN = FONTS_FOLDER+"Roboto-Thin.ttf";
+    public static final String FONT_ROBOTO_LIGHT = FONTS_FOLDER+"Roboto-Light.ttf";
+    public static final String FONT_ROBOTO_BOLD = FONTS_FOLDER+"Roboto-Bold.ttf";
+
+    private static LruCache<String, Typeface> sTypefaceCache =
+            new LruCache<String, Typeface>(12);
+
 
     //Refer to the code block beneath this one, to see how to create a typeface.
-    public static void SetTypefaceOfView(View view, Typeface customTypeface) throws Exception {
+    public static void setTypefaceOfView(Context context, View view, String typeface) throws Exception {
+        Typeface customTypeface = getFont(context, typeface);
+
         if (customTypeface != null && view != null)
         {
             try
@@ -21,7 +33,7 @@ public  class AndroidTypefaceUtility
                 else if (view instanceof EditText)
                     ((EditText)view).setTypeface(customTypeface);*/
                 else if (view instanceof ViewGroup)
-                SetTypefaceOfViewGroup((ViewGroup)view, customTypeface);
+                setTypefaceOfViewGroup(context, (ViewGroup) view, typeface);
 //                Console.Error.WriteLine("AndroidTypefaceUtility: {0} is type of {1} and does not have a typeface property", view.Id, typeof(View));
             }
             catch (Exception ex)
@@ -36,12 +48,23 @@ public  class AndroidTypefaceUtility
         }
     }
 
-    public static void SetTypefaceOfViewGroup(ViewGroup layout, Typeface customTypeface) throws Exception {
-        if (customTypeface != null && layout != null)
+    public static Typeface getFont(Context context, String typefaceName) {
+        Typeface mTypeface = sTypefaceCache.get(typefaceName);
+
+        if (mTypeface == null) {
+            mTypeface = Typeface.createFromAsset(context.getApplicationContext()
+                    .getAssets(), typefaceName);
+            sTypefaceCache.put(typefaceName, mTypeface);
+        }
+        return mTypeface;
+    }
+
+    public static void setTypefaceOfViewGroup(Context context, ViewGroup layout, String typeface) throws Exception {
+        if (typeface != null && layout != null)
         {
             for (int i = 0; i < layout.getChildCount(); i++)
             {
-                SetTypefaceOfView(layout.getChildAt(i), customTypeface);
+                setTypefaceOfView(context, layout.getChildAt(i), typeface);
             }
         }
         else

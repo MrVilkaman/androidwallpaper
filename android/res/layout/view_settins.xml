@@ -77,11 +77,12 @@
 
         <View style="@style/Setpar" />
         <TextView
+            android:id="@+id/setting_list_top_market_title"
             style="@style/Text.Setting"
             android:gravity="center"
             android:layout_gravity="center"
             android:text="@string/setting_list_top_market_title"
-            android:textColor="@color/base_app_color_1"/>
+            android:textColor="@color/setting_text_coloer"/>
         <View style="@style/Setpar" />
         <LinearLayout style="@style/LL.H"
             android:layout_margin="@dimen/line_margin">
