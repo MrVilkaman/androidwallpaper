@@ -83,8 +83,6 @@
     </style>
 
     <style name="MainButtoms.LittleSetting">
-        <item name="android:paddingLeft">@dimen/restore_button_padding</item>
-        <item name="android:paddingRight">@dimen/restore_button_padding</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:textSize">@dimen/text_size</item>
     </style>

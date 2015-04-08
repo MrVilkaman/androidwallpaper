@@ -71,6 +71,8 @@
 
         </FrameLayout>
         <Button style="@style/MainButtoms.LittleSetting"
+            android:paddingLeft="@dimen/restore_button_padding"
+            android:paddingRight="@dimen/restore_button_padding"
             android:layout_gravity="center"
             android:layout_marginBottom="@dimen/line_margin"
             android:background="@drawable/selector_restore_btn"
@@ -88,6 +90,7 @@
             android:textColor="@color/setting_text_coloer"/>
         <View style="@style/Setpar" />
         <LinearLayout style="@style/LL.H"
+            android:visibility="gone"
             android:gravity="center"
             android:layout_margin="@dimen/line_margin">
             <ImageButton
@@ -119,6 +122,7 @@
 
         <Button style="@style/MainButtoms.LittleSetting"
             android:layout_margin="0dp"
+            android:layout_gravity="center"
             android:layout_weight="1"
             android:background="@drawable/selector_more_btn"
             android:id="@+id/setting_list_more_apps"
