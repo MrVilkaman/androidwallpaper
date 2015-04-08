@@ -85,6 +85,33 @@
             android:textColor="@color/setting_text_coloer"/>
         <View style="@style/Setpar" />
         <LinearLayout style="@style/LL.H"
+            android:gravity="center"
+            android:layout_margin="@dimen/line_margin">
+            <ImageButton
+                android:background="@drawable/setting_ads_app_image_stub"
+                android:layout_marginRight="@dimen/stub_shape_size_pad"
+                android:layout_width="@dimen/stub_shape_size"
+                android:layout_height="@dimen/stub_shape_size" />
+            <ImageButton
+                android:layout_marginLeft="@dimen/stub_shape_size_pad"
+                android:layout_marginRight="@dimen/stub_shape_size_pad"
+                android:background="@drawable/setting_ads_app_image_stub"
+                android:layout_width="@dimen/stub_shape_size"
+                android:layout_height="@dimen/stub_shape_size" />
+            <ImageButton
+                android:layout_marginLeft="@dimen/stub_shape_size_pad"
+                android:layout_marginRight="@dimen/stub_shape_size_pad"
+                android:background="@drawable/setting_ads_app_image_stub"
+                android:layout_width="@dimen/stub_shape_size"
+                android:layout_height="@dimen/stub_shape_size" />
+            <ImageButton
+                android:layout_marginLeft="@dimen/stub_shape_size_pad"
+                android:background="@drawable/setting_ads_app_image_stub"
+                android:layout_width="@dimen/stub_shape_size"
+                android:layout_height="@dimen/stub_shape_size" />
+        </LinearLayout>
+        <View style="@style/Setpar" />
+        <LinearLayout style="@style/LL.H"
             android:layout_margin="@dimen/line_margin">
 
         <Button style="@style/MainButtoms.LittleSetting"

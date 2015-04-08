@@ -16,4 +16,6 @@
 
     <dimen name="restore_button_padding">16dp</dimen>
     <dimen name="btn_corners_radius">8dp</dimen>
+    <dimen name="stub_shape_size">50dp</dimen>
+    <dimen name="stub_shape_size_pad">6dp</dimen>
 </resources>
