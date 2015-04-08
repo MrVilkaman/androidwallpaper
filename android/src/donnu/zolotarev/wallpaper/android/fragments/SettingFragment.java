@@ -10,6 +10,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -25,6 +28,7 @@ import donnu.zolotarev.wallpaper.android.PhotoUtils;
 import donnu.zolotarev.wallpaper.android.R;
 import donnu.zolotarev.wallpaper.android.fragments.Dialogs.AlertDialogRadio;
 import donnu.zolotarev.wallpaper.android.utils.Constants;
+import donnu.zolotarev.wallpaper.android.utils.Utils;
 
 import static donnu.zolotarev.wallpaper.android.utils.AndroidTypefaceUtility.FONT_ROBOTO_LIGHT;
 import static donnu.zolotarev.wallpaper.android.utils.AndroidTypefaceUtility.setTypefaceOfView;
@@ -41,6 +45,12 @@ public class SettingFragment extends BaseFragment {
     Switch rippleInMove;
 
     private SharedPreferences setting;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -179,5 +189,20 @@ public class SettingFragment extends BaseFragment {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    //
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_setting, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.ic_share_app:
+                Utils.share(getActivity(), getString(R.string.share_text));
+                break;
+        }
+
+        return false;
+    }
 }
