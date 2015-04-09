@@ -62,10 +62,10 @@ public class SettingFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = injectView(R.layout.fragment_setting,inflater, container);
 
-        view1 = ButterKnife.findById(getView(), R.id.water_1);
-        view2 = ButterKnife.findById(getView(), R.id.water_2);
-        view3 = ButterKnife.findById(getView(), R.id.water_3);
-        view4 = ButterKnife.findById(getView(), R.id.setting_list_rain_time);
+        view1 = ButterKnife.findById(view, R.id.water_1);
+        view2 = ButterKnife.findById(view, R.id.water_2);
+        view3 = ButterKnife.findById(view, R.id.water_3);
+        view4 = ButterKnife.findById(view, R.id.setting_list_rain_time);
 
         return view;
     }
