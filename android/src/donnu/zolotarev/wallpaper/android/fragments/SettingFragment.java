@@ -16,9 +16,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
-
-import com.rey.material.widget.Switch;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -41,10 +40,10 @@ public class SettingFragment extends BaseFragment {
     Button setWallPaperBtn;
 
     @InjectView(R.id.setting_list_water)
-    Switch waterRipple;
+    CheckBox waterRipple;
 
     @InjectView(R.id.setting_list_ripple_mode)
-    Switch rippleInMove;
+    CheckBox rippleInMove;
 
     private SharedPreferences setting;
 
