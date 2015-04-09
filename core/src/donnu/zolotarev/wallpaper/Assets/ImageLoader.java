@@ -48,7 +48,6 @@ public class ImageLoader implements IImageLoader {
                         String fileName = textureAssets.getImagesNames()[i].path();
                         textureAssets.load(fileName, callback);
                     }
-
                 }
             }
         }).run();

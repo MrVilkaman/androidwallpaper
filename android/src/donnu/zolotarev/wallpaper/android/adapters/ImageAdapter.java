@@ -69,6 +69,10 @@ public class ImageAdapter extends ArrayAdapter<String> {
         return view;
     }
 
+    public int getSelectedIndex() {
+        return selectedIndex;
+    }
+
 
     private static class ViewHolder {
 

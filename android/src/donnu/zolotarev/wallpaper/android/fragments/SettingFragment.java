@@ -172,12 +172,17 @@ public class SettingFragment extends BaseFragment {
                             .edit()
                             .putString("customPhoto", "")
                             .commit();
-                } else {
+                } else if (newVal != -2) {
                     PreferenceManager.getDefaultSharedPreferences(getActivity())
                             .edit()
                             .putString("customPhoto", "#" + newVal)
                             .commit();
                 }
+            }
+
+            @Override
+            public void onChoose() {
+                PhotoUtils.importInGalery(SettingFragment.this, PhotoUtils.IN_GALLERY, PhotoUtils.TEMP_NAME);
             }
         });
        /* if (PhotoUtils.getLastPhotoPath().isEmpty()) {

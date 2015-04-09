@@ -165,8 +165,8 @@ public class MainScreen implements Screen {
         if(imageLoader.setCustomImage(wallPaper.getCustomImage())){
             timer.reset();
             timer.start();
-            background.changeImage();
         }
+            background.changeImage();
     }
 
     @Override

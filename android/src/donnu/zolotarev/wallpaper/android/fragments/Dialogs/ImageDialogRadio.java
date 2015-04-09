@@ -40,6 +40,7 @@ public class ImageDialogRadio extends DialogFragment {
 
     public  interface AlertPositiveListener {
         public void onPositiveClick(int newVal);
+        void onChoose();
     }
 
     private AlertPositiveListener alertPositiveListener;
@@ -60,6 +61,14 @@ public class ImageDialogRadio extends DialogFragment {
                 AlertDialog alert = (AlertDialog) getDialog();
                 alert.getListView().clearChoices();
                 ((ImageAdapter) alert.getListView().getAdapter()).setSelectedIndex(-1);
+            }
+        });
+        b.setNeutralButton(R.string.image_dialog_custom_image, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                AlertDialog alert = (AlertDialog) getDialog();
+                ((ImageAdapter) alert.getListView().getAdapter()).setSelectedIndex(-2);
+                alertPositiveListener.onChoose();
             }
         });
         AlertDialog d = b.create();
@@ -96,7 +105,7 @@ public class ImageDialogRadio extends DialogFragment {
     public void onDismiss(DialogInterface dialog) {
 
         AlertDialog alert = (AlertDialog)getDialog();
-        int position = alert.getListView().getCheckedItemPosition();
+        int position = ((ImageAdapter) alert.getListView().getAdapter()).getSelectedIndex();
         Bundle bundle = getArguments();
 
         alertPositiveListener.onPositiveClick(position);

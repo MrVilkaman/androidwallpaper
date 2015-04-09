@@ -23,7 +23,7 @@ public class Background extends Actor  {
         image = new TextureRegion();
         isReady = false;
         this.imageLoader = imageLoader;
-        updateImage();
+       // updateImage();
     }
 
 
