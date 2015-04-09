@@ -13,9 +13,7 @@
     <View style="@style/Setpar" />
 
     <LinearLayout style="@style/LL.H"
-        android:layout_marginTop="@dimen/line_margin"
-        android:layout_marginLeft="@dimen/line_margin"
-        android:layout_marginRight="@dimen/line_margin"
+        android:layout_margin="@dimen/line_margin"
         android:weightSum="0.8">
         <ImageView
             style="@style/ImageView"

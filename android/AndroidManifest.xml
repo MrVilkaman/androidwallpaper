@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="donnu.zolotarev.wallpaper.android"
-          android:versionCode="8"
-          android:versionName="1.4" >
+          android:versionCode="9"
+          android:versionName="1.5" >
 
 
     <!-- TODO: проверить название пакета здесь и в livewallpaper.xml! -->
@@ -24,7 +24,6 @@
             android:icon="@drawable/ic_launcher"
             android:label="@string/app_name"
             android:allowBackup="true" >
-
         <!-- Live Wallpaper Service -->
         <service android:name="donnu.zolotarev.wallpaper.android.AndroidLauncher"
                  android:label="@string/app_name"
