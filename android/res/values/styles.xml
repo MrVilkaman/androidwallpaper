@@ -87,9 +87,9 @@
         <item name="android:textSize">@dimen/text_size</item>
     </style>
 
-    <style name="Switch" parent="Material.Widget.Switch">
+    <style name="Switch" >
         <item name="android:layout_gravity">right|center</item>
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_width">36dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginRight">@dimen/line_margin</item>
     </style>

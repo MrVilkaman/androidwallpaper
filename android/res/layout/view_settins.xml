@@ -12,10 +12,13 @@
                 android:button="@drawable/checkbox_selector"
                 style="@style/Switch"
                 android:id="@+id/setting_list_water"
-                />
+                android:layout_width="54dp" />
         </FrameLayout>
-        <View style="@style/Setpar" />
-        <FrameLayout style="@style/Setting_FL">
+        <View style="@style/Setpar"
+            android:id="@+id/water_1"/>
+        <FrameLayout
+            android:id="@+id/water_2"
+            style="@style/Setting_FL">
             <TextView
                 style="@style/Text.Setting"
                 android:text="@string/setting_list_ripple_mode" />
@@ -23,7 +26,7 @@
                 android:button="@drawable/checkbox_selector"
                 android:id="@+id/setting_list_ripple_mode"
                 style="@style/Switch"
-                />
+                android:layout_width="54dp" />
         </FrameLayout>
         <View style="@style/Setpar" />
         <FrameLayout style="@style/Setting_FL"
@@ -42,7 +45,8 @@
                 android:id="@+id/setting_list_set_custom_image_text"
                 android:text="@string/setting_list_set_custom_image" />
         </FrameLayout>
-        <View style="@style/Setpar" />
+        <View style="@style/Setpar"
+            android:id="@+id/water_3"/>
         <FrameLayout style="@style/Setting_FL"
             android:id="@+id/setting_list_rain_time">
             <TextView

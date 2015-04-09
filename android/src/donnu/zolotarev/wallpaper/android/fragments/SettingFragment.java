@@ -45,6 +45,11 @@ public class SettingFragment extends BaseFragment {
     @InjectView(R.id.setting_list_ripple_mode)
     CheckBox rippleInMove;
 
+    View view1;
+    View view2;
+    View view3;
+    View view4;
+
     private SharedPreferences setting;
 
     @Override
@@ -56,6 +61,12 @@ public class SettingFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = injectView(R.layout.fragment_setting,inflater, container);
+
+        view1 = ButterKnife.findById(getView(), R.id.water_1);
+        view2 = ButterKnife.findById(getView(), R.id.water_2);
+        view3 = ButterKnife.findById(getView(), R.id.water_3);
+        view4 = ButterKnife.findById(getView(), R.id.setting_list_rain_time);
+
         return view;
     }
 
@@ -64,8 +75,9 @@ public class SettingFragment extends BaseFragment {
         setTitle(ACTION_BAR_HIDE);
         setting = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
-     //   loadFonts();
-       updateUI();
+        //   loadFonts();
+        updateCheckedUI();
+        updateUI();
     }
 
     private void loadFonts() {
@@ -77,9 +89,23 @@ public class SettingFragment extends BaseFragment {
         }
     }
 
-    private void updateUI() {
+    private void updateCheckedUI() {
         waterRipple.setChecked(setting.getBoolean("ripple",true));
         rippleInMove.setChecked(setting.getBoolean("moveripple", false));
+    }
+
+    private void updateUI() {
+        if (waterRipple.isChecked()) {
+            view1.setVisibility(View.VISIBLE);
+            view2.setVisibility(View.VISIBLE);
+            view3.setVisibility(View.VISIBLE);
+            view4.setVisibility(View.VISIBLE);
+        }else{
+            view1.setVisibility(View.GONE);
+            view2.setVisibility(View.GONE);
+            view3.setVisibility(View.GONE);
+            view4.setVisibility(View.GONE);
+        }
     }
 
     @OnClick(R.id.setting_list_water)
@@ -87,6 +113,7 @@ public class SettingFragment extends BaseFragment {
         setting.edit()
                 .putBoolean("ripple", waterRipple.isChecked())
                 .commit();
+        updateUI();
     }
 
     @OnClick(R.id.setting_list_ripple_mode)
@@ -143,7 +170,7 @@ public class SettingFragment extends BaseFragment {
     @OnClick(R.id.setting_list_restore)
     void onRestore(){
         setting.edit().clear().commit();
-        updateUI();
+        updateCheckedUI();
         setting.edit()
                 .putBoolean("moveripple", rippleInMove.isChecked())
                 .commit();
