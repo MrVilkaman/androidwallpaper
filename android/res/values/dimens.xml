@@ -7,8 +7,9 @@
     <dimen name="main_text_size">16dp</dimen>
     <dimen name="text_size">14dp</dimen>
     <dimen name="main_banner_text_padding">8dp</dimen>
-    <dimen name="line_margin">16dp</dimen>
-    <dimen name="dubl_line_margin">32dp</dimen>
+    <dimen name="line_margin">12dp</dimen>
+    <dimen name="item_line_margin">16dp</dimen>
+    <dimen name="dubl_line_margin">24dp</dimen>
     <dimen name="main_buttoms_big">0dp</dimen>
 
     <dimen name="setting_list_sweatch_size">12dp</dimen>
@@ -19,4 +20,7 @@
     <dimen name="btn_corners_radius">4dp</dimen>
     <dimen name="stub_shape_size">50dp</dimen>
     <dimen name="stub_shape_size_pad">6dp</dimen>
+    <dimen name="border_size">1px</dimen>
+    <dimen name="size_little_btn">3dp</dimen>
+    <dimen name="main_btn_margin">12dp</dimen>
 </resources>

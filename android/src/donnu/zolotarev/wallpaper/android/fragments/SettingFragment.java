@@ -174,6 +174,7 @@ public class SettingFragment extends BaseFragment {
         setting.edit()
                 .putBoolean("moveripple", rippleInMove.isChecked())
                 .commit();
+        updateUI();
     }
 
 
