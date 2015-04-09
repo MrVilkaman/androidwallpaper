@@ -6,6 +6,9 @@
         android:layout_width="fill_parent"
         android:gravity="center_vertical"
         android:id="@+id/text"
-        android:layout_margin="@dimen/line_margin"/>
+        android:layout_marginLeft="@dimen/dubl_line_margin"
+        android:layout_marginRight="@dimen/dubl_line_margin"
+        android:layout_marginTop="@dimen/line_margin"
+        android:layout_marginBottom="@dimen/line_margin"/>
     <View style="@style/Setpar"/>
-</FrameLayout>
+    </FrameLayout>

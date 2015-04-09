@@ -7,8 +7,7 @@
         android:layout_height="fill_parent"
         android:layout_above="@+id/linearLayout">
         <LinearLayout style="@style/LL.V"
-            android:layout_marginLeft="@dimen/line_margin"
-            android:layout_marginRight="@dimen/line_margin">
+            >
             <include layout="@layout/view_settins"/>
 
         </LinearLayout>

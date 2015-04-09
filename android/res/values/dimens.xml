@@ -8,6 +8,7 @@
     <dimen name="text_size">14dp</dimen>
     <dimen name="main_banner_text_padding">8dp</dimen>
     <dimen name="line_margin">16dp</dimen>
+    <dimen name="dubl_line_margin">32dp</dimen>
     <dimen name="main_buttoms_big">0dp</dimen>
 
     <dimen name="setting_list_sweatch_size">12dp</dimen>

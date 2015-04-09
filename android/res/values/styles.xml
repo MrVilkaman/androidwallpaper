@@ -65,8 +65,8 @@
 
     <style name="Text.Setting">
         <item name="android:layout_marginLeft">@dimen/line_margin</item>
-        <item name="android:layout_marginTop">@dimen/line_margin</item>
         <item name="android:layout_marginRight">@dimen/line_margin</item>
+        <item name="android:layout_marginTop">@dimen/line_margin</item>
         <item name="android:layout_marginBottom">@dimen/line_margin</item>
     </style>
 
@@ -92,5 +92,12 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginRight">@dimen/line_margin</item>
+    </style>
+
+    <style name="Setting_FL">
+        <item name="android:layout_marginLeft">@dimen/line_margin</item>
+        <item name="android:layout_marginRight">@dimen/line_margin</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
     </style>
 </resources>

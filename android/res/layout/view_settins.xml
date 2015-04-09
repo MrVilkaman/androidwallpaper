@@ -3,16 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout style="@style/LL.V">
-        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-
-            android:layout_height="match_parent">
+        <FrameLayout style="@style/Setting_FL">
 
             <TextView
                 style="@style/Text.Setting"
                 android:text="@string/setting_list_water" />
 
-            <View style="@style/Setpar" />
+
             <com.rey.material.widget.Switch
                 style="@style/Switch"
                 android:id="@+id/setting_list_water"
@@ -21,15 +18,11 @@
                 app:sw_trackSize="@dimen/setting_list_sweatch_track_size"
                 app:sw_thumbRadius="@dimen/setting_list_sweatch_size"/>
         </FrameLayout>
-        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
+        <View style="@style/Setpar" />
+        <FrameLayout style="@style/Setting_FL">
             <TextView
                 style="@style/Text.Setting"
                 android:text="@string/setting_list_ripple_mode" />
-
-            <View style="@style/Setpar" />
             <com.rey.material.widget.Switch
                 android:id="@+id/setting_list_ripple_mode"
                 style="@style/Switch"
@@ -39,31 +32,26 @@
                 app:sw_thumbRadius="@dimen/setting_list_sweatch_size"
                 />
         </FrameLayout>
-        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/setting_list_change_image_time"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <View style="@style/Setpar" />
+        <FrameLayout style="@style/Setting_FL"
+            android:id="@+id/setting_list_change_image_time">
             <TextView
                 android:drawableRight="@drawable/ic_pictures"
                 style="@style/Text.Setting.Full"
                 android:text="@string/setting_list_change_image_time" />
-            <View style="@style/Setpar" />
         </FrameLayout>
-        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/setting_list_set_custom_image"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <View style="@style/Setpar" />
+        <FrameLayout style="@style/Setting_FL"
+            android:id="@+id/setting_list_set_custom_image">
             <TextView
                 android:drawableRight="@drawable/ic_setting"
                 style="@style/Text.Setting.Full"
                 android:id="@+id/setting_list_set_custom_image_text"
                 android:text="@string/setting_list_set_custom_image" />
-            <View style="@style/Setpar" />
         </FrameLayout>
-        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/setting_list_rain_time"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <View style="@style/Setpar" />
+        <FrameLayout style="@style/Setting_FL"
+            android:id="@+id/setting_list_rain_time">
             <TextView
                 android:drawableRight="@drawable/ic_setting"
                 style="@style/Text.Setting.Full"
@@ -88,7 +76,6 @@
             android:layout_gravity="center"
             android:text="@string/setting_list_top_market_title"
             android:textColor="@color/setting_text_coloer"/>
-        <View style="@style/Setpar" />
         <LinearLayout style="@style/LL.H"
             android:visibility="gone"
             android:gravity="center"

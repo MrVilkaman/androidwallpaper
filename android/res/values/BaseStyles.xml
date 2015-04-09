@@ -19,7 +19,7 @@
 
     <style name="Line">
         <item name="android:background">@color/border</item>
-        <item name="android:layout_width">1dp</item>
+        <item name="android:layout_width">1px</item>
         <item name="android:layout_height">fill_parent</item>
     </style>
     <style name="Line.H">
@@ -30,7 +30,7 @@
     <style name="Setpar">
         <item name="android:background">@color/border</item>
         <item name="android:layout_width">fill_parent</item>
-        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_height">1px</item>
         <item name="android:layout_gravity">bottom</item>
     </style>
 
