@@ -10,6 +10,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+
 import donnu.zolotarev.wallpaper.android.R;
 
 public class AlertDialogRadio extends DialogFragment {
@@ -81,8 +86,6 @@ public class AlertDialogRadio extends DialogFragment {
         alertPositiveListener = listener;
     }
 
-    //AlertController.class.getDeclaredField("mWindow")
-    //AlertDialog.class.getDeclaredField("mAlert")
     public static void brandAlertDialog(AlertDialog dialog) {
         try {
             Resources resources = dialog.getContext().getResources();
@@ -109,5 +112,4 @@ public class AlertDialogRadio extends DialogFragment {
             ex.printStackTrace();
         }
     }
-
 }

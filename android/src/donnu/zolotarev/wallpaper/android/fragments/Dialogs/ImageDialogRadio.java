@@ -6,10 +6,14 @@ import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.io.IOException;
+import java.util.Arrays;
 
 import donnu.zolotarev.wallpaper.android.R;
 import donnu.zolotarev.wallpaper.android.adapters.ImageAdapter;
@@ -62,10 +66,13 @@ public class ImageDialogRadio extends DialogFragment {
 
     private ImageAdapter getAdapter() {
         ImageAdapter adapter = new ImageAdapter(getActivity());
-        adapter.add(new Object());
-        adapter.add(new Object());
-        adapter.add(new Object());
-        adapter.add(new Object());
+        try {
+            adapter.addAll(Arrays.asList(getActivity().getAssets().list("backgrounds")));
+        } catch (IOException e) {
+            Log.e("TAG","getAdapter",e);
+            e.printStackTrace();
+        }
+
         return adapter;
     }
 
@@ -92,8 +99,7 @@ public class ImageDialogRadio extends DialogFragment {
         alertPositiveListener = listener;
     }
 
-    //AlertController.class.getDeclaredField("mWindow")
-    //AlertDialog.class.getDeclaredField("mAlert")
+
     public static void brandAlertDialog(AlertDialog dialog) {
         try {
             Resources resources = dialog.getContext().getResources();
