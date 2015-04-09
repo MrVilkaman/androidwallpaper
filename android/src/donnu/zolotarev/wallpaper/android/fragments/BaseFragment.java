@@ -31,7 +31,7 @@ public class BaseFragment extends Fragment{
         View view = inflater.inflate(res, container, false);
         ButterKnife.inject(this, view);
 
-        loadFonts(view);
+      //  loadFonts(view);
         return view;
     }
 

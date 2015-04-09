@@ -28,8 +28,6 @@ import donnu.zolotarev.wallpaper.android.utils.Constants;
 import donnu.zolotarev.wallpaper.android.utils.Utils;
 
 import static donnu.zolotarev.wallpaper.android.utils.AndroidTypefaceUtility.FONT_ROBOTO_BOLD;
-import static donnu.zolotarev.wallpaper.android.utils.AndroidTypefaceUtility.FONT_ROBOTO_LIGHT;
-import static donnu.zolotarev.wallpaper.android.utils.AndroidTypefaceUtility.FONT_ROBOTO_THIN;
 import static donnu.zolotarev.wallpaper.android.utils.AndroidTypefaceUtility.setTypefaceOfView;
 
 public class MainFragment extends BaseFragment {
@@ -63,9 +61,9 @@ public class MainFragment extends BaseFragment {
 
     private void loadFont() {
         try {
-            setTypefaceOfView(getActivity(), list.getRootView(), FONT_ROBOTO_THIN);
+     /*       setTypefaceOfView(getActivity(), list.getRootView(), FONT_ROBOTO_THIN);
             setTypefaceOfView(getActivity(), ButterKnife.findById(getView(), R.id.main_settings), FONT_ROBOTO_LIGHT);
-            setTypefaceOfView(getActivity(), ButterKnife.findById(getView(), R.id.main_set_wallpaper), FONT_ROBOTO_LIGHT);
+            setTypefaceOfView(getActivity(), ButterKnife.findById(getView(), R.id.main_set_wallpaper), FONT_ROBOTO_LIGHT);*/
             setTypefaceOfView(getActivity(), ButterKnife.findById(getView(), R.id.title_layout), FONT_ROBOTO_BOLD);
             Log.d("TAG", "loadFont - success");
         } catch (Exception e) {

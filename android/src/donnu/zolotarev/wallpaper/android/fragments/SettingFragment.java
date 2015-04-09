@@ -32,6 +32,7 @@ import donnu.zolotarev.wallpaper.android.utils.Constants;
 import donnu.zolotarev.wallpaper.android.utils.Utils;
 
 import static donnu.zolotarev.wallpaper.android.utils.AndroidTypefaceUtility.FONT_ROBOTO_LIGHT;
+import static donnu.zolotarev.wallpaper.android.utils.AndroidTypefaceUtility.FONT_ROBOTO_THIN;
 import static donnu.zolotarev.wallpaper.android.utils.AndroidTypefaceUtility.setTypefaceOfView;
 
 public class SettingFragment extends BaseFragment {
@@ -61,15 +62,16 @@ public class SettingFragment extends BaseFragment {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        setTitle(R.string.main_settings);
+        setTitle(ACTION_BAR_HIDE);
         setting = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
-        loadFonts();
+     //   loadFonts();
        updateUI();
     }
 
     private void loadFonts() {
         try {
+            setTypefaceOfView(getActivity(), getView(), FONT_ROBOTO_THIN);
             setTypefaceOfView(getActivity(), setWallPaperBtn, FONT_ROBOTO_LIGHT);
             setTypefaceOfView(getActivity(), ButterKnife.findById(getView(), R.id.setting_list_top_market_title), FONT_ROBOTO_LIGHT);
         } catch (Exception e) {
