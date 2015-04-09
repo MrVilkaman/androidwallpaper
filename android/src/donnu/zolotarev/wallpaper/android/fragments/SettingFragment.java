@@ -78,7 +78,7 @@ public class SettingFragment extends BaseFragment {
 
     private void updateUI() {
         waterRipple.setChecked(setting.getBoolean("ripple",true));
-        rippleInMove.setChecked(setting.getBoolean("moveripple",false));
+        rippleInMove.setChecked(setting.getBoolean("moveripple", false));
     }
 
     @OnClick(R.id.setting_list_water)
@@ -133,7 +133,7 @@ public class SettingFragment extends BaseFragment {
             @Override
             public void onPositiveClick(String newVal) {
                 setting.edit()
-                        .putString("rainTime",newVal)
+                        .putString("rainTime", newVal)
                         .commit();
             }
         });
@@ -159,8 +159,27 @@ public class SettingFragment extends BaseFragment {
 
     @OnClick(R.id.setting_list_set_custom_image)
     void onSetCustomImage(){
-        ImageDialogRadio alert = ImageDialogRadio.get();
+
+        int pos = getImagePos();
+
+        ImageDialogRadio alert = ImageDialogRadio.get(R.string.setting_list_set_custom_image,pos);
         alert.show(getFragmentManager(), "alert_dialog_radio");
+        alert.setOnClickListener(new ImageDialogRadio.AlertPositiveListener() {
+            @Override
+            public void onPositiveClick(int newVal) {
+                if (newVal == -1) {
+                    PreferenceManager.getDefaultSharedPreferences(getActivity())
+                            .edit()
+                            .putString("customPhoto", "")
+                            .commit();
+                } else {
+                    PreferenceManager.getDefaultSharedPreferences(getActivity())
+                            .edit()
+                            .putString("customPhoto", "#" + newVal)
+                            .commit();
+                }
+            }
+        });
        /* if (PhotoUtils.getLastPhotoPath().isEmpty()) {
             PhotoUtils.importInGalery(this, PhotoUtils.IN_GALLERY, PhotoUtils.TEMP_NAME);
         } else {
@@ -171,6 +190,21 @@ public class SettingFragment extends BaseFragment {
                     .commit();
             imageTextView.setText(R.string.setting_list_set_custom_image);
         }*/
+    }
+
+    private int getImagePos() {
+        String s = setting.getString("customPhoto", "");
+        if (s.isEmpty()) {
+            return -1;
+        }
+        if (s.charAt(0) == '#') {
+            s =  s.substring(1,s.length());
+            try {
+                return Integer.parseInt(s);
+            } catch (NumberFormatException e) {
+            }
+        }
+        return -1;
     }
 
     @Override

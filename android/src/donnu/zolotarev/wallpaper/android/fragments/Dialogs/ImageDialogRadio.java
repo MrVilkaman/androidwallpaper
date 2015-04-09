@@ -25,13 +25,13 @@ public class ImageDialogRadio extends DialogFragment {
     private static final String VALUES = "VALUES";
     private static final String TITLE = "TITLE";
 
-    public static ImageDialogRadio get() {
+    public static ImageDialogRadio get(int title, int value) {
         ImageDialogRadio radio = new ImageDialogRadio();
         Bundle b = new Bundle();
-     /*   b.putString(VALUE,value);
-        b.putInt(NAMES, names);
-        b.putInt(VALUES, values);
-        b.putInt(TITLE, title);*/
+       b.putInt(VALUE, value);
+      /*   b.putInt(NAMES, names);
+        b.putInt(VALUES, values);*/
+        b.putInt(TITLE, title);
         radio.setArguments(b);
         return radio;
     }
@@ -39,7 +39,7 @@ public class ImageDialogRadio extends DialogFragment {
 
 
     public  interface AlertPositiveListener {
-        public void onPositiveClick(String newVal);
+        public void onPositiveClick(int newVal);
     }
 
     private AlertPositiveListener alertPositiveListener;
@@ -50,10 +50,18 @@ public class ImageDialogRadio extends DialogFragment {
         Bundle bundle = getArguments();
 
         AlertDialog.Builder b = new AlertDialog.Builder(getActivity());
-      //  b.setTitle(bundle.getInt(TITLE));
+        b.setTitle(bundle.getInt(TITLE));
         ImageAdapter adapter = getAdapter();
-        b.setSingleChoiceItems(adapter,0, null);
+        b.setSingleChoiceItems(adapter, 0, null);
         b.setPositiveButton("OK", null);
+        b.setNegativeButton(R.string.image_dialog_show_all, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                AlertDialog alert = (AlertDialog) getDialog();
+                alert.getListView().clearChoices();
+                ((ImageAdapter) alert.getListView().getAdapter()).setSelectedIndex(-1);
+            }
+        });
         AlertDialog d = b.create();
         d.getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -61,6 +69,8 @@ public class ImageDialogRadio extends DialogFragment {
                 ((ImageAdapter) parent.getAdapter()).setSelectedIndex(position);
             }
         });
+
+        adapter.setSelectedIndex(bundle.getInt(VALUE));
         return d;
     }
 
@@ -89,9 +99,7 @@ public class ImageDialogRadio extends DialogFragment {
         int position = alert.getListView().getCheckedItemPosition();
         Bundle bundle = getArguments();
 
-       /* String val = bundle.getString(VALUE);
-        String[] values = getResources().getStringArray(bundle.getInt(VALUES));
-        alertPositiveListener.onPositiveClick(values[position]);*/
+        alertPositiveListener.onPositiveClick(position);
         super.onDismiss(dialog);
     }
 

@@ -33,5 +33,6 @@
 	<string name="setting_list_top_market_title">TOP NEW FREE IN PLAY MARKET</string>
 	<string name="footer_main_list_follow_me">FOLLOW ME</string>
 	<string name="setting_list_more_text">See more new top apps</string>
+	<string name="image_dialog_show_all">Show All</string>
 
 </resources>
