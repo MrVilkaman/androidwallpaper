@@ -38,15 +38,33 @@ public class ImageLoader implements IImageLoader {
                     String fileName = textureAssets.getImagesNames()[getNextRandom()].path();
                     textureAssets.load(fileName, callback);
                 }else{
-                    lastIndex = CUSTOM_IMAGE_ID;
-                    if (!externalTextureLoader.load(customImage, callback)) {
-                        oldCustomImage = "";
+                    int i = getCustomImage();
+                    if (i == -1) {
+                        lastIndex = CUSTOM_IMAGE_ID;
+                        if (!externalTextureLoader.load(customImage, callback)) {
+                            oldCustomImage = "";
+                        }
+                    }else{
+                        String fileName = textureAssets.getImagesNames()[i].path();
+                        textureAssets.load(fileName, callback);
                     }
 
                 }
             }
         }).run();
 
+    }
+
+    private int getCustomImage() {
+
+        if (customImage.charAt(0) == '#') {
+            String s = customImage.substring(1, customImage.length());
+            try {
+                return Integer.parseInt(s);
+            } catch (NumberFormatException e) {
+            }
+        }
+        return -1;
     }
 
     private int getNextRandom() {
