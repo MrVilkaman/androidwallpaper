@@ -7,10 +7,13 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.TextView;
 
 import donnu.zolotarev.wallpaper.android.R;
+import donnu.zolotarev.wallpaper.android.adapters.ColorTextAdapter;
+import donnu.zolotarev.wallpaper.android.adapters.ImageAdapter;
 
 public class AlertDialogRadio extends DialogFragment {
 
@@ -41,7 +44,7 @@ public class AlertDialogRadio extends DialogFragment {
 
         Bundle bundle = getArguments();
         int pos = 0;
-        int res = bundle.getInt(NAMES);
+
         String val = bundle.getString(VALUE);
         String[] values = getResources().getStringArray(bundle.getInt(VALUES));
         for (int i = 0;i<values.length;i++){
@@ -53,10 +56,27 @@ public class AlertDialogRadio extends DialogFragment {
 
         AlertDialog.Builder b = new AlertDialog.Builder(getActivity());
         b.setTitle(bundle.getInt(TITLE));
-        b.setSingleChoiceItems(res, pos, null);
+//        b.setSingleChoiceItems(res, pos, null);
+        ColorTextAdapter adapter = getAdapter();
+        b.setSingleChoiceItems(adapter, pos, null);
+
+
         b.setPositiveButton("OK", null);
         AlertDialog d = b.create();
+        d.getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ((ColorTextAdapter) parent.getAdapter()).setSelectedIndex(position);
+            }
+        });
         return d;
+    }
+
+    private ColorTextAdapter getAdapter() {
+        ColorTextAdapter adapte = new ColorTextAdapter(getActivity());
+        int res = getArguments().getInt(NAMES);
+        adapte.addAll(getResources().getStringArray(res));
+        return adapte;
     }
 
     @Override
