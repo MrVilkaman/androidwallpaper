@@ -8,7 +8,7 @@ precision lowp samplerCube;
 #define LOWP
 #endif
 
-#define N 10
+#define N 8
 
 varying LOWP vec4 v_color;
 varying LOWP vec2 v_position;

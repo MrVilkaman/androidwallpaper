@@ -69,6 +69,7 @@ public class AlertDialogRadio extends DialogFragment {
                 ((ColorTextAdapter) parent.getAdapter()).setSelectedIndex(position);
             }
         });
+        adapter.setSelectedIndex(pos);
         return d;
     }
 

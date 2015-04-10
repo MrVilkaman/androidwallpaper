@@ -90,10 +90,10 @@
     </style>
 
     <style name="Switch" >
-        <item name="android:layout_marginTop">@dimen/line_margin</item>
-        <item name="android:layout_marginBottom">@dimen/line_margin</item>
+        <item name="android:layout_marginTop">@dimen/item_line_margin</item>
+        <item name="android:layout_marginBottom">@dimen/item_line_margin</item>
         <item name="android:layout_gravity">right|center</item>
-        <item name="android:layout_width">71dp</item>
+        <item name="android:layout_width">66dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginRight">@dimen/line_margin</item>
     </style>
