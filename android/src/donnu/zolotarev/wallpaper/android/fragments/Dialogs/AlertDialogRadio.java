@@ -10,11 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-
 import donnu.zolotarev.wallpaper.android.R;
 
 public class AlertDialogRadio extends DialogFragment {
@@ -98,7 +93,7 @@ public class AlertDialogRadio extends DialogFragment {
 
             color = resources.getColor(R.color.background_setting_3);
             View titleDivider = dec.findViewById(resources.getIdentifier("titleDivider", "id", "android"));
-            titleDivider.setBackgroundColor(color); // change divider color
+            titleDivider.setBackgroundColor(resources.getColor(R.color.border)); // change divider color
 
             View topPanel = dec.findViewById(resources.getIdentifier("title_template", "id", "android"));
             topPanel.setBackgroundColor(color); // change divider color

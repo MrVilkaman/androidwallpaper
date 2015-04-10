@@ -122,21 +122,29 @@ public class ImageDialogRadio extends DialogFragment {
             Resources resources = dialog.getContext().getResources();
             int color = resources.getColor(R.color.text_color); // your color here
 
-
             View dec = dialog.getWindow().getDecorView();
             TextView alertTitle = (TextView) dec.findViewById(resources.getIdentifier("alertTitle", "id", "android"));
             alertTitle.setTextColor(color); // change title text color
 
-            color = resources.getColor(R.color.background_setting_3);
-            View titleDivider = dec.findViewById(resources.getIdentifier("titleDivider", "id", "android"));
-            titleDivider.setBackgroundColor(color); // change divider color
 
+            View titleDivider = dec.findViewById(resources.getIdentifier("titleDivider", "id", "android"));
+            titleDivider.setBackgroundColor(resources.getColor(R.color.border)); // change divider color
+
+            int bkcolor = resources.getColor(R.color.background_setting_3);
             View topPanel = dec.findViewById(resources.getIdentifier("title_template", "id", "android"));
-            topPanel.setBackgroundColor(color); // change divider color
+            topPanel.setBackgroundColor(bkcolor); // change divider color
 
             Button buttonPanel = (Button) dec.findViewById(resources.getIdentifier("button1", "id", "android"));
-            buttonPanel.setBackgroundColor(color); // change divider color
-            buttonPanel.setTextColor(resources.getColor(R.color.text_color));
+            buttonPanel.setBackgroundColor(bkcolor); // change divider color
+            buttonPanel.setTextColor(color);
+
+            buttonPanel = (Button) dec.findViewById(resources.getIdentifier("button2", "id", "android"));
+            buttonPanel.setBackgroundColor(bkcolor); // change divider color
+            buttonPanel.setTextColor(color);
+
+            buttonPanel = (Button) dec.findViewById(resources.getIdentifier("button3", "id", "android"));
+            buttonPanel.setBackgroundColor(bkcolor); // change divider color
+            buttonPanel.setTextColor(color);
 
 
         } catch (Exception ex) {

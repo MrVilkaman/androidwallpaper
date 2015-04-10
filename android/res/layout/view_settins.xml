@@ -108,7 +108,10 @@
         <View style="@style/Setpar" />
         <LinearLayout style="@style/LL.H"
             android:gravity="center"
-            android:layout_margin="@dimen/line_margin">
+            android:layout_marginLeft="@dimen/dubl_line_margin"
+            android:layout_marginRight="@dimen/dubl_line_margin"
+            android:layout_marginBottom="@dimen/line_margin"
+            android:layout_marginTop="@dimen/line_margin">
 
         <Button style="@style/MainButtoms.LittleSetting"
             android:paddingLeft="@dimen/line_margin"

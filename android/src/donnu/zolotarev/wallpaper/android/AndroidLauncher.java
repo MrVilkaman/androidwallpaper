@@ -58,7 +58,7 @@ public class AndroidLauncher extends AndroidLiveWallpaperService implements Shar
                 boolean water = sp.getBoolean("ripple",true);
                 boolean moveripple = sp.getBoolean("moveripple", true);
                 String customImage = sp.getString("customPhoto", "");
-                int time = Integer.parseInt(sp.getString("time", "5"));
+                int time = Integer.parseInt(sp.getString("time", "30"));
                 float rainTime = Float.parseFloat(sp.getString("rainTime", "0"));
 
                 setSettingChanged(time,water,moveripple,rainTime>0.001,rainTime,customImage);
