@@ -10,5 +10,5 @@
         android:layout_marginRight="@dimen/dubl_line_margin"
         android:layout_marginTop="@dimen/item_line_margin"
         android:layout_marginBottom="@dimen/item_line_margin"/>
-    <View style="@style/Setpar"/>
+    <View style="@style/Setpar.BLACK"/>
     </FrameLayout>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="border">#dbdbdb</color>
+    <color name="border_black">#ff454449</color>
     <color name="background_main_1">#212025</color>
     <color name="background_main_2">#1A191E</color>
     <color name="background_setting_1">#FfFfFf</color>

@@ -22,10 +22,11 @@
 	<string name="main_list_amazing_apps">Amazing Apps</string>
 	<string name="main_list_contact">Developer contact</string>
 
+	<string name="setting_list_clear_custom_photo">Clear custom photo</string>
+
 	<string name="setting_list_water">Water Ripple</string>
 	<string name="setting_list_ripple_mode">Ripple in move</string>
 	<string name="setting_list_change_image_time">Change image time</string>
-	<string name="setting_list_clear_custom_photo">Clear custom photo</string>
 	<string name="setting_list_set_custom_image">Set custom image</string>
 	<string name="setting_list_rain_time">Rain time</string>
 	<string name="setting_list_restore_btn">restore default settings</string>

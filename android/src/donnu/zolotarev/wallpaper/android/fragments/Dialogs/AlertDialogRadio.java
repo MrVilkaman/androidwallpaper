@@ -7,6 +7,7 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.TextView;
@@ -111,10 +112,15 @@ public class AlertDialogRadio extends DialogFragment {
             View dec = dialog.getWindow().getDecorView();
             TextView alertTitle = (TextView) dec.findViewById(resources.getIdentifier("alertTitle", "id", "android"));
             alertTitle.setTextColor(color); // change title text color
+            alertTitle.setTextSize(15);
 
             color = resources.getColor(R.color.background_setting_3);
             View titleDivider = dec.findViewById(resources.getIdentifier("titleDivider", "id", "android"));
             titleDivider.setBackgroundColor(resources.getColor(R.color.border)); // change divider color
+            ViewGroup.LayoutParams params = titleDivider.getLayoutParams();
+            params.height = 1;
+            titleDivider.setLayoutParams(params);
+            titleDivider.requestLayout();
 
             View topPanel = dec.findViewById(resources.getIdentifier("title_template", "id", "android"));
             topPanel.setBackgroundColor(color); // change divider color

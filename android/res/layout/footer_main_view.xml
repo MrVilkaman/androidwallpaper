@@ -10,7 +10,7 @@
         android:layout_gravity="center"
         android:text="@string/footer_main_list_follow_me"
         android:textColor="@color/base_app_color_2"/>
-    <View style="@style/Setpar" />
+    <View style="@style/Setpar.BLACK" />
 
     <LinearLayout style="@style/LL.H"
         android:layout_margin="@dimen/line_margin"

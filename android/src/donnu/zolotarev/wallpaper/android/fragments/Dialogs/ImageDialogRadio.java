@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.TextView;
@@ -125,10 +126,14 @@ public class ImageDialogRadio extends DialogFragment {
             View dec = dialog.getWindow().getDecorView();
             TextView alertTitle = (TextView) dec.findViewById(resources.getIdentifier("alertTitle", "id", "android"));
             alertTitle.setTextColor(color); // change title text color
-
+            alertTitle.setTextSize(15);
 
             View titleDivider = dec.findViewById(resources.getIdentifier("titleDivider", "id", "android"));
             titleDivider.setBackgroundColor(resources.getColor(R.color.border)); // change divider color
+            ViewGroup.LayoutParams params = titleDivider.getLayoutParams();
+            params.height = 1;
+            titleDivider.setLayoutParams(params);
+            titleDivider.requestLayout();
 
             int bkcolor = resources.getColor(R.color.background_setting_3);
             View topPanel = dec.findViewById(resources.getIdentifier("title_template", "id", "android"));

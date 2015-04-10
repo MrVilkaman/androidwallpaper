@@ -93,7 +93,7 @@
         <item name="android:layout_marginTop">@dimen/item_line_margin</item>
         <item name="android:layout_marginBottom">@dimen/item_line_margin</item>
         <item name="android:layout_gravity">right|center</item>
-        <item name="android:layout_width">66dp</item>
+        <item name="android:layout_width">68dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginRight">@dimen/line_margin</item>
     </style>
@@ -103,5 +103,9 @@
         <item name="android:layout_marginRight">@dimen/line_margin</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="Setpar.BLACK">
+        <item name="android:background">@color/border_black</item>
     </style>
 </resources>
