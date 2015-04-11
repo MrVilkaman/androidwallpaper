@@ -2,7 +2,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:background="@color/background_setting_1"
     style="@style/LL.V">
+
+    <FrameLayout
+        android:id="@+id/adslayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+
+    </FrameLayout>
     <ScrollView
+        android:layout_below="@id/adslayout"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_above="@+id/linearLayout">

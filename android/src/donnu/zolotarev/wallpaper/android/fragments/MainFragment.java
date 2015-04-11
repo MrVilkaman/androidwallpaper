@@ -36,6 +36,7 @@ public class MainFragment extends BaseFragment {
 
     @InjectView(R.id.list)
     ListView list;
+    private boolean firstload = true;
 
 
     @Override
@@ -108,6 +109,11 @@ public class MainFragment extends BaseFragment {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view,savedInstanceState);
+        if (firstload) {
+            ads.showBigBanner();
+            firstload = false;
+        }
         setTitle(ACTION_BAR_HIDE);
         list.setAdapter(tempAdapter);
         loadFont();

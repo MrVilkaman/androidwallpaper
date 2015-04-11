@@ -10,10 +10,12 @@
 
     <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="21" />
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
+
+    <meta-data android:name="com.google.android.gms.version"
+        android:value="@integer/google_play_services_version" />
 
     <uses-feature
             android:glEsVersion="0x00020000"
@@ -50,6 +52,10 @@
             </intent-filter>
 
         </activity>
+
+        <activity android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:theme="@android:style/Theme.Translucent" />
 
         <activity android:name="donnu.zolotarev.wallpaper.android.activity.SettingActivity"
             android:theme="@style/AppTheme"
