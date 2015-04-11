@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">LWP_Project</string>
+    <string name="app_name">Amazing Live Wallpaper</string>
     <string name="app_description">about</string>
     
-	<string name="settings">Test Settings</string>
+	<string name="settings">Amazing Live Wallpaper</string>
 
 	<string name="share_text">Качай збс обои! https://play.google.com/store/apps/details?id=donnu.zolotarev.rushgame.android</string>
 	<string name="share_chooser_text">Choose</string>
@@ -22,13 +22,12 @@
 	<string name="main_list_amazing_apps">Amazing Apps</string>
 	<string name="main_list_contact">Developer contact</string>
 
-	<string name="setting_list_clear_custom_photo">Clear custom photo</string>
 
-	<string name="setting_list_water">Water Ripple</string>
-	<string name="setting_list_ripple_mode">Ripple in move</string>
-	<string name="setting_list_change_image_time">Change image time</string>
-	<string name="setting_list_set_custom_image">Set custom image</string>
-	<string name="setting_list_rain_time">Rain time</string>
+	<string name="setting_list_water">Ripples on the water</string>
+	<string name="setting_list_ripple_mode">Ripples in move</string>
+	<string name="setting_list_change_image_time">Rate of change of pictures</string>
+	<string name="setting_list_set_custom_image">Choose a picture</string>
+	<string name="setting_list_rain_time">The intensity of rain</string>
 	<string name="setting_list_restore_btn">restore default settings</string>
 	<string name="setting_list_more">more</string>
 	<string name="setting_list_top_market_title">TOP NEW FREE IN PLAY MARKET</string>
@@ -36,5 +35,19 @@
 	<string name="setting_list_more_text">See more new top apps</string>
 	<string name="image_dialog_show_all">Show All</string>
 	<string name="image_dialog_custom_image">Choose</string>
+
+	<string-array name="rain_time">
+		<item>Off</item>
+		<item>Low</item>
+		<item>Normal</item>
+		<item>High</item>
+	</string-array>
+	<string-array name="change_image_time">
+		<item>5 seconds</item>
+		<item>10 seconds</item>
+		<item>15 seconds</item>
+		<item>30 seconds</item>
+		<item>60 seconds</item>
+	</string-array>
 
 </resources>

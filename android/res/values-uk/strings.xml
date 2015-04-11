@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="share_chooser_text">Відправити як..</string>
+
+    <string name="main_settings">Налаштування</string>
+    <string name="main_set_wallpaper">Встановити шпалери</string>
+
+    <string name="main_list_gift">Вам подарунок</string>
+    <string name="main_list_more_wallpaper">Більше шпалер</string>
+    <string name="main_list_rate">Оцініть нас!</string>
+    <string name="main_list_share">Розповісти</string>
+    <string name="main_list_amazing_apps">Amazing Apps</string>
+    <string name="main_list_contact">Напишіть нам</string>
+
+
+    <string name="setting_list_water">Eфект води</string>
+    <string name="setting_list_ripple_mode">Вода в русі</string>
+    <string name="setting_list_change_image_time">Частота зміни зображень</string>
+    <string name="setting_list_set_custom_image">Змінити зображення</string>
+    <string name="setting_list_rain_time">Інтенсивність дощу</string>
+    <string name="setting_list_restore_btn">стандартні налаштування</string>
+    <string name="setting_list_more">більше</string>
+    <string name="setting_list_top_market_title">КРАЩЕ НОВЕ В PLAY MARKET</string>
+    <string name="footer_main_list_follow_me">СОЦМЕРЕЖІ</string>
+    <string name="setting_list_more_text">Подивитися нові шпалери</string>
+    <string name="image_dialog_show_all">Все</string>
+    <string name="image_dialog_custom_image">Вибрати</string>
+
+    <string-array name="rain_time">
+        <item>Немає</item>
+        <item>Слабкий</item>
+        <item>Середній</item>
+        <item>Сильний</item>
+    </string-array>
+    <string-array name="change_image_time">
+        <item>5 секунд</item>
+        <item>10 секунд</item>
+        <item>15 секунд</item>
+        <item>30 секунд</item>
+        <item>60 секунд</item>
+    </string-array>
+</resources>

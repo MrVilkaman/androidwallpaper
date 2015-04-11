@@ -215,16 +215,6 @@ public class SettingFragment extends BaseFragment {
                 PhotoUtils.importInGalery(SettingFragment.this, PhotoUtils.IN_GALLERY, PhotoUtils.TEMP_NAME);
             }
         });
-       /* if (PhotoUtils.getLastPhotoPath().isEmpty()) {
-            PhotoUtils.importInGalery(this, PhotoUtils.IN_GALLERY, PhotoUtils.TEMP_NAME);
-        } else {
-            PhotoUtils.clearLastPhotoPath();
-            PreferenceManager.getDefaultSharedPreferences(getActivity())
-                    .edit()
-                    .putString("customPhoto", PhotoUtils.getLastPhotoPath())
-                    .commit();
-            imageTextView.setText(R.string.setting_list_set_custom_image);
-        }*/
     }
 
     private int getImagePos() {
@@ -251,11 +241,6 @@ public class SettingFragment extends BaseFragment {
                         .edit()
                         .putString("customPhoto", PhotoUtils.getLastPhotoPath())
                         .commit();
-                if (PhotoUtils.getLastPhotoPath().isEmpty()) {
-                    imageTextView.setText(R.string.setting_list_set_custom_image);
-                } else {
-                    imageTextView.setText(R.string.setting_list_clear_custom_photo);
-                }
             }
         }
         super.onActivityResult(requestCode, resultCode, data);

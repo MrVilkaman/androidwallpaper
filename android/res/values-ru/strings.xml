@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="share_chooser_text">Отправить через..</string>
+
+    <string name="main_settings">Настройки</string>
+    <string name="main_set_wallpaper">Установить обои</string>
+
+    <string name="main_list_gift">Вам подарок</string>
+    <string name="main_list_more_wallpaper">Больше живых обоев</string>
+    <string name="main_list_rate">Оцените нас!</string>
+    <string name="main_list_share">Поделиться</string>
+    <string name="main_list_amazing_apps">Amazing Apps</string>
+    <string name="main_list_contact">Напишите нам</string>
+
+
+    <string name="setting_list_water">Эффект воды</string>
+    <string name="setting_list_ripple_mode">Вода в движении</string>
+    <string name="setting_list_change_image_time">Частота смены картинок</string>
+    <string name="setting_list_set_custom_image">Сменить картинку</string>
+    <string name="setting_list_rain_time">Интенсивность дождя</string>
+    <string name="setting_list_restore_btn">стандартные настройки</string>
+    <string name="setting_list_more">больше</string>
+    <string name="setting_list_top_market_title">ЛУЧШЕЕ НОВОЕ В PLAY MARKET</string>
+    <string name="footer_main_list_follow_me">СОЦСЕТИ</string>
+    <string name="setting_list_more_text">Посмотреть новые обои</string>
+    <string name="image_dialog_show_all">Все</string>
+    <string name="image_dialog_custom_image">Выбрать</string>
+
+    <string-array name="rain_time">
+        <item>Нет</item>
+        <item>Слабый</item>
+        <item>Средний</item>
+        <item>Сильный</item>
+    </string-array>
+    <string-array name="change_image_time">
+        <item>5 секунд</item>
+        <item>10 секунд</item>
+        <item>15 секунд</item>
+        <item>30 секунд</item>
+        <item>60 секунд</item>
+    </string-array>
+</resources>
