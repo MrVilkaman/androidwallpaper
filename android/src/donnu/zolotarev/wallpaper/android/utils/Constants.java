@@ -7,8 +7,9 @@ public class Constants {
     public static final String DEV_LINK = "http://vk.com/zahar_zolotarev";
 
     public static final boolean NEED_ADS = true;
-    public static final String ADMOB_DS_ID = "ca-app-pub-3472836589086047/2589092611";
-    public static final String BANNED_ID = "ca-app-pub-3472836589086047/7717296212";
+
+    public static final String ADMOB_DS_ID = "ca-app-pub-8334329528559115/9696144989";
+    public static final String BANNED_ID = "ca-app-pub-8334329528559115/5743528582";
 
     public static final String GROUP_FACEBOOK = "https://www.facebook.com/eric.poleo";
     public static final String GROUP_TWITTER = "https://twitter.com/EricPoleo";
