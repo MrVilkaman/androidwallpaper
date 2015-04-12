@@ -9,4 +9,8 @@ public class Constants {
     public static final boolean NEED_ADS = true;
     public static final String ADMOB_DS_ID = "ca-app-pub-3472836589086047/2589092611";
     public static final String BANNED_ID = "ca-app-pub-3472836589086047/7717296212";
+
+    public static final String GROUP_FACEBOOK = "https://www.facebook.com/eric.poleo";
+    public static final String GROUP_TWITTER = "https://twitter.com/EricPoleo";
+    public static final String GROUP_GOOGLE = "https://plus.google.com/u/0/118046590417302041534/posts";
 }

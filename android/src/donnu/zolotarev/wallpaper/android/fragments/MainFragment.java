@@ -83,19 +83,19 @@ public class MainFragment extends BaseFragment {
         headerView.findViewById(R.id.footer_facebook).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toast("footer_facebook");
+                Utils.open(getActivity(), Constants.GROUP_FACEBOOK);
             }
         });
         headerView.findViewById(R.id.footer_google).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toast("footer_google");
+                 Utils.open(getActivity(), Constants.GROUP_GOOGLE);
             }
         });
         headerView.findViewById(R.id.footer_twitter).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toast("footer_twitter");
+                Utils.open(getActivity(), Constants.GROUP_TWITTER);
             }
         });
         headerView.findViewById(R.id.footer_youtube).setOnClickListener(new View.OnClickListener() {
@@ -130,13 +130,13 @@ public class MainFragment extends BaseFragment {
         items.add(new ListViewItems(R.string.main_list_more_wallpaper, R.drawable.ic_more_wallpepr, new ICallback() {
             @Override
             public void execute() {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Constants.MORE_APPS)));
+                Utils.open(getActivity(), Constants.MORE_APPS);
             }
         }));
         items.add(new ListViewItems(R.string.main_list_rate, R.drawable.ic_rate, new ICallback() {
             @Override
             public void execute() {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Constants.APP_PNAME)));
+                Utils.open(getActivity(), Constants.APP_PNAME);
             }
         }));
         items.add(new ListViewItems(R.string.main_list_share, R.drawable.ic_share, new ICallback() {
@@ -155,6 +155,7 @@ public class MainFragment extends BaseFragment {
             @Override
             public void execute() {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Constants.DEV_LINK)));
+                Utils.open(getActivity(), Constants.DEV_LINK);
             }
         }));
         tempAdapter = new TempAdapter(getActivity(), items);
@@ -180,4 +181,6 @@ public class MainFragment extends BaseFragment {
         startActivityForResult(i, 0);
 
     }
+
+
 }

@@ -7,6 +7,7 @@ import android.content.pm.LabeledIntent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
+import android.net.Uri;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,11 @@ import java.util.List;
 import donnu.zolotarev.wallpaper.android.R;
 
 public class Utils {
+
+    public static void open(Activity context, String url){
+        context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+    }
+
     public static void share(Activity context, String text){
 
         Resources resources = context.getResources();
