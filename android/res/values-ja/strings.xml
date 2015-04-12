@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="share_chooser_text">を通じて送る..</string>
+
+    <string name="main_settings">設定</string>
+    <string name="main_set_wallpaper">壁紙の設定</string>
+
+    <string name="main_list_gift">あなたの贈り物</string>
+    <string name="main_list_more_wallpaper">もっとライブ壁紙</string>
+    <string name="main_list_rate">私たちを評価する！</string>
+    <string name="main_list_share">共有アプリケーション</string>
+    <string name="main_list_amazing_apps">Amazing Apps</string>
+    <string name="main_list_contact">私たちにお書き</string>
+
+
+    <string name="setting_list_water">水の影響</string>
+    <string name="setting_list_ripple_mode">運動中の水</string>
+    <string name="setting_list_change_image_time">変化する画像の周波数</string>
+    <string name="setting_list_set_custom_image">画像を変更</string>
+    <string name="setting_list_rain_time">雨の強さ</string>
+    <string name="setting_list_restore_btn">デフォルト設定</string>
+    <string name="setting_list_more">もっと</string>
+    <string name="setting_list_top_market_title">PLAYの市場で最高のNEW</string>
+    <string name="footer_main_list_follow_me">ソーシャルネットワーク</string>
+    <string name="setting_list_more_text">新しい壁紙を見る</string>
+    <string name="image_dialog_show_all">すべてのもの</string>
+    <string name="image_dialog_custom_image">選択する</string>
+
+    <string-array name="rain_time">
+        <item>ノー</item>
+        <item>弱い</item>
+        <item>平均</item>
+        <item>ストロング</item>
+    </string-array>
+    <string-array name="change_image_time">
+        <item>5 秒</item>
+        <item>10 秒</item>
+        <item>15 秒</item>
+        <item>30 秒</item>
+        <item>60 秒</item>
+    </string-array>
+</resources>

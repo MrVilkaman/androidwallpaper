@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="share_chooser_text">Senden durch ..</string>
+
+    <string name="main_settings">Einstellungen</string>
+    <string name="main_set_wallpaper">Hintergrundbild festlegen</string>
+
+    <string name="main_list_gift">Sie Geschenk</string>
+    <string name="main_list_more_wallpaper">Weitere Live-Wallpaper</string>
+    <string name="main_list_rate">Bewerten Sie uns!</string>
+    <string name="main_list_share">Share-Anwendung</string>
+    <string name="main_list_amazing_apps">Amazing Apps</string>
+    <string name="main_list_contact">Schreiben Sie uns</string>
+
+
+    <string name="setting_list_water">Die Wirkung von Wasser</string>
+    <string name="setting_list_ripple_mode">Wasser in Bewegung</string>
+    <string name="setting_list_change_image_time">Die Frequenz der wechselnden Bildern</string>
+    <string name="setting_list_set_custom_image">Bildwechsel</string>
+    <string name="setting_list_rain_time">Die Intensität der regen</string>
+    <string name="setting_list_restore_btn">Standardeinstellungen</string>
+    <string name="setting_list_more">mehr</string>
+    <string name="setting_list_top_market_title">BEST NEW IN P PLAY MARKET</string>
+        <string name="footer_main_list_follow_me">Soziale Netzwerke</string>
+    <string name="setting_list_more_text">Informieren Sie sich über neue Wallpaper</string>
+    <string name="image_dialog_show_all">Alle Dinge</string>
+    <string name="image_dialog_custom_image">Wählen</string>
+
+    <string-array name="rain_time">
+        <item>Nein</item>
+        <item>Schwach</item>
+        <item>Durchschnitt</item>
+        <item>Stark</item>
+    </string-array>
+    <string-array name="change_image_time">
+        <item>5 sekunden</item>
+        <item>10 sekunden</item>
+        <item>15 sekunden</item>
+        <item>30 sekunden</item>
+        <item>60 sekunden</item>
+    </string-array>
+</resources>

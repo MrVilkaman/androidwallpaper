@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="share_chooser_text">Enviar a través de..</string>
+
+    <string name="main_settings">El Ajuste</string>
+    <string name="main_set_wallpaper">Establecer fondo de pantalla</string>
+
+    <string name="main_list_gift">Usted regalo</string>
+    <string name="main_list_more_wallpaper">Fondos de escritorio Más</string>
+    <string name="main_list_rate">Nos Vota!</string>
+    <string name="main_list_share">Compartir!</string>
+    <string name="main_list_amazing_apps">Amazing Apps</string>
+    <string name="main_list_contact">Escríbanos</string>
+
+
+    <string name="setting_list_water">El efecto del agua</string>
+    <string name="setting_list_ripple_mode">El agua en movimiento</string>
+    <string name="setting_list_change_image_time">La frecuencia de cambio de imágenes</string>
+    <string name="setting_list_set_custom_image">Cambiar imagen</string>
+    <string name="setting_list_rain_time">La intensidad de la lluvia</string>
+    <string name="setting_list_restore_btn">Configuraciones por defecto</string>
+    <string name="setting_list_more">Mas de</string>
+    <string name="setting_list_top_market_title">MEJOR NUEVO EN PLAY MARKET</string>
+    <string name="footer_main_list_follow_me">REDES SOCIALES</string>
+    <string name="setting_list_more_text">Ver nuevo fondo de pantalla</string>
+    <string name="image_dialog_show_all">Todos</string>
+    <string name="image_dialog_custom_image">Seleccionar</string>
+
+    <string-array name="rain_time">
+        <item>No</item>
+        <item>Débil</item>
+        <item>Promedio</item>
+        <item>Fuerte</item>
+    </string-array>
+    <string-array name="change_image_time">
+        <item>5 segundo</item>
+        <item>10 segundo</item>
+        <item>15 segundo</item>
+        <item>30 segundo</item>
+        <item>60 segundo</item>
+    </string-array>
+</resources>

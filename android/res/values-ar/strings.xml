@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="share_chooser_text">إرسال من خلال ..</string>
+
+    <string name="main_settings">الإعداد</string>
+    <string name="main_set_wallpaper">تعيين خلفية</string>
+
+    <string name="main_list_gift">لك هدية</string>
+    <string name="main_list_more_wallpaper">خلفيات أكثر الحية</string>
+    <string name="main_list_rate">قيمنا!</string>
+    <string name="main_list_share">حصة</string>
+    <string name="main_list_amazing_apps">تطبيقات مذهلة</string>
+    <string name="main_list_contact">الكتابة لنا</string>
+
+
+    <string name="setting_list_water">تأثير المياه</string>
+    <string name="setting_list_ripple_mode">المياه في الحركة</string>
+    <string name="setting_list_change_image_time">تواتر الصور المتغيرة</string>
+    <string name="setting_list_set_custom_image">تغيير الصورة</string>
+    <string name="setting_list_rain_time">شدة المطر</string>
+    <string name="setting_list_restore_btn">الإعدادات الافتراضية</string>
+    <string name="setting_list_more">أكثر</string>
+    <string name="setting_list_top_market_title">الحميم NEW IN PLAY MARKET</string>
+    <string name="footer_main_list_follow_me">شبكات اجتماعية</string>
+    <string name="setting_list_more_text">عرض خلفية جديدة</string>
+    <string name="image_dialog_show_all">جميع</string>
+    <string name="image_dialog_custom_image">اختار</string>
+
+    <string-array name="rain_time">
+        <item>لا انا لست</item>
+        <item>ضعيف</item>
+        <item>متوسط</item>
+        <item>قوي</item>
+    </string-array>
+    <string-array name="change_image_time">
+        <item>5 ثواني</item>
+        <item>10 ثانية</item>
+        <item>15 ثانية</item>
+        <item>30 ثانية</item>
+        <item>60 ثانية</item>
+    </string-array>
+</resources>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="share_chooser_text">发送到..</string>
+
+    <string name="main_settings">设置</string>
+    <string name="main_set_wallpaper">设置壁纸</string>
+
+    <string name="main_list_gift">你的礼物</string>
+    <string name="main_list_more_wallpaper">更多动态壁纸</string>
+    <string name="main_list_rate">评价我们！</string>
+    <string name="main_list_share">分享</string>
+    <string name="main_list_amazing_apps">惊人的应用程序</string>
+    <string name="main_list_contact">写信给我们</string>
+
+
+    <string name="setting_list_water">水的影响</string>
+    <string name="setting_list_ripple_mode">水中运动</string>
+    <string name="setting_list_change_image_time">变化的图像的频率</string>
+    <string name="setting_list_set_custom_image">更改图片</string>
+    <string name="setting_list_rain_time">降雨强度</string>
+    <string name="setting_list_restore_btn">默认设置</string>
+    <string name="setting_list_more">更多</string>
+    <string name="setting_list_top_market_title">BEST NEW IN PLAY市场</string>
+    <string name="footer_main_list_follow_me">社交网络</string>
+    <string name="setting_list_more_text">查看新的墙纸</string>
+    <string name="image_dialog_show_all">所有</string>
+    <string name="image_dialog_custom_image">选择</string>
+
+    <string-array name="rain_time">
+        <item>不，我不是</item>
+        <item>弱</item>
+        <item>平均</item>
+        <item>强</item>
+    </string-array>
+    <string-array name="change_image_time">
+        <item>5 第二</item>
+        <item>10 第二</item>
+        <item>15 第二</item>
+        <item>30 第二</item>
+        <item>60 第二</item>
+    </string-array>
+</resources>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="share_chooser_text">Envie através..</string>
+
+    <string name="main_settings">Definições</string>
+    <string name="main_set_wallpaper">Set wallpaper</string>
+
+    <string name="main_list_gift">Você presente</string>
+    <string name="main_list_more_wallpaper">Mais papéis de parede ao vivo</string>
+    <string name="main_list_rate">Nos avalie!</string>
+    <string name="main_list_share">Ação</string>
+    <string name="main_list_amazing_apps">Amazing Apps</string>
+    <string name="main_list_contact">Escreva-nos</string>
+
+
+    <string name="setting_list_water">Efeito de água</string>
+    <string name="setting_list_ripple_mode">Água em movimento</string>
+    <string name="setting_list_change_image_time">A frequência de mudança de imagens</string>
+    <string name="setting_list_set_custom_image">Alterar imagem</string>
+    <string name="setting_list_rain_time">Intensidade da chuva</string>
+    <string name="setting_list_restore_btn">Configurações padrão</string>
+    <string name="setting_list_more">Mais</string>
+    <string name="setting_list_top_market_title">MELHOR NOVO EM JOGO DE MERCADO</string>
+    <string name="footer_main_list_follow_me">Redes Sociais</string>
+    <string name="setting_list_more_text">Ver o novo papel de parede</string>
+    <string name="image_dialog_show_all">Tudo</string>
+    <string name="image_dialog_custom_image">Selecionar</string>
+
+    <string-array name="rain_time">
+        <item>Não</item>
+        <item>Fraco</item>
+        <item>Média</item>
+        <item>Forte</item>
+    </string-array>
+    <string-array name="change_image_time">
+        <item>5 segundos</item>
+        <item>10 segundos</item>
+        <item>15 segundos</item>
+        <item>30 segundos</item>
+        <item>60 segundos</item>
+    </string-array>
+</resources>

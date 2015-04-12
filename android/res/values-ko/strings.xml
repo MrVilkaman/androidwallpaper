@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="share_chooser_text">를 통해 보내 ..</string>
+
+    <string name="main_settings">설정</string>
+    <string name="main_set_wallpaper">배경 화면 설정</string>
+
+    <string name="main_list_gift">당신의 선물</string>
+    <string name="main_list_more_wallpaper">라이브 배경 화면</string>
+    <string name="main_list_rate">우리를 평가하기!</string>
+    <string name="main_list_share">공유</string>
+    <string name="main_list_amazing_apps">놀라운 애플 리케이션</string>
+    <string name="main_list_contact">우리에게 쓰기</string>
+
+
+    <string name="setting_list_water">물의 효과</string>
+    <string name="setting_list_ripple_mode">모션 물</string>
+    <string name="setting_list_change_image_time">변화하는 화상의 주파수</string>
+    <string name="setting_list_set_custom_image">사진 변경</string>
+    <string name="setting_list_rain_time">비의 강도</string>
+    <string name="setting_list_restore_btn">기본 설정</string>
+    <string name="setting_list_more">더</string>
+    <string name="setting_list_top_market_title">PLAY 시장에있는 BEST NEW</string>
+    <string name="footer_main_list_follow_me">소셜 네트워크</string>
+    <string name="setting_list_more_text">새로운 배경 화면을보기</string>
+    <string name="image_dialog_show_all">만사</string>
+    <string name="image_dialog_custom_image">선택</string>
+
+    <string-array name="rain_time">
+        <item>아니</item>
+        <item>약한</item>
+        <item>평균</item>
+        <item>강한</item>
+    </string-array>
+    <string-array name="change_image_time">
+        <item>5 초</item>
+        <item>10 초</item>
+        <item>15 초</item>
+        <item>30 초</item>
+        <item>60 초</item>
+    </string-array>
+</resources>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="share_chooser_text">Invia attraverso ..</string>
+
+    <string name="main_settings">Impostazioni</string>
+    <string name="main_set_wallpaper">Imposta sfondo</string>
+
+    <string name="main_list_gift">Ti regalo</string>
+    <string name="main_list_more_wallpaper">Sfondi Live</string>
+    <string name="main_list_rate">Vota noi!</string>
+    <string name="main_list_share">Condividilo</string>
+    <string name="main_list_amazing_apps">Apps stupefacenti</string>
+    <string name="main_list_contact">Scrivici</string>
+
+
+    <string name="setting_list_water">L\'effetto di acqua</string>
+    <string name="setting_list_ripple_mode">Acqua in movimento</string>
+    <string name="setting_list_change_image_time">La frequenza di immagini che cambiano</string>
+    <string name="setting_list_set_custom_image">Cambia immagine</string>
+    <string name="setting_list_rain_time">L\'intensità della pioggia</string>
+    <string name="setting_list_restore_btn">impostazioni predefinite</string>
+    <string name="setting_list_more">altro</string>
+    <string name="setting_list_top_market_title">MIGLIORE NUOVO IN MERCATO GIOCO</string>
+    <string name="footer_main_list_follow_me">social networks</string>
+    <string name="setting_list_more_text">Visualizza nuova carta da parati</string>
+    <string name="image_dialog_show_all">tutto</string>
+    <string name="image_dialog_custom_image">selezionare</string>
+
+    <string-array name="rain_time">
+        <item>No Non Sono</item>
+        <item>debole</item>
+        <item>media</item>
+        <item>forte</item>
+    </string-array>
+    <string-array name="change_image_time">
+        <item>5 secondi</item>
+        <item>10 secondi</item>
+        <item>15 secondi</item>
+        <item>30 secondi</item>
+        <item>60 secondi</item>
+    </string-array>
+</resources>

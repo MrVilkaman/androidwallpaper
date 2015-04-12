@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="share_chooser_text">Envoyer par..</string>
+
+    <string name="main_settings">Paramètres</string>
+    <string name="main_set_wallpaper">Définir le papier peint</string>
+
+    <string name="main_list_gift">Vous don</string>
+    <string name="main_list_more_wallpaper">Fonds d\'écran Plus direct</string>
+    <string name="main_list_rate">Évaluez nous!</string>
+    <string name="main_list_share">Partagez l\'application</string>
+    <string name="main_list_amazing_apps">Amazing Apps</string>
+    <string name="main_list_contact">Écrivez-nous</string>
+
+
+    <string name="setting_list_water">l\'effet de l\'eau</string>
+    <string name="setting_list_ripple_mode">Eau en mouvement</string>
+    <string name="setting_list_change_image_time">La fréquence de l\'évolution des images</string>
+    <string name="setting_list_set_custom_image">Changer d\'image</string>
+    <string name="setting_list_rain_time">l\'intensité de la pluie</string>
+    <string name="setting_list_restore_btn">les paramètres par défaut</string>
+    <string name="setting_list_more">davantage</string>
+    <string name="setting_list_top_market_title">MEILLEUR NOUVEAU ENPLAY MARKET</string>
+    <string name="footer_main_list_follow_me">Les réseaux sociaux</string>
+    <string name="setting_list_more_text">Voir le nouveau papier peint</string>
+    <string name="image_dialog_show_all">Toutes Les Choses</string>
+    <string name="image_dialog_custom_image">Sélectionner</string>
+
+    <string-array name="rain_time">
+        <item>Non</item>
+        <item>Faible</item>
+        <item>Moyenne</item>
+        <item>Fort</item>
+    </string-array>
+    <string-array name="change_image_time">
+        <item>5 secondes</item>
+        <item>10 secondes</item>
+        <item>15 secondes</item>
+        <item>30 secondes</item>
+        <item>60 secondes</item>
+    </string-array>
+</resources>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="share_chooser_text">এর মাধ্যমে পাঠান ..</string>
+
+    <string name="main_settings">সেটিংস</string>
+    <string name="main_set_wallpaper">সেট ওয়ালপেপার</string>
+
+    <string name="main_list_gift">আপনি উপহার</string>
+    <string name="main_list_more_wallpaper">আরো লাইভ ওয়ালপেপার</string>
+    <string name="main_list_rate">হার আমাদের!</string>
+    <string name="main_list_share">ভাগ</string>
+    <string name="main_list_amazing_apps">অ্যামেজিং এপস</string>
+    <string name="main_list_contact">আমাদের লিখুন</string>
+
+
+    <string name="setting_list_water">পানি প্রভাব</string>
+    <string name="setting_list_ripple_mode">সচল জল</string>
+    <string name="setting_list_change_image_time">চিত্র পরিবর্তন ফ্রিকোয়েন্সি</string>
+    <string name="setting_list_set_custom_image">চিত্র পরিবর্তন</string>
+    <string name="setting_list_rain_time">বৃষ্টি তীব্রতা</string>
+    <string name="setting_list_restore_btn">ডিফল্ট সেটিংস</string>
+    <string name="setting_list_more">অধিক</string>
+    <string name="setting_list_top_market_title">খেলাধূলার সর্বোত্তম বাজারে নতুন</string>
+    <string name="footer_main_list_follow_me">সামাজিক যোগাযোগ</string>
+    <string name="setting_list_more_text">নতুন ওয়ালপেপার দেখুন</string>
+    <string name="image_dialog_show_all">সব</string>
+    <string name="image_dialog_custom_image">নির্বাচন করা</string>
+
+    <string-array name="rain_time">
+        <item>না</item>
+        <item>দুর্বল</item>
+        <item>গড়</item>
+        <item>শক্তিশালী</item>
+    </string-array>
+    <string-array name="change_image_time">
+        <item>5 যাও</item>
+        <item>10 যাও</item>
+        <item>15 যাও</item>
+        <item>30 যাও</item>
+        <item>60 যাও</item>
+    </string-array>
+</resources>
