@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 
 import donnu.zolotarev.wallpaper.android.R;
+import donnu.zolotarev.wallpaper.android.utils.AppRater;
 
 
 public abstract class SingleFragmentActivity extends ActionBarActivity {
@@ -47,5 +48,19 @@ public abstract class SingleFragmentActivity extends ActionBarActivity {
 
     public void popBackStack(){
         getFragmentManager().popBackStack();
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        FragmentManager fManager = getSupportFragmentManager();
+        int backStackEntries = fManager.getBackStackEntryCount();
+        if(backStackEntries == 0){
+            if (AppRater.appLaunched(this)) {
+                super.onBackPressed();
+            }
+        } else {
+            super.onBackPressed();
+        }
     }
 }

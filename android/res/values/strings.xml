@@ -35,6 +35,10 @@
 	<string name="setting_list_more_text">See more new top apps</string>
 	<string name="image_dialog_show_all">Show All</string>
 	<string name="image_dialog_custom_image">Choose</string>
+	<string name="rate_rate">Dear users, support Us. We appreciate each of your evaluation. This will enable us to improve and create better new applications. Thanks!</string>
+	<string name="please_rate_me">Rate this app</string>
+	<string name="rate_letter">NOT NOW</string>
+	<string name="rate_yes">RATE</string>
 
 	<string-array name="rain_time">
 		<item>Off</item>

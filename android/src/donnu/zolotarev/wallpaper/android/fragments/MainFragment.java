@@ -101,7 +101,7 @@ public class MainFragment extends BaseFragment {
         headerView.findViewById(R.id.footer_youtube).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toast("footer_youtube");
+                Utils.open(getActivity(), Constants.GROUP_YOUTUBE);
             }
         });
         list.addFooterView(headerView);
@@ -117,6 +117,7 @@ public class MainFragment extends BaseFragment {
         setTitle(ACTION_BAR_HIDE);
         list.setAdapter(tempAdapter);
         loadFont();
+
     }
 
     private void initAdapter() {

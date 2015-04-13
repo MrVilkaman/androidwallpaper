@@ -45,9 +45,11 @@ public class BaseFragment extends Fragment{
         if (ads == null) {
             ads = loadAds();
         }
-        FrameLayout layout = ButterKnife.findById(view, R.id.adslayout);
         View viewAds = ads.getBannerView();
-        layout.addView(viewAds);
+        if (viewAds != null) {
+            FrameLayout layout = ButterKnife.findById(view, R.id.adslayout);
+            layout.addView(viewAds);
+        }
     }
 
     private void loadFonts(View view) {
@@ -137,4 +139,7 @@ public class BaseFragment extends Fragment{
         super.onDestroy();
         ads.onDestroy();
     }
+
+
+
 }
