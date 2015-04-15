@@ -137,7 +137,10 @@ def var = dependencies {
     compile 'com.github.rey5137:material:1.0.0'
     compile 'com.jakewharton:butterknife:6.1.0'
 }
-
 repositories {
     jcenter()
+}
+
+dependencies {
+    compile files('libs/mobilecore_V1.1.jar')
 }

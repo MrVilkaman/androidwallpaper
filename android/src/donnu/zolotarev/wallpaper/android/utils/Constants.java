@@ -6,7 +6,7 @@ public class Constants {
 
     public static final String DEV_LINK = "http://vk.com/zahar_zolotarev";
 
-    public static final boolean NEED_ADS = false;
+    public static final boolean NEED_ADS = true;
 
     public static final String ADMOB_DS_ID = "ca-app-pub-8334329528559115/9696144989";
     public static final String BANNED_ID = "ca-app-pub-8334329528559115/5743528582";
@@ -15,4 +15,6 @@ public class Constants {
     public static final String GROUP_TWITTER = "https://twitter.com/EricPoleo";
     public static final String GROUP_GOOGLE = "https://plus.google.com/u/0/118046590417302041534/posts";
     public static final String GROUP_YOUTUBE = "https://www.youtube.com/channel/UCoax9xBt3VCeOfJjKIuMXfw/videos";
+    
+    public static final String MOBICORE_DEV_HASH = "605YGPHMOKBXO34H37JSPARNJF0EJ";
 }

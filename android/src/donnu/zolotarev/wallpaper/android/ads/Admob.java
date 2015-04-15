@@ -1,6 +1,6 @@
 package donnu.zolotarev.wallpaper.android.ads;
 
-import android.content.Context;
+import android.app.Activity;
 import android.util.Log;
 import android.view.View;
 
@@ -9,28 +9,36 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
+import com.ironsource.mobilcore.MobileCore;
 
 import donnu.zolotarev.wallpaper.android.utils.Constants;
 
 public class Admob implements IAds {
 
     private InterstitialAd interstitial;
-    private Context context;
+    private Activity context;
     private AdView adView;
     private boolean needInterstitial;
 
 
     @Override
-    public void showBigBanner() {
+    public boolean showBigBanner() {
+
         if (Constants.NEED_ADS) {
             boolean adMod = interstitial.isLoaded();
-            if (adMod) {
+            boolean mobiapp = MobileCore.isInterstitialReady();
+
+            if (mobiapp) {
+                MobileCore.showInterstitial(context, null);
+            }else if (adMod) {
                 interstitial.show();
             }else{
                 needInterstitial = true;
                 loadAdMob();
+                return false;
             }
         }
+        return true;
     }
 
     @Override
@@ -106,7 +114,7 @@ public class Admob implements IAds {
     }
 
     @Override
-    public void setContext(Context context) {
+    public void setContext(Activity context) {
         this.context = context;
         prelaodAds();
     }
@@ -130,8 +138,14 @@ public class Admob implements IAds {
     private AdListener adMobListener = new AdListener() {
         @Override
         public void onAdLoaded() {
+
             if (needInterstitial) {
-                interstitial.show();
+                boolean mobiapp = MobileCore.isInterstitialReady();
+                if (mobiapp) {
+                    MobileCore.showInterstitial(context, null);
+                }else {
+                    interstitial.show();
+                }
                 needInterstitial = false;
             }
         }

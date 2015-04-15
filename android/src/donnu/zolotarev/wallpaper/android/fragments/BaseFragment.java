@@ -118,7 +118,7 @@ public class BaseFragment extends Fragment{
 
         }
         IAds iAds = retainedWorkerFragment.getAds();
-        iAds.setContext(getActivity().getApplicationContext());
+        iAds.setContext(getActivity());
         return iAds;
     }
 

@@ -5,6 +5,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
+import android.view.Window;
+import android.view.WindowManager;
 
 import donnu.zolotarev.wallpaper.android.R;
 import donnu.zolotarev.wallpaper.android.utils.AppRater;
@@ -36,6 +38,7 @@ public abstract class SingleFragmentActivity extends ActionBarActivity {
     }
 
     protected void beforeSetContent() {
+
     }
 
     public void loadRootFragment(Fragment fragment, boolean addToBackStack){

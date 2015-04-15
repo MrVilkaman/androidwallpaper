@@ -40,3 +40,6 @@
    boolean reportFixture(long);
    float   reportRayFixture(long, float, float, float, float, float);
 }
+
+-keepattributes InnerClasses, EnclosingMethod
+-keep class com.ironsource.mobilcore.**{ *; }

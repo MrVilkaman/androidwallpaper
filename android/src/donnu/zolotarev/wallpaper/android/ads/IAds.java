@@ -1,12 +1,12 @@
 package donnu.zolotarev.wallpaper.android.ads;
 
-import android.content.Context;
+import android.app.Activity;
 import android.view.View;
 
 public interface IAds {
 
 
-    void showBigBanner();
+    boolean showBigBanner();
     void showBanner();
     void hileBanner();
     void onResume();
@@ -15,5 +15,5 @@ public interface IAds {
 
     View getBannerView();
 
-    void setContext(Context context);
+    void setContext(Activity context);
 }
