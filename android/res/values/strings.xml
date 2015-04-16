@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources
+	xmlns:tools="http://schemas.android.com/tools"
+	tools:ignore="MissingTranslation">
 
     <string name="app_name">Amazing Live Wallpaper</string>
     <string name="app_description">about</string>
     
 	<string name="settings">Amazing Live Wallpaper</string>
 
-	<string name="share_text">Качай збс обои! https://play.google.com/store/apps/details?id=donnu.zolotarev.rushgame.android</string>
+	<string name="share_text">Drill great wallpaper! https://play.google.com/store/apps/details?id=donnu.zolotarev.rushgame.android</string>
 	<string name="share_chooser_text">Choose</string>
 
 	<string name="banner_title">SKY AND SUN</string>
@@ -53,5 +55,7 @@
 		<item>30 seconds</item>
 		<item>60 seconds</item>
 	</string-array>
+
+
 
 </resources>

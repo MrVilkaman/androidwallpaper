@@ -2,6 +2,7 @@
 <resources>
     <string name="share_chooser_text">Відправити як..</string>
 
+    <string name="share_text">Качай найкращі шпалери https://play.google.com/store/apps/details?id=donnu.zolotarev.rushgame.android</string>
     <string name="main_settings">Налаштування</string>
     <string name="main_set_wallpaper">Встановити шпалери</string>
 
@@ -25,6 +26,11 @@
     <string name="setting_list_more_text">Подивитися нові шпалери</string>
     <string name="image_dialog_show_all">Все</string>
     <string name="image_dialog_custom_image">Вибрати</string>
+    <string name="rate_rate">Шановні користувачі, підтримайте нас. Ми цінуємо кожного з Вас. Це дозволить нам покращувати і створити нові програми. Спасибі!</string>
+    <string name="please_rate_me">Оцінити цю програму</string>
+    <string name="rate_letter">Пізніше</string>
+    <string name="rate_yes">Оцінити</string>
+
 
     <string-array name="rain_time">
         <item>Немає</item>
