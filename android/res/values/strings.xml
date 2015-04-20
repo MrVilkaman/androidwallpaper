@@ -41,6 +41,7 @@
 	<string name="please_rate_me">Rate this app</string>
 	<string name="rate_letter">NOT NOW</string>
 	<string name="rate_yes">RATE</string>
+	<string name="notif_msg">You have not changed the settings of wallpaper. Do it now)</string>
 
 	<string-array name="rain_time">
 		<item>Off</item>

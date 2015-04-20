@@ -1,6 +1,10 @@
 package donnu.zolotarev.wallpaper.android.fragments;
 
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,6 +19,7 @@ import android.widget.Toast;
 
 import butterknife.ButterKnife;
 import donnu.zolotarev.wallpaper.android.R;
+import donnu.zolotarev.wallpaper.android.activity.AlarmReceiver;
 import donnu.zolotarev.wallpaper.android.activity.SingleFragmentActivity;
 import donnu.zolotarev.wallpaper.android.ads.IAds;
 import donnu.zolotarev.wallpaper.android.utils.TypefaceSpan;
@@ -141,5 +146,22 @@ public class BaseFragment extends Fragment{
     }
 
 
+    public void setUpAlarm() {
+
+        /*
+        * NotificationHelper.create(this, getString(R.string.app_name), getString(R.string.notif_msg),
+                new Intent(this, BrainVelocityActivity.class));*/
+      /*  Intent myIntent = new Intent(this, AlarmReceiver.class);
+        AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
+        PendingIntent pendingIntent = PendingIntent.getService(BrainVelocityActivity.this, 0, myIntent, 0);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 5 * 1000, pendingIntent);*/
+
+        AlarmManager am = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(getActivity(), AlarmReceiver.class);
+        PendingIntent pi = PendingIntent.getBroadcast(getActivity(), 0, intent, 0);
+// Устанавливаем интервал срабатывания в 5 секунд.
+        am.cancel(pi);
+        am.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 1000 * 60 * 60 * 23 * 2, pi);
+    }
 
 }

@@ -30,6 +30,7 @@
     <string name="please_rate_me">Оцінити цю програму</string>
     <string name="rate_letter">Пізніше</string>
     <string name="rate_yes">Оцінити</string>
+    <string name="notif_msg">Ти давно не міняв настройки шпалер. Зроби це зараз)</string>
 
 
     <string-array name="rain_time">

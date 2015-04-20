@@ -68,6 +68,10 @@
             </intent-filter>
         </activity>
 
+        <receiver
+            android:name=".activity.AlarmReceiver"
+            />
+
         <service
             android:name="com.ironsource.mobilcore.MobileCoreReport"
             android:enabled="true"

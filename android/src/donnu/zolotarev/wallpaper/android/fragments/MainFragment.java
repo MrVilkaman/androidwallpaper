@@ -43,6 +43,7 @@ public class MainFragment extends BaseFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initAdapter();
+        setUpAlarm();
     }
 
     @Override
