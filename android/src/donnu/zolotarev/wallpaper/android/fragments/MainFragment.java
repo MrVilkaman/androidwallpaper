@@ -3,7 +3,6 @@ package donnu.zolotarev.wallpaper.android.fragments;
 import android.app.WallpaperManager;
 import android.content.ComponentName;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -161,8 +160,7 @@ public class MainFragment extends BaseFragment {
         items.add(new ListViewItems(R.string.main_list_contact, R.drawable.ic_contact_developer, new ICallback() {
             @Override
             public void execute() {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Constants.DEV_LINK)));
-                Utils.open(getActivity(), Constants.DEV_LINK);
+                Utils.sendEmail(getActivity());
             }
         }));
         tempAdapter = new TempAdapter(getActivity(), items);

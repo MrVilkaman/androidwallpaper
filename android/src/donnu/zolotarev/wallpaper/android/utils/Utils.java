@@ -13,6 +13,16 @@ public class Utils {
         context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
     }
 
+    public static void sendEmail(Activity context){
+        Intent gmail = new Intent(Intent.ACTION_VIEW);
+        gmail.setClassName("com.google.android.gm", "com.google.android.gm.ComposeActivityGmail");
+        gmail.putExtra(Intent.EXTRA_EMAIL, new String[]{"ericpoleo@gmail.com"});
+        gmail.setData(Uri.parse("ericpoleo@gmail.com"));
+        gmail.putExtra(Intent.EXTRA_SUBJECT, "App rate!");
+        gmail.setType("plain/text");
+        context. startActivity(gmail);
+    }
+
     public static void share(Activity context, String text){
 
         Resources resources = context.getResources();
