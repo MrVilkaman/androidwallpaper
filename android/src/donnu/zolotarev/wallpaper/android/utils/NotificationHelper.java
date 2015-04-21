@@ -6,12 +6,14 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 
+import donnu.zolotarev.wallpaper.android.R;
+
 public class NotificationHelper {
 
 
     public static  void create(Context context, String title, String message, Intent intent){
         NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        Notification nb = new Notification(android.R.drawable.sym_action_email,title,System.currentTimeMillis());//.(context)
+        Notification nb = new Notification(R.drawable.ic_status_bar,title,System.currentTimeMillis());//.(context)
         // 2-я часть
         nb.setLatestEventInfo(context, title, message, PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT ));
 
