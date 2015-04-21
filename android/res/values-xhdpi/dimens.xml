@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="main_banner_h_size">220dp</dimen>
+
+    <dimen name="main_banner_title_size">40dp</dimen>
+    <dimen name="main_text_size">18dp</dimen>
+    <dimen name="text_size">16dp</dimen>
+    <dimen name="main_banner_text_padding">16dp</dimen>
+    <dimen name="line_margin">18dp</dimen>
+    <dimen name="item_line_margin">22dp</dimen>
+    <dimen name="dubl_line_margin">36dp</dimen>
+    <dimen name="main_buttoms_big">8dp</dimen>
+
+    <dimen name="setting_list_sweatch_size">12dp</dimen>
+    <dimen name="setting_list_sweatch_track_size">22dp</dimen>
+    <dimen name="footer_icon_margin">8dp</dimen>
+
+    <dimen name="restore_button_padding">32dp</dimen>
+    <dimen name="btn_corners_radius">4dp</dimen>
+    <dimen name="stub_shape_size">60dp</dimen>
+    <dimen name="stub_shape_size_pad">10dp</dimen>
+    <dimen name="size_little_btn">36dp</dimen>
+    <dimen name="main_btn_margin">16dp</dimen>
+</resources>
