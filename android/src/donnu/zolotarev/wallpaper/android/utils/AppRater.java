@@ -11,8 +11,8 @@ import donnu.zolotarev.wallpaper.android.R;
 
 public class AppRater {
 
-    private final static int DAYS_UNTIL_PROMPT = 4;
-    private final static int LAUNCHES_UNTIL_PROMPT = 10;
+    private final static int DAYS_UNTIL_PROMPT = 2;
+    private final static int LAUNCHES_UNTIL_PROMPT = 5;
     private static final int DAY_IN_MILISEC = 86400000;//24 * 60 * 60 * 1000;
 
     public static boolean appLaunched(Activity mContext) {
@@ -37,7 +37,7 @@ public class AppRater {
             if (System.currentTimeMillis() >= date_firstLaunch +
                     (DAYS_UNTIL_PROMPT * DAY_IN_MILISEC)) {
                 showRateDialog(mContext, editor);
-                editor.putLong("launch_count", 0);
+                editor.putLong("launch_count", LAUNCHES_UNTIL_PROMPT-1);
                 editor.commit();
                 return false;
             }
