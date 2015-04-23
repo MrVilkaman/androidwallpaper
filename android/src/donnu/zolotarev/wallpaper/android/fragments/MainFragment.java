@@ -20,12 +20,10 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 import donnu.zolotarev.wallpaper.android.AndroidLauncher;
 import donnu.zolotarev.wallpaper.android.R;
-import donnu.zolotarev.wallpaper.android.activity.SettingActivity;
 import donnu.zolotarev.wallpaper.android.adapters.TempAdapter;
 import donnu.zolotarev.wallpaper.android.models.ICallback;
 import donnu.zolotarev.wallpaper.android.models.ListViewItems;
 import donnu.zolotarev.wallpaper.android.utils.Constants;
-import donnu.zolotarev.wallpaper.android.utils.NotificationHelper;
 import donnu.zolotarev.wallpaper.android.utils.Utils;
 
 import static donnu.zolotarev.wallpaper.android.utils.AndroidTypefaceUtility.FONT_ROBOTO_BOLD;
@@ -60,8 +58,6 @@ public class MainFragment extends BaseFragment {
         });
         addedFooter();
 
-        NotificationHelper.create(getActivity(), getString(R.string.app_name), getString(R.string.notif_msg),
-                new Intent(getActivity(), SettingActivity.class));
         return view;
     }
 

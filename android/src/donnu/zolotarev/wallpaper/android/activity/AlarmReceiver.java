@@ -14,13 +14,13 @@ public class AlarmReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
 
         NotificationHelper.create(context, context.getString(R.string.app_name), context.getString(R.string.notif_msg),
-                new Intent(context, SettingActivity.class));
+                new Intent(context, MainActivity.class));
 
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         Intent intent2 = new Intent(context, AlarmReceiver.class);
         PendingIntent pi = PendingIntent.getBroadcast(context, 0, intent2, 0);
 // Устанавливаем интервал срабатывания в 5 секунд.
-        am.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+ 1000* 60*60*24, pi);
+        am.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+((long)( 1000* 60*60* (23+Math.random()))), pi);
 
     }
 }
