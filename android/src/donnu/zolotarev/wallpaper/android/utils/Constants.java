@@ -17,4 +17,6 @@ public class Constants {
     public static final String GROUP_YOUTUBE = "https://www.youtube.com/channel/UCoax9xBt3VCeOfJjKIuMXfw/videos";
     
     public static final String MOBICORE_DEV_HASH = "605YGPHMOKBXO34H37JSPARNJF0EJ";
+    public static final String CHARTBOOST_APP_ID = "55389122c909a62936a5d72f";
+    public static final String CHARTBOOST_APP_SIGNATURE = "3cc98ee9f4a836b30c1564cfac39d481cbc6e936";
 }

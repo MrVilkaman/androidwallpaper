@@ -164,4 +164,15 @@ public class BaseFragment extends Fragment{
         am.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 1000 * 60 * 60 * 23 * 2, pi);
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        ads.onStart();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        ads.onStop();
+    }
 }

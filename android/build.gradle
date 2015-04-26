@@ -143,4 +143,5 @@ repositories {
 
 dependencies {
     compile files('libs/mobilecore_V1.1.jar')
+    compile files('libs/chartboost.jar')
 }

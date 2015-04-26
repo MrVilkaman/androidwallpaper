@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.util.Log;
 import android.view.View;
 
+import com.chartboost.sdk.CBLocation;
+import com.chartboost.sdk.Chartboost;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
@@ -51,6 +53,13 @@ public class Admob implements IAds {
         }
     }
 
+    @Override
+    public void showVideo() {
+        if (Constants.NEED_ADS) {
+            Chartboost.showRewardedVideo(CBLocation.LOCATION_GAMEOVER);
+        }
+    }
+
 
     @Override
     public void hileBanner() {
@@ -67,6 +76,7 @@ public class Admob implements IAds {
     public void onResume(){
         if (adView != null) {
             adView.resume();
+            Chartboost.onResume(context);
         }
     }
 
@@ -74,6 +84,21 @@ public class Admob implements IAds {
     public void onPause() {
         if (adView != null) {
             adView.pause();
+            Chartboost.onPause(context);
+        }
+    }
+
+    @Override
+    public void onStart() {
+        if (adView != null) {
+            Chartboost.onStart(context);
+        }
+    }
+
+    @Override
+    public void onStop() {
+        if (adView != null) {
+            Chartboost.onStop(context);
         }
     }
 
@@ -81,6 +106,7 @@ public class Admob implements IAds {
     public void onDestroy() {
         if (adView != null) {
             adView.destroy();
+            Chartboost.onDestroy(context);
         }
     }
 
@@ -125,6 +151,11 @@ public class Admob implements IAds {
             interstitial.setAdUnitId(Constants.ADMOB_DS_ID);
             interstitial.setAdListener(adMobListener);
             loadAdMob();
+
+            Chartboost.startWithAppId(context, Constants.CHARTBOOST_APP_ID, Constants.CHARTBOOST_APP_SIGNATURE);
+    /* Optional: If you want to program responses to Chartboost events, supply a delegate object here and see step (10) for more information */
+            //Chartboost.setDelegate(delegate);
+            Chartboost.onCreate(context);
         }
     }
 

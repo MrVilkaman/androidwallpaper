@@ -126,7 +126,7 @@ public class MainFragment extends BaseFragment {
         items.add(new ListViewItems(R.string.main_list_gift, R.drawable.ic_gift, new ICallback() {
             @Override
             public void execute() {
-
+                ads.showVideo();
             }
         }));
         items.add(new ListViewItems(R.string.main_list_more_wallpaper, R.drawable.ic_more_wallpepr, new ICallback() {
